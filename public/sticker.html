@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>König Diagnostics — Serum Amyloid A Protein (SAA) · Packaging Sticker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --ink: #0A1628;
+      --ink-2: #1E293B;
+      --muted: #475569;
+      --mist: #F6F8FB;
+      --mist-2: #EEF2F7;
+      --line: #E2E8F0;
+      --brand: #0E7C86;
+      --brand-hover: #0B646B;
+      --brand-soft: #E6F4F5;
+      --accent: #D6A019;
+      --signal: #DC2626;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--mist);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      letter-spacing: -0.005em;
+    }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(10,22,40,0.1);
+    }
+    .page-head h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0;
+    }
+    .page-head p {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .sticker-frame {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .sticker {
+      width: 100%;
+      max-width: 680px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow:
+        0 1px 0 rgba(10,22,40,0.04),
+        0 12px 40px -20px rgba(10,22,40,0.25);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* HEADER */
+    .sticker-header {
+      background: var(--ink);
+      color: white;
+      padding: 18px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sticker-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .k-mark {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .k-mark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(135deg, transparent 49%, rgba(14,124,134,0.6) 49%, rgba(14,124,134,0.6) 51%, transparent 51%);
+      background-size: 6px 6px;
+      opacity: 0.35;
+    }
+    .k-mark .k-letter {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: white;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+    .k-mark .k-dot {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--brand);
+      z-index: 2;
+    }
+    .brand-text .brand-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.015em;
+      line-height: 1;
+      color: white;
+    }
+    .brand-text .brand-name .teal {
+      color: #5FD0D8;
+    }
+    .brand-text .brand-sub {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .qc {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 11px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      position: relative;
+      z-index: 1;
+    }
+    .qc-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--brand);
+      box-shadow: 0 0 0 3px rgba(14,124,134,0.25);
+    }
+    .qc-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    /* COMPLIANCE BAR */
+    .compliance-bar {
+      background: var(--ink-2);
+      color: rgba(255,255,255,0.75);
+      padding: 8px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .compliance-bar .left,
+    .compliance-bar .right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .compliance-bar svg { width: 11px; height: 11px; color: var(--brand); }
+    .compliance-bar .dot {
+      width: 3px; height: 3px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* BODY */
+    .sticker-body {
+      padding: 32px 32px 24px;
+      position: relative;
+      background-image:
+        linear-gradient(rgba(10,22,40,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,22,40,0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-position: -1px -1px;
+    }
+
+    .eyebrow {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: var(--brand);
+      display: inline-block;
+    }
+
+    h2.product-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin: 12px 0 0;
+    }
+    .product-name .italic {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--brand);
+    }
+    .product-meta {
+      margin-top: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .product-meta .abbr {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 300;
+      font-size: 52px;
+      font-variant-numeric: tabular-nums;
+      color: rgba(10,22,40,0.22);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      font-style: italic;
+    }
+    .product-meta .tag {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* DATA GRID */
+    .data-grid {
+      margin-top: 28px;
+      padding: 22px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px 24px;
+    }
+    .data-item { min-width: 0; }
+    .data-item.span-3 { grid-column: span 3; }
+    .data-item.span-12 { grid-column: span 12; }
+    .data-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .data-label-icon {
+      width: 11px;
+      height: 11px;
+      color: var(--brand);
+    }
+    .data-value {
+      margin-top: 6px;
+      font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+      font-weight: 600;
+      font-size: 16px;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .contents-row {
+      margin-top: 8px;
+      display: flex;
+      gap: 28px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .contents-row > div {
+      display: inline-flex;
+      align-items: baseline;
+      white-space: nowrap;
+    }
+    .contents-row .c-key {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 12px;
+      margin-right: 10px;
+      letter-spacing: 0;
+      padding: 3px 9px;
+      background: var(--brand-soft);
+      border-radius: 5px;
+      color: var(--brand-hover);
+    }
+    .contents-row .c-val {
+      font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+      font-weight: 500;
+      font-size: 15px;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    /* FOOTER */
+    .sticker-footer {
+      padding: 16px 32px;
+      background: var(--mist);
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .reg-symbols {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .reg-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+    }
+    .reg-chip svg { width: 12px; height: 12px; }
+    .reg-temp {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    .reg-temp svg { width: 13px; height: 13px; color: var(--brand); }
+    .tagline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+
+    .accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg,
+        var(--brand) 0%,
+        var(--brand) 55%,
+        var(--accent) 55%,
+        var(--accent) 70%,
+        var(--ink) 70%,
+        var(--ink) 100%
+      );
+    }
+
+    /* CAPTION + BEFORE NOTE */
+    .caption {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.65;
+      max-width: 680px;
+      text-align: left;
+    }
+    .caption strong {
+      color: var(--ink);
+      font-weight: 700;
+      font-family: 'Fraunces', Georgia, serif;
+    }
+
+    .compare {
+      width: 100%;
+      max-width: 680px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 22px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .compare h3 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--ink);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin: 0 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .compare h3::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .compare-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 22px;
+    }
+    .compare-list li {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--muted);
+      display: grid;
+      grid-template-columns: 14px 1fr;
+      gap: 8px;
+      align-items: start;
+    }
+    .compare-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--brand);
+      border-radius: 999px;
+      margin-top: 7px;
+    }
+    .compare-list li strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { padding: 0; }
+      .page-head, .compare, .caption { display: none; }
+      .sticker { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="page-head">
+      <h1>Packaging Sticker · SAA Reagent</h1>
+      <p>König Diagnostics · Berlin 2026</p>
+    </header>
+
+    <section class="sticker-frame">
+      <!-- STICKER -->
+      <article class="sticker" aria-label="König Diagnostics Serum Amyloid A Protein packaging sticker">
+        <!-- Header -->
+        <header class="sticker-header">
+          <div class="brand">
+            <div class="k-mark" aria-hidden="true">
+              <span class="k-letter">K</span>
+              <span class="k-dot"></span>
+            </div>
+            <div class="brand-text">
+              <div class="brand-name">König <span class="teal">Diagnostics</span></div>
+              <div class="brand-sub">Berlin · Est. 2011</div>
+            </div>
+          </div>
+          <div class="qc" role="status" aria-label="Quality control released">
+            <span class="qc-dot" aria-hidden="true"></span>
+            <span class="qc-label">QC Released</span>
+          </div>
+        </header>
+
+        <!-- Compliance bar -->
+        <div class="compliance-bar">
+          <div class="left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 2 L4 6 v6 c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10 V6 Z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+            <span>ISO 13485</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>CE · IVDR</span>
+          </div>
+          <div class="right">
+            <span>Made in Germany</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span>Friedrichstraße 68 · Berlin</span>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="sticker-body">
+          <div class="eyebrow">Clinical Chemistry · Turbidimetric Reagent</div>
+
+          <h2 class="product-name">
+            Serum Amyloid A <span class="italic">Protein</span>
+          </h2>
+
+          <div class="product-meta">
+            <span class="abbr">SAA</span>
+            <span class="tag">Acute-phase biomarker</span>
+          </div>
+
+          <!-- Data grid -->
+          <div class="data-grid">
+            <div class="data-item span-3">
+              <div class="data-label">
+                <svg class="data-label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="M3 9h18" />
+                </svg>
+                REF
+              </div>
+              <div class="data-value">KD-SAA-250</div>
+            </div>
+
+            <div class="data-item span-3">
+              <div class="data-label">
+                <svg class="data-label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 6H8l-6 6 6 6h13a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Z" />
+                  <line x1="15" y1="9" x2="15" y2="15" />
+                </svg>
+                Lot
+              </div>
+              <div class="data-value">25-0915</div>
+            </div>
+
+            <div class="data-item span-3">
+              <div class="data-label">
+                <svg class="data-label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M3 21h18M5 21V10l7-5 7 5v11" />
+                </svg>
+                Manufactured
+              </div>
+              <div class="data-value">2025-09-15</div>
+            </div>
+
+            <div class="data-item span-3">
+              <div class="data-label">
+                <svg class="data-label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M6 2h12M6 22h12M8 2v4l4 4-4 4v4M16 2v4l-4 4 4 4v4" />
+                </svg>
+                Use by
+              </div>
+              <div class="data-value">2026-09</div>
+            </div>
+
+            <div class="data-item span-12">
+              <div class="data-label">Contents</div>
+              <div class="contents-row">
+                <div>
+                  <span class="c-key">R1</span><span class="c-val">1 × 60 mL</span>
+                </div>
+                <div>
+                  <span class="c-key">R2</span><span class="c-val">1 × 20 mL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="sticker-footer">
+          <div class="reg-symbols">
+            <span class="reg-chip" title="In-Vitro Diagnostic">IVD</span>
+            <span class="reg-chip" title="CE Marked">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M17 6a8 8 0 1 0 0 12" stroke-linecap="round" />
+                <path d="M10 10h5M10 14h5" stroke-linecap="round" />
+              </svg>
+              CE
+            </span>
+            <span class="reg-temp" title="Store at 2 to 8 degrees Celsius">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M14 4a2 2 0 1 0-4 0v10a4 4 0 1 0 4 0V4Z" />
+                <path d="M12 4v10" />
+              </svg>
+              2–8 °C
+            </span>
+          </div>
+          <div class="tagline">For professional in-vitro use only.</div>
+        </footer>
+
+        <div class="accent-bar" aria-hidden="true"></div>
+      </article>
+
+      <!-- DESIGN RATIONALE -->
+      <p class="caption">
+        <strong>What changed.</strong> The sticker is rebuilt in the König Diagnostics design
+        language — Fraunces serif for headlines with Inter and JetBrains Mono for supporting copy,
+        a navy (ink) + teal (brand) + gold (accent) palette, and a regulatory compliance bar
+        stitched under the header for ISO 13485 · CE-IVDR. The K-mark wordmark replaces the
+        original Gcell branding; the product code has been reissued as <em>KD-SAA-250</em>.
+      </p>
+
+      <section class="compare" aria-label="Design translation notes">
+        <h3>Brand + compliance parity</h3>
+        <ul class="compare-list">
+          <li><span><strong>Brand:</strong> Gcell → König Diagnostics</span></li>
+          <li><span><strong>Location:</strong> Berlin · Est. 2011</span></li>
+          <li><span><strong>Typography:</strong> Fraunces + Inter + Mono</span></li>
+          <li><span><strong>Palette:</strong> ink · teal · gold</span></li>
+          <li><span><strong>REF:</strong> KD-SAA-250 · LOT: 25-0915</span></li>
+          <li><span><strong>Dates:</strong> MFG 2025-09-15 · UBD 2026-09</span></li>
+          <li><span><strong>Contents:</strong> R1 1×60 mL · R2 1×20 mL</span></li>
+          <li><span><strong>Storage:</strong> 2–8 °C (preserved)</span></li>
+          <li><span><strong>Compliance:</strong> ISO 13485 · CE-IVDR</span></li>
+          <li><span><strong>Accent:</strong> teal + gold + ink tri-strip</span></li>
+        </ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
