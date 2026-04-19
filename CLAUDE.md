@@ -35,5 +35,6 @@ No test runner, no type-check, no formatter script exist. Do not add them unless
 
 ## Working agreement
 
+- **Never push directly to `main`.** No `git push origin main`, no `git push --force` targeting `main`, no `vercel --prod` from a local working tree, and no merges to `main` outside a reviewed PR. Every change lands on `main` through a PR whose `deploy-preview` check is green; merging the PR is what triggers the production deploy. GitHub branch protection is not available on this plan, so the rule lives here — treat it as enforced. If you think you have a legitimate reason to bypass (emergency rollback, broken CI), stop and confirm with the user first.
 - **Atomic commits.** One logical change per commit. Do not bundle a refactor with a feature, a typo fix with a style change, or config edits with content edits. If the commit message needs "and" to describe it, split the commit. Messages describe *why*; the diff shows *what*.
 - **Worktree for multi-commit work.** Any task expected to produce more than a single commit must run in a dedicated git worktree checked out from `main` (or a fresh branch created from `main`). Do not accumulate unrelated commits on `devops` or other long-lived branches. Create the worktree before starting, name the branch descriptively, and surface the branch name at handoff so the user can review/PR it.
