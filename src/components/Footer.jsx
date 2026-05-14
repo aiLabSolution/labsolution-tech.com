@@ -36,30 +36,37 @@ export default function Footer() {
               Contact
             </p>
             <ul className="mt-5 space-y-3 text-sm">
-              <li>
+              <li className="text-white/80">
                 <a
-                  href="tel:+6332XXXXXXX"
-                  className="text-white/80 hover:text-white transition-colors duration-200"
+                  href="tel:+63322613819"
+                  className="hover:text-white transition-colors duration-200"
                 >
-                  +63 32 XXX XXXX
+                  (032) 261-3819
+                </a>
+                <span className="text-white/40"> / </span>
+                <a
+                  href="tel:+63325203585"
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  520-3585
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@labsolution.ph"
+                  href="mailto:sales.labsolutiontechnologies@gmail.com"
                   className="text-white/80 hover:text-white transition-colors duration-200"
                 >
-                  info@labsolution.ph
+                  sales.labsolutiontechnologies@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/labsolutiontech"
+                  href="https://www.facebook.com/labsolutiontechnologiesinc"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/80 hover:text-white transition-colors duration-200"
                 >
-                  facebook.com/labsolutiontech
+                  facebook.com/labsolutiontechnologiesinc
                 </a>
               </li>
             </ul>
