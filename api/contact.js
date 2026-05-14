@@ -1,6 +1,6 @@
 import { Resend } from 'resend'
 
-const SALES_INBOX = 'sales.labsolutiontechnologies@gmail.com'
+const SALES_INBOX = 'marloe.uy.jr@gmail.com'
 const FROM_ADDRESS =
   process.env.CONTACT_FROM || 'LabSolution Site <onboarding@resend.dev>'
 
