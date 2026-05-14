@@ -9,7 +9,7 @@ const links = [
 export default function Footer() {
   return (
     <footer
-      className="bg-primary border-t border-white/10 py-14 sm:py-16"
+      className="bg-accent-hover border-t border-white/10 py-14 sm:py-16"
       role="contentinfo"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
