@@ -26,7 +26,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap items-center gap-5">
               <a
                 href="#brochure"
-                className="group inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3.5 rounded-full hover:bg-primary/90 transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none text-base"
+                className="group inline-flex items-center gap-2 bg-accent text-white font-semibold px-6 py-3.5 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none text-base"
               >
                 Browse the catalog
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />

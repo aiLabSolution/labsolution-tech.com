@@ -52,7 +52,7 @@ export default function Navbar() {
           </a>
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="hidden sm:inline-flex items-center gap-2 bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
           >
             Request a quote
           </a>
@@ -94,7 +94,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="block text-center bg-primary text-white text-sm font-semibold px-5 py-3 rounded-full hover:bg-primary/90 transition-colors duration-200 cursor-pointer"
+              className="block text-center bg-accent text-white text-sm font-semibold px-5 py-3 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer"
             >
               Request a quote
             </a>
