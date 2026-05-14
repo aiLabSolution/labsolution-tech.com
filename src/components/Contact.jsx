@@ -26,7 +26,7 @@ export default function Contact() {
     }
   }
 
-  const mailtoHref = `mailto:info@labsolution.ph?subject=${encodeURIComponent(
+  const mailtoHref = `mailto:sales.labsolutiontechnologies@gmail.com?subject=${encodeURIComponent(
     'Inquiry from LabSolution website'
   )}&body=${encodeURIComponent(
     `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\n${form.message}`
@@ -66,12 +66,19 @@ export default function Contact() {
                   <dt className="text-white/50 text-xs uppercase tracking-[0.22em] font-semibold">
                     Phone
                   </dt>
-                  <dd className="mt-1.5">
+                  <dd className="mt-1.5 text-base font-medium">
                     <a
-                      href="tel:+6332XXXXXXX"
-                      className="text-base font-medium hover:text-accent transition-colors duration-200"
+                      href="tel:+63322613819"
+                      className="hover:text-accent transition-colors duration-200"
                     >
-                      +63 32 XXX XXXX
+                      (032) 261-3819
+                    </a>
+                    <span className="text-white/40"> / </span>
+                    <a
+                      href="tel:+63325203585"
+                      className="hover:text-accent transition-colors duration-200"
+                    >
+                      520-3585
                     </a>
                   </dd>
                 </div>
@@ -81,10 +88,10 @@ export default function Contact() {
                   </dt>
                   <dd className="mt-1.5">
                     <a
-                      href="mailto:info@labsolution.ph"
+                      href="mailto:sales.labsolutiontechnologies@gmail.com"
                       className="text-base font-medium hover:text-accent transition-colors duration-200"
                     >
-                      info@labsolution.ph
+                      sales.labsolutiontechnologies@gmail.com
                     </a>
                   </dd>
                 </div>
@@ -235,10 +242,10 @@ export default function Contact() {
                   <AlertCircle className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                   Something went wrong. Try again or email{' '}
                   <a
-                    href="mailto:info@labsolution.ph"
+                    href="mailto:sales.labsolutiontechnologies@gmail.com"
                     className="underline underline-offset-2"
                   >
-                    info@labsolution.ph
+                    sales.labsolutiontechnologies@gmail.com
                   </a>
                   .
                 </p>
