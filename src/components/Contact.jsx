@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Send, Check, AlertCircle, Loader2 } from 'lucide-react'
 
-const initialForm = { name: '', email: '', phone: '', message: '' }
+const initialForm = { name: '', email: '', phone: '', message: '', website: '' }
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm)
@@ -16,9 +16,12 @@ export default function Contact() {
     setStatus('loading')
 
     try {
-      // Placeholder submission — wire to Formspree/Resend/API when ready.
-      // For now, simulate a real round-trip so the UX is testable end-to-end.
-      await new Promise((resolve) => setTimeout(resolve, 1200))
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!response.ok) throw new Error('Request failed')
       setStatus('success')
       setForm(initialForm)
     } catch {
@@ -105,6 +108,29 @@ export default function Contact() {
               noValidate
               className="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8"
             >
+              <div
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: '1px',
+                  height: '1px',
+                  overflow: 'hidden',
+                }}
+              >
+                <label>
+                  Website (leave blank)
+                  <input
+                    type="text"
+                    name="website"
+                    value={form.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </label>
+              </div>
+
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label
