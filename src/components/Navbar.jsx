@@ -44,11 +44,11 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="tel:+6332XXXXXXX"
+            href="tel:+63322613819"
             className="hidden lg:inline-flex items-center gap-2 text-secondary hover:text-primary text-sm font-semibold transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
           >
             <Phone className="w-4 h-4" />
-            +63 32 XXX XXXX
+            (032) 261-3819
           </a>
           <a
             href="#contact"
@@ -85,11 +85,11 @@ export default function Navbar() {
           ))}
           <div className="mt-2 pt-2 border-t border-border space-y-2">
             <a
-              href="tel:+6332XXXXXXX"
+              href="tel:+63322613819"
               className="flex items-center gap-2 px-4 py-3 text-sm font-semibold text-secondary hover:text-primary transition-colors duration-200"
             >
               <Phone className="w-4 h-4" />
-              +63 32 XXX XXXX
+              (032) 261-3819
             </a>
             <a
               href="#contact"
