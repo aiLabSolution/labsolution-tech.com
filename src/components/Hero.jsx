@@ -1,4 +1,5 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
+import ProductIllustration from './ProductIllustration'
 
 export default function Hero() {
   return (
@@ -46,31 +47,53 @@ export default function Hero() {
                 className="absolute -top-3 -left-3 right-6 bottom-6 bg-accent-soft rounded-[2rem]"
                 aria-hidden="true"
               />
-              <div className="relative bg-white border border-border rounded-[2rem] p-6 sm:p-8 overflow-hidden">
-                <img
-                  src="/assets/products/diasys-940.jpg"
-                  alt="DiaSys Respons 940 chemistry analyzer"
-                  className="w-full aspect-[4/5] object-contain"
-                  loading="eager"
-                />
-                <div className="mt-4 pt-4 border-t border-border flex items-end justify-between gap-4">
-                  <div>
-                    <p className="text-xs text-secondary uppercase tracking-[0.18em] font-semibold">
-                      Flagship analyzer
-                    </p>
-                    <p className="mt-1 font-heading font-[700] text-primary text-lg leading-tight">
-                      DiaSys Respons 940
-                    </p>
-                    <p className="text-secondary text-sm">
-                      400 tests per hour · 12 wavelengths
-                    </p>
+              <div className="relative bg-white border border-border rounded-[2rem] overflow-hidden">
+                <div className="relative aspect-[5/3] bg-surface-alt">
+                  <ProductIllustration category="chemistry" model="DiaSys Respons 940" />
+                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] shadow">
+                    <Sparkles className="w-3 h-3" />
+                    Flagship
                   </div>
+                  <span className="absolute top-4 right-4 text-[10px] font-semibold text-secondary tracking-[0.14em] uppercase bg-white/90 backdrop-blur px-2.5 py-1 rounded-full border border-border">
+                    Chemistry
+                  </span>
+                </div>
+                <div className="p-6 sm:p-7">
+                  <p className="text-xs text-secondary uppercase tracking-[0.18em] font-semibold">
+                    Flagship analyzer
+                  </p>
+                  <p className="mt-1 font-heading font-[700] text-primary text-xl leading-tight">
+                    DiaSys Respons 940
+                  </p>
+                  <p className="mt-1 font-heading text-secondary text-sm italic">
+                    High-throughput automated chemistry analyzer
+                  </p>
+                  <dl className="mt-5 grid grid-cols-3 gap-x-3 pt-5 border-t border-border">
+                    <div>
+                      <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
+                        Throughput
+                      </dt>
+                      <dd className="mt-0.5 text-sm font-semibold text-primary">400 T/H</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
+                        Wavelengths
+                      </dt>
+                      <dd className="mt-0.5 text-sm font-semibold text-primary">12</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
+                        Sample disk
+                      </dt>
+                      <dd className="mt-0.5 text-sm font-semibold text-primary">80</dd>
+                    </div>
+                  </dl>
                   <a
                     href="#brochure"
-                    className="shrink-0 text-primary text-sm font-semibold hover:text-accent transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
-                    aria-label="View specifications for DiaSys Respons 940"
+                    className="mt-5 inline-flex items-center gap-1 text-cta font-semibold text-sm hover:gap-2 transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none"
                   >
-                    Specs →
+                    View specifications
+                    <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </div>
