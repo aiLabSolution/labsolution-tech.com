@@ -5,17 +5,17 @@
   --font-heading: 'Figtree', system-ui, sans-serif;
   --font-body: 'Noto Sans', system-ui, sans-serif;
 
-  --color-primary: #0F172A;
-  --color-secondary: #334155;
-  --color-cta: #0369A1;
-  --color-cta-hover: #075985;
-  --color-accent: #B85C4A;
-  --color-accent-hover: #9D4A3B;
-  --color-accent-soft: #FAEEE9;
-  --color-surface: #F8FAFC;
-  --color-surface-alt: #F1F5F9;
-  --color-warm: #FDF9F5;
-  --color-border: #E2E8F0;
+  --color-primary: #313131;
+  --color-secondary: #50485b;
+  --color-cta: #00c1cf;
+  --color-cta-hover: #08b2c3;
+  --color-accent: #00c1cf;
+  --color-accent-hover: #0396a5;
+  --color-accent-soft: #f0f0f0;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f0f0f0;
+  --color-warm: #cec2ab;
+  --color-border: #dddddd;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -33,7 +33,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  color: #020617;
+  color: #313131;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
