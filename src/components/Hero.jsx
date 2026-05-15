@@ -101,24 +101,6 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 sm:mt-20 pt-8 border-t border-primary/10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4">
-          <p className="shrink-0 text-secondary text-xs uppercase tracking-[0.22em] font-semibold">
-            In partnership with
-          </p>
-          <p className="font-heading text-primary text-sm sm:text-base font-[500] tracking-tight">
-            CTK Biotech
-            <span className="text-primary/25 mx-2.5">·</span>
-            DiaSys
-            <span className="text-primary/25 mx-2.5">·</span>
-            Rayto
-            <span className="text-primary/25 mx-2.5">·</span>
-            Snibe
-            <span className="text-primary/25 mx-2.5">·</span>
-            Edan
-            <span className="text-primary/25 mx-2.5">·</span>
-            <span className="text-secondary">and more</span>
-          </p>
-        </div>
       </div>
     </section>
   )
