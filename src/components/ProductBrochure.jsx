@@ -5,7 +5,6 @@ import ProductIllustration from './ProductIllustration'
 const categories = [
   { key: 'all', label: 'All Products' },
   { key: 'chemistry', label: 'Chemistry' },
-  { key: 'hematology', label: 'Hematology' },
   { key: 'immunology', label: 'Immunology' },
   { key: 'rapid', label: 'Rapid Tests' },
 ]
@@ -14,184 +13,170 @@ const categoryLabel = (key) => categories.find((c) => c.key === key)?.label ?? k
 
 const products = [
   {
-    id: 'diasys-940',
-    category: 'chemistry',
-    model: 'DiaSys Respons 940',
-    brand: 'DiaSys',
-    tagline: 'High-throughput automated chemistry analyzer',
+    id: 'snibe-maglumi-x3',
+    category: 'immunology',
+    model: 'SNIBE MAGLUMI X3',
+    brand: 'Snibe Diagnostic',
+    tagline: 'Mid-throughput CLIA immunoanalyzer',
     description:
-      'Random-access clinical chemistry for high-volume labs. Refrigerated reagent storage, permanent hard-glass cuvettes, and a 12-wavelength photometer deliver lab-grade accuracy at 400 tests/hour.',
+      'Direct chemiluminescence (ABEI label) with single-cuvette reaction and 5-side heating at 37 ± 0.3 °C. Best-in-class footprint efficiency across a 181+ parameter menu spanning thyroid, fertility, infectious disease, tumor markers, and cardiac panels.',
     specs: [
-      { label: 'Throughput', value: '400 T/H' },
-      { label: 'Sample disk', value: '80 positions' },
-      { label: 'Reagents', value: '72 refrigerated' },
-      { label: 'Wavelengths', value: '12 · 340–705 nm' },
+      { label: 'Throughput', value: '200 T/h' },
+      { label: 'Sample positions', value: '72' },
+      { label: 'Reagents', value: '20 refrigerated' },
+      { label: 'Footprint', value: '< 0.68 m²' },
+    ],
+  },
+  {
+    id: 'snibe-maglumi-x6',
+    category: 'immunology',
+    model: 'SNIBE MAGLUMI X6',
+    brand: 'Snibe Diagnostic',
+    tagline: 'High-throughput floor-standing CLIA immunoanalyzer',
+    description:
+      'Direct chemiluminescence with 243 simultaneous incubation cuvettes and 5-side heating at 37 ± 0.3 °C. Up to 2,000 walk-away tests across a 260-parameter menu, TLA-ready for total lab automation.',
+    specs: [
+      { label: 'Throughput', value: '450 T/h' },
+      { label: 'Sample positions', value: '112 → 412' },
+      { label: 'Test menu', value: '260 parameters' },
+      { label: 'Walk-away', value: '2,000 tests' },
     ],
     highlight: true,
   },
   {
-    id: 'diasys-920',
+    id: 'diasys-respons-240c',
     category: 'chemistry',
-    model: 'DiaSys Respons 920',
+    model: 'DiaSys respons 240c',
     brand: 'DiaSys',
-    tagline: 'Bench-top random access chemistry analyzer',
+    tagline: 'Compact bench-top random-access chemistry analyzer',
     description:
-      'Compact random-access biochemistry analyzer with bar-coded refrigerated reagents and an 18-second cycle time — built for mid-volume hospital and reference labs.',
+      'Random-access clinical chemistry for small-to-medium labs. Holographic concave grating photometer with 12 wavelengths (340–800 nm), 73-cycle reaction tray, and an ISE upgrade lifts throughput to 400 T/h.',
     specs: [
-      { label: 'Throughput', value: '200 T/H' },
-      { label: 'Cycle time', value: '18 seconds' },
-      { label: 'Sample tray', value: '30 + STAT' },
-      { label: 'Wavelengths', value: '8 · 340–700 nm' },
+      { label: 'Throughput', value: '240 T/h' },
+      { label: 'Photometer', value: '12 wavelengths' },
+      { label: 'Sample volume', value: '2–35 µL' },
+      { label: 'Reagents', value: '36 + 3 ISE' },
     ],
   },
   {
-    id: 'ge100',
+    id: 'diasys-respons-420c',
     category: 'chemistry',
-    model: 'GE100 Blood Glucose',
-    brand: 'GE',
-    tagline: 'Point-of-care glucose monitoring',
+    model: 'DiaSys respons 420c',
+    brand: 'DiaSys',
+    tagline: 'Mid-throughput chemistry with onboard HbA1c hemolysis',
     description:
-      'Electrochemical GOD-based glucose meter for bedside, ER, and clinic use. 5-second readout from a 1 µL fingerstick, with built-in hematocrit compensation across a wide HCT window.',
+      'Random-access chemistry with onboard hemolysis for whole-blood HbA1c. Three-ring sample tray (102 positions), 42-position peltier-cooled reagent tray at 2–8 °C, integrated Na/K/Cl ISE.',
     specs: [
-      { label: 'Sample volume', value: '1.0 µL' },
+      { label: 'Throughput', value: '420 T/h' },
+      { label: 'HbA1c', value: 'Onboard hemolysis' },
+      { label: 'Sample tray', value: '102 positions' },
+      { label: 'Reagent tray', value: '42 @ 2–8 °C' },
+    ],
+  },
+  {
+    id: 'diasys-respons-600c',
+    category: 'chemistry',
+    model: 'DiaSys respons 600c',
+    brand: 'DiaSys',
+    tagline: 'Floor-standing random-access chemistry for medium labs',
+    description:
+      'Random-access analyzer with continuous rack loading and integrated Na/K/Cl ISE. 16-wavelength grating photometer, 124-cuvette reaction unit with 8-step auto-washing, and refrigerated reagent storage.',
+    specs: [
+      { label: 'Throughput', value: '600 T/h' },
+      { label: 'ISE', value: 'Na, K, Cl integrated' },
+      { label: 'Sample positions', value: '120' },
+      { label: 'Reagents', value: '37 @ 2–8 °C' },
+    ],
+  },
+  {
+    id: 'medica-easylyte',
+    category: 'chemistry',
+    model: 'Medica EasyLyte',
+    brand: 'Medica',
+    tagline: 'Direct-measurement electrolyte analyzer',
+    description:
+      'Bench-top ISE analyzer for Na, K, Cl, Li, Ca, and pH from whole blood, serum, plasma, or urine. ~60-second blood cycle from a 100 µL sample, automatic recalibration every 4 hours, modular solutions pack good for ≈1,200 samples.',
+    specs: [
+      { label: 'Cycle', value: '~60 s blood' },
+      { label: 'Sample volume', value: '~100 µL' },
+      { label: 'Pack life', value: '≈1,200 samples' },
+      { label: 'Configurations', value: '4 ISE sets' },
+    ],
+  },
+  {
+    id: 'bionime-ge100',
+    category: 'chemistry',
+    model: 'Bionime GE100',
+    brand: 'Bionime',
+    tagline: 'Handheld blood glucose monitoring system',
+    description:
+      'Point-of-care glucose meter for bedside, ER, and diabetes self-monitoring. Electrochemical glucose oxidase strip with 5-second readout from a 0.75 µL fingerstick, plasma-calibrated with auto-coding (no chip), and hematocrit compensation across 30–60 %.',
+    specs: [
       { label: 'Test time', value: '5 seconds' },
+      { label: 'Sample volume', value: '0.75 µL' },
       { label: 'Range', value: '20–600 mg/dL' },
-      { label: 'HCT window', value: '30–60%' },
+      { label: 'Memory', value: '500 results' },
     ],
+    illustration: 'poc',
   },
   {
-    id: 'hemaray-51',
-    category: 'hematology',
-    model: 'Hemaray 51',
-    brand: 'Rayto',
-    tagline: '5-part differential hematology analyzer',
+    id: 'lifotronic-h8',
+    category: 'chemistry',
+    model: 'Lifotronic H8',
+    brand: 'Lifotronic',
+    tagline: 'Fully-automated HbA1c analyzer (HPLC)',
     description:
-      'Tri-angular laser scatter and flow cytometry deliver 30 parameters with research-grade resolution. Touch-screen LCD, 100,000-result storage, and a streamlined CBC + diff workflow.',
+      'High-performance liquid chromatography for HbA1c, NGSP and IFCC traceable — built for diabetes diagnosis and monitoring. First result in 1.5 min with CV ≤ 1.3 %, cap-piercing primary tubes, 10.1″ touchscreen, and an 8,000-test rated column.',
     specs: [
-      { label: 'Throughput', value: '60 samples/h' },
-      { label: 'Parameters', value: '30 incl. 4 research' },
-      { label: 'Technology', value: 'Laser + flow cytometry' },
-      { label: 'Storage', value: '100,000 results' },
+      { label: 'First result', value: '1.5 min' },
+      { label: 'Precision', value: 'CV ≤ 1.3 %' },
+      { label: 'Range', value: '3 – 18 % HbA1c' },
+      { label: 'Column life', value: '≥ 8,000 tests' },
     ],
   },
   {
-    id: 'hemaray-86',
-    category: 'hematology',
-    model: 'Hemaray 86',
-    brand: 'Rayto',
-    tagline: '5-part diff with autoloader & 3D WBC maps',
-    description:
-      'Walkaway hematology with autoloader, cyanide-free reagents, and 3D topographic WBC scattergrams. Built for higher-volume labs that need true 5-part precision.',
-    specs: [
-      { label: 'Throughput', value: '60 samples/h' },
-      { label: 'Parameters', value: '28 + scattergrams' },
-      { label: 'Features', value: '3D WBC, autoloader' },
-      { label: 'Incubation', value: 'Integral titanium' },
-    ],
-  },
-  {
-    id: 'rafia',
-    category: 'immunology',
-    model: 'RaFIA Analyzer',
-    brand: 'Rayto',
-    tagline: 'Portable quantitative immunofluorescence',
-    description:
-      'Bench-portable immunofluorescence analyzer at 2.9 kg with <3% intra-run CV. Reads whole blood, serum, plasma, and urine across a growing menu of cardiac, inflammation, and infectious panels.',
-    specs: [
-      { label: 'Accuracy', value: '<3% intra-run CV' },
-      { label: 'Weight', value: '2.9 kg portable' },
-      { label: 'Display', value: '4.3" touch LCD' },
-      { label: 'Storage', value: '10,000 results' },
-    ],
-  },
-  {
-    id: 'afp-fia',
-    category: 'immunology',
-    model: 'AFP FIA Test',
-    brand: 'FIA',
-    tagline: 'Quantitative alpha-fetoprotein assay',
-    description:
-      'Fluorescence immunoassay reagent for the RaFIA platform — a fast, quantitative AFP result with linearity to R ≥ 0.99 and a wide 3.0–2,000 ng/mL working range.',
-    specs: [
-      { label: 'Range', value: '3.0–2,000 ng/mL' },
-      { label: 'CV', value: '≤ 15% intra-lot' },
-      { label: 'Accuracy', value: '≤ ±15%' },
-      { label: 'Linearity', value: 'R ≥ 0.9900' },
-    ],
-  },
-  {
-    id: 'covid-flu-combo',
+    id: 'ctk-dengue-duo',
     category: 'rapid',
-    model: 'COVID-19 + Influenza A/B Ag',
+    model: 'CTK OnSite Duo Dengue',
     brand: 'CTK Biotech',
-    tagline: '3-in-1 rapid antigen detection',
+    tagline: 'NS1 + IgG/IgM lateral-flow rapid test',
     description:
-      'Single nasopharyngeal swab differentiates SARS-CoV-2, Influenza A, and Influenza B in 15 minutes — no instrumentation required and CE marked for point-of-care use.',
+      'Lateral-flow cassette simultaneously detecting dengue NS1 antigen plus IgG and IgM antibodies across all four serotypes (DEN-1, 2, 3, 4). 20–25 minute result from serum, plasma, or whole blood with built-in procedural control.',
     specs: [
-      { label: 'Detects', value: 'SARS-CoV-2, Flu A/B' },
-      { label: 'Result', value: '15 minutes' },
-      { label: 'Sample', value: 'NP swab' },
-      { label: 'Certification', value: 'CE marked' },
+      { label: 'Detects', value: 'NS1 + IgG + IgM' },
+      { label: 'Result', value: '20–25 min' },
+      { label: 'Pack', value: '30 tests' },
+      { label: 'Certification', value: 'CE-IVD' },
     ],
   },
   {
-    id: 'adenovirus',
+    id: 'ctk-typhoid',
     category: 'rapid',
-    model: 'Adenovirus Ag Rapid Test',
+    model: 'CTK OnSite Typhoid IgG/IgM',
     brand: 'CTK Biotech',
-    tagline: 'Fast adenovirus antigen detection',
+    tagline: 'Differential IgG/IgM lateral-flow rapid test',
     description:
-      'Lateral-flow adenovirus antigen test reading in as little as 3 minutes, with no cross-reactivity against 30+ common respiratory and enteric pathogens.',
+      'Lateral-flow combo cassette differentiating IgG and IgM anti-Salmonella Typhi and Paratyphi antibodies, using both O and H antigens. 15-minute result from serum, plasma, or whole blood.',
     specs: [
-      { label: 'Result', value: 'From 3 minutes' },
-      { label: 'Specificity', value: '30+ pathogens' },
-      { label: 'Kit size', value: '20 per kit' },
-      { label: 'Certification', value: 'CE marked' },
+      { label: 'Detects', value: 'IgG + IgM' },
+      { label: 'Result', value: '15 min' },
+      { label: 'Pack', value: '30 tests' },
+      { label: 'Certification', value: 'CE-IVD' },
     ],
   },
   {
-    id: 'torch',
+    id: 'ctk-malaria',
     category: 'rapid',
-    model: 'TORCH Panel Rapid Test',
+    model: 'CTK OnSite Malaria Pf/Pv',
     brand: 'CTK Biotech',
-    tagline: '5-in-1 TORCH infection screening',
+    tagline: 'Simultaneous Pf + Pv antigen lateral-flow test',
     description:
-      'Single device differentiates IgG and IgM for Toxoplasma, Rubella, CMV, HSV-1, and HSV-2 in 15 minutes — 85–98% accuracy vs ELISA across all five markers.',
+      'Lateral-flow cassette for simultaneous detection of Plasmodium falciparum (HRP-II) and Plasmodium vivax (pLDH) antigens. 15–20 minute result from a 5 µL whole-blood sample (EDTA, heparin, citrate, or fingerstick).',
     specs: [
-      { label: 'Detects', value: 'Toxo, Rubella, CMV, HSV' },
-      { label: 'Differentiates', value: 'IgG + IgM' },
-      { label: 'Result', value: '15 minutes' },
-      { label: 'Sample', value: 'Serum, plasma, blood' },
-    ],
-  },
-  {
-    id: 'chagas',
-    category: 'rapid',
-    model: 'Chagas Ab Combo Test',
-    brand: 'CTK Biotech',
-    tagline: 'First lateral-flow rapid for Chagas disease',
-    description:
-      'The original CE-marked lateral-flow test for Chagas — detects IgG antibodies to T. cruzi at 92.9% sensitivity and 100% specificity vs commercial EIA.',
-    specs: [
-      { label: 'Sensitivity', value: '92.9% vs EIA' },
-      { label: 'Specificity', value: '100% vs EIA' },
-      { label: 'Detects', value: 'IgG to T. cruzi' },
-      { label: 'Kit size', value: '30 per kit' },
-    ],
-  },
-  {
-    id: 'fob',
-    category: 'rapid',
-    model: 'FOB Rapid Test',
-    brand: 'CTK Biotech',
-    tagline: 'Fecal occult blood screening',
-    description:
-      'Immunochromatographic FOB test with no dietary restrictions — higher accuracy than Guaiac and a 50 ng/mL sensitivity threshold for early colorectal screening.',
-    specs: [
-      { label: 'Sensitivity', value: 'hHb ≥ 50 ng/mL' },
-      { label: 'Advantage', value: 'Beats Guaiac' },
-      { label: 'Diet', value: 'No restrictions' },
-      { label: 'Kit size', value: '25 per kit' },
+      { label: 'Detects', value: 'Pf (HRP-II) + Pv (pLDH)' },
+      { label: 'Sample volume', value: '5 µL' },
+      { label: 'Result', value: '15–20 min' },
+      { label: 'Certification', value: 'CE-IVD' },
     ],
   },
 ]
@@ -258,7 +243,7 @@ function FeaturedSpotlight({ product }) {
             {categoryLabel(product.category)}
           </span>
           <div className="aspect-[5/3] bg-surface-alt">
-            <ProductIllustration category={product.category} model={product.model} />
+            <ProductIllustration category={product.illustration ?? product.category} model={product.model} />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-border divide-x divide-border">
             {product.specs.map((spec) => (
@@ -286,7 +271,7 @@ function ProductCard({ product }) {
       }`}
     >
       <div className="relative aspect-[5/3] bg-surface-alt border-b border-border">
-        <ProductIllustration category={product.category} model={product.model} />
+        <ProductIllustration category={product.illustration ?? product.category} model={product.model} />
         {product.highlight && (
           <div className="absolute top-3 left-3 inline-flex items-center gap-1 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] shadow">
             <Sparkles className="w-3 h-3" />
@@ -367,12 +352,12 @@ export default function ProductBrochure() {
               <span className="italic text-cta">Philippine labs.</span>
             </h2>
             <p className="mt-5 text-secondary text-base sm:text-lg leading-relaxed">
-              Featured specifications across our most-requested analyzers and test kits. The full
-              106-product catalog is available on request.
+              Detailed specifications for the analyzers and rapid tests we actively represent.
+              Reagents, consumables, and extended brand portfolios available on request.
             </p>
           </div>
           <div className="inline-flex items-center gap-2 self-start lg:self-end bg-accent-soft border border-accent/20 text-accent text-xs font-semibold px-4 py-2 rounded-full">
-            {products.length} featured · CE marked
+            {products.length} products · CE-IVD
           </div>
         </div>
 
