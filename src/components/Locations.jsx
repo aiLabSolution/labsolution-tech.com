@@ -11,6 +11,7 @@ const offices = [
     tag: 'Luzon Office',
     region: 'Luzon',
     address:
+      // eslint-disable-next-line no-restricted-syntax -- "#286" is a street address number, not a color.
       'Unit A, #286 El Grande Avenue, Phase 3, BF Homes, Para\u00f1aque City',
   },
   {
