@@ -54,7 +54,7 @@ export default function Navbar() {
             href="#contact"
             className="hidden sm:inline-flex items-center gap-2 bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
           >
-            Request a quote
+            Contact Us
           </a>
           <button
             onClick={() => setOpen(!open)}
@@ -96,7 +96,7 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="block text-center bg-accent text-white text-sm font-semibold px-5 py-3 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer"
             >
-              Request a quote
+              Contact Us
             </a>
           </div>
         </div>
