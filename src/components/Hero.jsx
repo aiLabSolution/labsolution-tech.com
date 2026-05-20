@@ -49,13 +49,13 @@ export default function Hero() {
               />
               <div className="relative bg-white border border-border rounded-[2rem] overflow-hidden">
                 <div className="relative aspect-[5/3] bg-surface-alt">
-                  <ProductIllustration category="chemistry" model="DiaSys Respons 940" />
+                  <ProductIllustration category="immunology" model="SNIBE MAGLUMI X6" />
                   <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] shadow">
                     <Sparkles className="w-3 h-3" />
                     Flagship
                   </div>
                   <span className="absolute top-4 right-4 text-[10px] font-semibold text-secondary tracking-[0.14em] uppercase bg-white/90 backdrop-blur px-2.5 py-1 rounded-full border border-border">
-                    Chemistry
+                    Immunology
                   </span>
                 </div>
                 <div className="p-6 sm:p-7">
@@ -63,29 +63,29 @@ export default function Hero() {
                     Flagship analyzer
                   </p>
                   <p className="mt-1 font-heading font-[700] text-primary text-xl leading-tight">
-                    DiaSys Respons 940
+                    SNIBE MAGLUMI X6
                   </p>
                   <p className="mt-1 font-heading text-secondary text-sm italic">
-                    High-throughput automated chemistry analyzer
+                    High-throughput floor-standing CLIA immunoanalyzer
                   </p>
                   <dl className="mt-5 grid grid-cols-3 gap-x-3 pt-5 border-t border-border">
                     <div>
                       <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
                         Throughput
                       </dt>
-                      <dd className="mt-0.5 text-sm font-semibold text-primary">400 T/H</dd>
+                      <dd className="mt-0.5 text-sm font-semibold text-primary">450 T/h</dd>
                     </div>
                     <div>
                       <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
-                        Wavelengths
+                        Test menu
                       </dt>
-                      <dd className="mt-0.5 text-sm font-semibold text-primary">12</dd>
+                      <dd className="mt-0.5 text-sm font-semibold text-primary">260</dd>
                     </div>
                     <div>
                       <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
-                        Sample disk
+                        Walk-away
                       </dt>
-                      <dd className="mt-0.5 text-sm font-semibold text-primary">80</dd>
+                      <dd className="mt-0.5 text-sm font-semibold text-primary">2,000</dd>
                     </div>
                   </dl>
                   <a
