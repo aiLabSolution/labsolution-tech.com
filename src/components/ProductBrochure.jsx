@@ -438,7 +438,7 @@ export default function ProductBrochure() {
             href="#contact"
             className="shrink-0 inline-flex items-center justify-center gap-2 bg-cta hover:bg-cta-hover text-white font-semibold px-6 py-3.5 rounded-md transition-colors duration-200 text-sm cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
           >
-            Request a quote
+            Contact Us
             <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>

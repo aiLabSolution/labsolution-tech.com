@@ -36,7 +36,7 @@ export default function Hero() {
                 href="#contact"
                 className="inline-flex items-center gap-2 text-primary font-semibold text-base underline underline-offset-[6px] decoration-2 decoration-accent/40 hover:decoration-accent transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
               >
-                Request a quote
+                Contact Us
               </a>
             </div>
           </div>
