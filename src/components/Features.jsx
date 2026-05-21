@@ -27,7 +27,7 @@ const features = [
   {
     title: 'Nationwide presence.',
     description:
-      'Offices in Cebu, Manila, and Davao — serving hospitals and laboratories across Visayas, Luzon, and Mindanao.',
+      'Offices in Cebu, Manila, and Davao — serving hospitals and laboratories across Luzon, Visayas, and Mindanao.',
   },
 ]
 
@@ -46,14 +46,22 @@ export default function Features() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-16 sm:mb-20">
-          <h2 className="font-heading font-[800] text-white text-4xl sm:text-5xl lg:text-6xl tracking-[-0.02em] leading-[1.05]">
+          <h2
+            className="font-heading font-[800] text-white text-4xl sm:text-5xl lg:text-6xl tracking-[-0.02em] leading-[1.05]"
+            data-scoped-reveal
+          >
             Six reasons hospitals keep coming back.
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-10 sm:gap-y-14">
           {features.map((feature, i) => (
-            <div key={feature.title} className="grid grid-cols-[auto_1fr] gap-5 sm:gap-6">
+            <div
+              key={feature.title}
+              className="grid grid-cols-[auto_1fr] gap-5 sm:gap-6"
+              data-scoped-reveal
+              style={{ '--scoped-reveal-delay': `${Math.min(i * 70, 350)}ms` }}
+            >
               <div className="pt-1">
                 <span className="font-heading text-white/40 text-sm font-[500] tabular-nums tracking-wider">
                   {String(i + 1).padStart(2, '0')}

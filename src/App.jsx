@@ -8,8 +8,11 @@ import About from './components/About'
 import Locations from './components/Locations'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import useScopedReveal from './hooks/useScopedReveal'
 
 export default function App() {
+  useScopedReveal()
+
   return (
     <>
       <a

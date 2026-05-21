@@ -44,16 +44,27 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-5">
-            <h2 className="font-heading font-[800] text-white text-4xl sm:text-5xl lg:text-6xl tracking-[-0.02em] leading-[1.02]">
+            <h2
+              className="font-heading font-[800] text-white text-4xl sm:text-5xl lg:text-6xl tracking-[-0.02em] leading-[1.02]"
+              data-scoped-reveal
+            >
               Ready to upgrade your lab?
             </h2>
 
-            <p className="mt-6 text-white/70 text-lg leading-relaxed">
+            <p
+              className="mt-6 text-white/70 text-lg leading-relaxed"
+              data-scoped-reveal
+              style={{ '--scoped-reveal-delay': '100ms' }}
+            >
               Tell us what you're testing for. We'll suggest the right analyzer
               or rapid-test kit, share specs, and get you a quote.
             </p>
 
-            <dl className="mt-10 space-y-6 text-white/80">
+            <dl
+              className="mt-10 space-y-6 text-white/80"
+              data-scoped-reveal
+              style={{ '--scoped-reveal-delay': '160ms' }}
+            >
               <div>
                 <dt className="text-white/50 text-xs uppercase tracking-[0.22em] font-semibold">
                   Cebu Headquarters
@@ -102,7 +113,11 @@ export default function Contact() {
             </dl>
           </div>
 
-          <div className="lg:col-span-7">
+          <div
+            className="lg:col-span-7"
+            data-scoped-reveal
+            style={{ '--scoped-reveal-delay': '180ms' }}
+          >
             <form
               onSubmit={handleSubmit}
               noValidate

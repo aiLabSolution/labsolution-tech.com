@@ -28,12 +28,21 @@ export default function Locations() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 mb-14 sm:mb-20">
           <div className="lg:col-span-6">
-            <h2 className="font-heading font-[800] text-primary text-4xl sm:text-5xl tracking-[-0.02em] leading-[1.05]">
-              Three offices, one archipelago.
+            <h2 className="reveal-accent-heading font-heading font-[800] text-primary text-4xl sm:text-5xl tracking-[-0.02em] leading-[1.05]">
+              <span className="location-heading-line" data-scoped-reveal>
+                Three offices,
+              </span>
+              <span
+                className="location-heading-line text-[#08b2c3]"
+                data-scoped-reveal
+                style={{ '--scoped-reveal-delay': '180ms' }}
+              >
+                one archipelago.
+              </span>
             </h2>
           </div>
           <p className="lg:col-span-5 lg:col-start-8 text-secondary text-base sm:text-lg leading-relaxed self-end">
-            Visayas, Luzon, and Mindanao — local service in every region we
+            Luzon, Visayas, and Mindanao — local service in every region we
             deliver to.
           </p>
         </div>
