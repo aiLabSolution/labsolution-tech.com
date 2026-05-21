@@ -5,6 +5,7 @@ const partners = [
   { name: 'Snibe', italic: true },
   { name: 'Edan', italic: false },
   { name: 'GE Healthcare', italic: false },
+  { name: 'Seamaty', italic: true },
 ]
 
 function PartnerRow({ ariaHidden = false }) {
