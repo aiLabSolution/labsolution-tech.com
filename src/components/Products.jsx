@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 
 const categories = [
@@ -24,6 +25,74 @@ const categories = [
   },
 ]
 
+function CountUpNumber({ value }) {
+  const [count, setCount] = useState(value)
+  const countRef = useRef(null)
+
+  useEffect(() => {
+    const element = countRef.current
+    if (!element) return undefined
+
+    let frameId
+    let fallbackId
+    let hasAnimated = false
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      frameId = requestAnimationFrame(() => setCount(value))
+      return () => cancelAnimationFrame(frameId)
+    }
+
+    const duration = 1400
+
+    const animate = () => {
+      if (hasAnimated) return
+      hasAnimated = true
+      const start = performance.now()
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setCount(Math.max(1, Math.round(eased * value)))
+
+        if (progress < 1) {
+          frameId = requestAnimationFrame(tick)
+        }
+      }
+
+      setCount(1)
+      frameId = requestAnimationFrame(tick)
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        animate()
+        observer.disconnect()
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.35 },
+    )
+
+    observer.observe(element)
+    frameId = requestAnimationFrame(() => {
+      const rect = element.getBoundingClientRect()
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        animate()
+        observer.disconnect()
+      }
+    })
+    fallbackId = window.setTimeout(() => setCount(value), 2200)
+
+    return () => {
+      observer.disconnect()
+      if (frameId) cancelAnimationFrame(frameId)
+      if (fallbackId) window.clearTimeout(fallbackId)
+    }
+  }, [value])
+
+  return <span ref={countRef}>{count}</span>
+}
+
 export default function Products() {
   const totalCount = categories.reduce((sum, c) => sum + c.count, 0)
 
@@ -38,7 +107,7 @@ export default function Products() {
           </div>
           <div className="lg:col-span-5 lg:text-right">
             <p className="font-heading text-primary text-6xl sm:text-7xl font-[200] leading-none tracking-tight">
-              {totalCount}
+              <CountUpNumber value={totalCount} />
               <span className="text-accent">+</span>
             </p>
             <p className="mt-2 text-secondary text-sm uppercase tracking-[0.2em] font-semibold">
@@ -67,7 +136,7 @@ export default function Products() {
                 <h3 className="font-heading font-[700] text-primary text-xl sm:text-2xl leading-snug tracking-tight">
                   {cat.title}
                 </h3>
-                <p className="mt-1 text-secondary/80 text-xs uppercase tracking-[0.16em] font-semibold">
+                <p className="mt-1 text-cta-hover text-xs uppercase tracking-[0.16em] font-semibold">
                   {cat.span}
                 </p>
               </div>

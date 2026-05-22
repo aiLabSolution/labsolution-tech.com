@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import MotionRibbon from './components/MotionRibbon'
 import Partners from './components/Partners'
 import Products from './components/Products'
 import ProductBrochure from './components/ProductBrochure'
@@ -8,8 +9,11 @@ import About from './components/About'
 import Locations from './components/Locations'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import useScopedReveal from './hooks/useScopedReveal'
 
 export default function App() {
+  useScopedReveal()
+
   return (
     <>
       <a
@@ -24,6 +28,7 @@ export default function App() {
       <main id="main">
         <Hero />
         <Partners />
+        <MotionRibbon />
         <Products />
         <ProductBrochure />
         <Features />
