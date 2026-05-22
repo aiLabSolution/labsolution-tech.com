@@ -24,6 +24,25 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+          message:
+            'Raw hex color found. Use brand-token utilities (bg-cta, text-primary, border-border, etc.) instead. If you need a new color, add a token to the @theme block in src/index.css.',
+        },
+        {
+          selector: "TemplateElement[value.raw=/#[0-9a-fA-F]{3,8}\\b/]",
+          message:
+            'Raw hex color found. Use brand-token utilities (bg-cta, text-primary, border-border, etc.) instead. If you need a new color, add a token to the @theme block in src/index.css.',
+        },
+      ],
+    },
+  },
+  {
+    files: ['src/components/ProductIllustration.jsx'],
+    rules: {
+      'no-restricted-syntax': 'off',
     },
   },
   {
