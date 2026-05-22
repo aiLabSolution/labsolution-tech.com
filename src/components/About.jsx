@@ -143,8 +143,8 @@ export default function About() {
               ref={timelineRef}
               className="timeline-roadmap relative space-y-7 sm:space-y-8"
             >
-              <span className="absolute left-[17px] top-4 bottom-4 block w-px bg-[#08b2c3]/20" aria-hidden="true" />
-              <span className="timeline-progress-line absolute left-[17px] top-4 bottom-4 block w-px bg-[#08b2c3]" aria-hidden="true" />
+              <span className="absolute left-[17px] top-4 bottom-4 block w-px bg-cta-hover/20" aria-hidden="true" />
+              <span className="timeline-progress-line absolute left-[17px] top-4 bottom-4 block w-px bg-cta-hover" aria-hidden="true" />
               {milestones.map((m, index) => (
                 <li
                   key={m.year}
@@ -155,7 +155,7 @@ export default function About() {
                     <span
                       className={`timeline-marker relative z-10 flex items-center justify-center rounded-full text-white shadow-sm ${
                         m.year === 'Today'
-                          ? 'h-11 w-11 ring-4 ring-[#08b2c3]/15'
+                          ? 'h-11 w-11 ring-4 ring-cta-hover/15'
                           : 'h-9 w-9'
                       }`}
                       aria-hidden="true"
@@ -168,7 +168,7 @@ export default function About() {
                     </span>
                     {index < milestones.length - 1 && (
                       <ChevronDown
-                        className="relative z-10 mt-8 h-4 w-4 text-[#08b2c3]"
+                        className="relative z-10 mt-8 h-4 w-4 text-cta-hover"
                         aria-hidden="true"
                       />
                     )}
@@ -190,7 +190,7 @@ export default function About() {
         <div className="mt-12 sm:mt-16 text-center">
           <div className="service-motto mx-auto max-w-3xl border-y border-primary/10 py-8 sm:py-10">
             <div
-              className="service-motto-line mx-auto mb-5 h-px w-20 bg-[#08b2c3]"
+              className="service-motto-line mx-auto mb-5 h-px w-20 bg-cta-hover"
               aria-hidden="true"
               data-scoped-reveal
             />
@@ -234,7 +234,7 @@ export default function About() {
             {commitments.map((item, index) => (
               <article
                 key={item.label}
-                className="min-h-[150px] sm:min-h-[165px] bg-[#08b2c3] text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 flex flex-col items-center justify-center shadow-sm"
+                className="min-h-[150px] sm:min-h-[165px] bg-cta-hover text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 flex flex-col items-center justify-center shadow-sm"
                 data-scoped-reveal
                 style={{ '--scoped-reveal-delay': `${index * 120}ms` }}
               >
@@ -250,7 +250,7 @@ export default function About() {
           </div>
 
           <div
-            className="mt-4 bg-[#08b2c3] text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-12 lg:py-8 shadow-sm"
+            className="mt-4 bg-cta-hover text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-12 lg:py-8 shadow-sm"
             data-scoped-reveal
           >
             <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">

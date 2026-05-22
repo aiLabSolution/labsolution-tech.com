@@ -33,7 +33,7 @@ export default function Locations() {
                 Three offices,
               </span>
               <span
-                className="location-heading-line text-[#08b2c3]"
+                className="location-heading-line text-cta-hover"
                 data-scoped-reveal
                 style={{ '--scoped-reveal-delay': '180ms' }}
               >
