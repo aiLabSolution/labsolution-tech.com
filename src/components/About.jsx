@@ -195,7 +195,7 @@ export default function About() {
               data-scoped-reveal
             />
             <p
-              className="service-motto-title font-heading font-[700] text-primary text-3xl sm:text-4xl tracking-[-0.02em] leading-tight"
+              className="service-motto-title font-heading font-[800] text-primary text-[30px] sm:text-[36px] lg:text-[40px] tracking-[-0.02em] leading-[1.05]"
             >
               <span
                 className="service-motto-word"
@@ -229,12 +229,12 @@ export default function About() {
           </div>
         </div>
 
-        <div className="mt-10 sm:mt-12 pt-10 sm:pt-12 border-t border-primary/10 text-center">
+        <div className="mt-12 sm:mt-14 pt-8 sm:pt-10 border-t border-primary/10 text-center">
           <div className="grid lg:grid-cols-2 gap-4">
             {commitments.map((item, index) => (
               <article
                 key={item.label}
-                className="min-h-[150px] sm:min-h-[165px] bg-cta-hover text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 flex flex-col items-center justify-center shadow-sm"
+                className="blue-card-depth min-h-[150px] sm:min-h-[165px] bg-gradient-to-br from-cta-hover to-accent-hover text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 grid grid-rows-[auto_auto_1fr] place-items-center text-center"
                 data-scoped-reveal
                 style={{ '--scoped-reveal-delay': `${index * 120}ms` }}
               >
@@ -242,7 +242,7 @@ export default function About() {
                   {item.label}
                 </h3>
                 <div className="mt-3 h-px w-16 bg-white/80" aria-hidden="true" />
-                <p className="mt-4 max-w-lg mx-auto text-white text-base sm:text-lg leading-relaxed">
+                <p className="mt-4 max-w-lg mx-auto text-white text-base sm:text-lg leading-relaxed self-start">
                   {item.text}
                 </p>
               </article>
@@ -250,27 +250,26 @@ export default function About() {
           </div>
 
           <div
-            className="mt-4 bg-cta-hover text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-12 lg:py-8 shadow-sm"
+            className="blue-card-depth mt-4 bg-gradient-to-br from-cta-hover to-accent-hover text-white rounded-2xl px-5 py-5 sm:px-8 sm:py-6 lg:px-12 lg:py-7"
             data-scoped-reveal
+            style={{ '--scoped-reveal-delay': '240ms' }}
           >
             <div className="max-w-4xl mx-auto flex flex-col items-center justify-center">
               <h3 className="font-heading font-[800] text-[20px] sm:text-[21px] lg:text-[22px] leading-none tracking-tight uppercase">
                 CORE VALUES
               </h3>
               <div className="mt-3 h-px w-16 bg-white/80" aria-hidden="true" />
-              <p className="mt-4 max-w-xl text-white text-sm sm:text-base leading-relaxed">
+              <p className="mt-3 max-w-xl text-white text-sm sm:text-base leading-relaxed">
                 The standards that guide every product, partnership, and service
                 commitment.
               </p>
             </div>
 
-            <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto">
-              {coreValues.map((value, index) => (
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 max-w-4xl mx-auto">
+              {coreValues.map((value) => (
                 <div
                   key={value}
-                  className="border border-white/35 bg-white/10 px-3 py-2.5 rounded-xl font-heading font-[800] text-white text-xs sm:text-sm tracking-[0.14em]"
-                  data-scoped-reveal
-                  style={{ '--scoped-reveal-delay': `${index * 50}ms` }}
+                  className="border border-white/30 bg-white/10 px-2.5 py-2 rounded-lg font-heading font-[800] text-white text-[11px] sm:text-xs tracking-[0.14em]"
                 >
                   {value}
                 </div>

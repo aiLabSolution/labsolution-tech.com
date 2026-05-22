@@ -424,19 +424,19 @@ export default function ProductBrochure() {
           </div>
         )}
 
-        <div className="mt-14 bg-primary text-white rounded-2xl p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 overflow-hidden relative">
-          <div className="relative max-w-xl">
+        <div className="brochure-cta-card mt-14 text-white p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 overflow-hidden relative">
+          <div className="relative z-10 max-w-xl">
             <h3 className="font-heading font-[700] text-2xl sm:text-3xl">
               Can't see what you need?
             </h3>
-            <p className="mt-3 text-white/70 leading-relaxed">
-              We carry extended ranges in reagents, consumables, and custom configurations. Talk to
-              our application scientists for a tailored proposal.
+            <p className="mt-3 text-white leading-relaxed">
+              We carry extended ranges in reagents, consumables, and custom configurations. Contact
+              us now for a tailored proposal.
             </p>
           </div>
           <a
             href="#contact"
-            className="shrink-0 inline-flex items-center justify-center gap-2 bg-cta hover:bg-cta-hover text-white font-semibold px-6 py-3.5 rounded-md transition-colors duration-200 text-sm cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            className="brochure-cta-button relative z-10 shrink-0 inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-md transition-colors duration-200 text-sm cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
           >
             Contact Us
             <ArrowUpRight className="w-4 h-4" />

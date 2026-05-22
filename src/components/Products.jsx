@@ -136,7 +136,7 @@ export default function Products() {
                 <h3 className="font-heading font-[700] text-primary text-xl sm:text-2xl leading-snug tracking-tight">
                   {cat.title}
                 </h3>
-                <p className="mt-1 text-secondary/80 text-xs uppercase tracking-[0.16em] font-semibold">
+                <p className="mt-1 text-cta-hover text-xs uppercase tracking-[0.16em] font-semibold">
                   {cat.span}
                 </p>
               </div>

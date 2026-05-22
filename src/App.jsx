@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import MotionRibbon from './components/MotionRibbon'
 import Partners from './components/Partners'
 import Products from './components/Products'
 import ProductBrochure from './components/ProductBrochure'
@@ -27,6 +28,7 @@ export default function App() {
       <main id="main">
         <Hero />
         <Partners />
+        <MotionRibbon />
         <Products />
         <ProductBrochure />
         <Features />

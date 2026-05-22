@@ -1,21 +1,38 @@
+import { useEffect, useState } from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import ProductIllustration from './ProductIllustration'
 
 export default function Hero() {
+  const [animateHero, setAnimateHero] = useState(false)
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion) return undefined
+
+    const frameId = requestAnimationFrame(() => setAnimateHero(true))
+    return () => cancelAnimationFrame(frameId)
+  }, [])
+
   return (
-    <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-24 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`hero-sequence hero-gradient-bg relative pt-32 pb-16 sm:pt-36 sm:pb-24 bg-surface overflow-hidden ${animateHero ? 'is-running' : ''}`}>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7 relative">
             <div className="flex items-center gap-3 text-secondary text-xs font-semibold uppercase tracking-[0.2em]">
-              <span className="h-px w-8 bg-primary/40" aria-hidden="true" />
+              <span className="hero-accent-line h-px w-8 bg-cta-hover" aria-hidden="true" />
               Est. Cebu, 2006
             </div>
 
-            <h1 className="mt-6 font-heading font-[900] text-primary text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] tracking-[-0.03em]">
-              Helping you{' '}
-              <span className="italic font-[500] text-accent">help</span>{' '}
-              people.
+            <h1 className="mt-6 font-heading font-[900] text-primary text-[clamp(2.75rem,7vw,6rem)] leading-[0.92] sm:leading-[0.95] tracking-[-0.03em]">
+              <span className="hero-headline-part hero-helping block sm:inline">
+                Helping you
+              </span>{' '}
+              <span className="hero-headline-part hero-help relative inline-block italic font-[700] text-cta-hover">
+                help
+              </span>{' '}
+              <span className="hero-headline-part hero-people inline-block">
+                people.
+              </span>
             </h1>
 
             <p className="mt-8 text-secondary text-lg sm:text-xl leading-relaxed max-w-xl">
@@ -41,7 +58,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative">
+          <div className="hero-product-card lg:col-span-5 relative">
             <div className="relative">
               <div
                 className="absolute -top-3 -left-3 right-6 bottom-6 bg-accent-soft rounded-[2rem]"
