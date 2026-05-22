@@ -74,46 +74,6 @@ function ChemistryIllustration({ model }) {
   )
 }
 
-function HematologyIllustration({ model }) {
-  return (
-    <Frame ariaLabel={`${model} hematology analyzer illustration`}>
-      <rect x="70" y="40" width="260" height="160" rx="10" fill="url(#pi-chassis)" stroke="#CBD5E1" strokeWidth="1.5" />
-      <circle cx="160" cy="118" r="56" fill="url(#pi-screen)" />
-      <circle cx="160" cy="118" r="56" fill="url(#pi-dots)" />
-      <circle cx="160" cy="118" r="48" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-      <path d="M 112 130 Q 125 100 135 118 T 160 122 Q 175 95 185 120 T 210 118" fill="none" stroke="#E6F0F7" strokeWidth="2" opacity="0.9" />
-      <path d="M 112 140 Q 130 135 145 142 Q 160 148 175 140 Q 190 132 208 138" fill="none" stroke="#B85C4A" strokeWidth="1.5" opacity="0.8" />
-      <g transform="translate(240,70)">
-        <circle cx="40" cy="50" r="44" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5" />
-        <circle cx="40" cy="50" r="10" fill="#0369A1" />
-        {Array.from({ length: 10 }).map((_, t) => {
-          const n = (t * Math.PI * 2) / 10
-          return (
-            <circle
-              key={t}
-              cx={40 + Math.cos(n) * 30}
-              cy={50 + Math.sin(n) * 30}
-              r="4.5"
-              fill="#B85C4A"
-              opacity={t === 0 ? 1 : 0.55}
-            />
-          )
-        })}
-      </g>
-      <rect x="86" y="184" width="228" height="10" rx="5" fill="#F8FAFC" stroke="#E2E8F0" />
-      <circle cx="100" cy="189" r="3" fill="#0369A1" />
-      <circle cx="114" cy="189" r="3" fill="#B85C4A" />
-      <circle cx="128" cy="189" r="3" fill="#E2E8F0" />
-      <text x="140" y="192" fontFamily="Inter, sans-serif" fontSize="7" fontWeight="600" fill="#475569" letterSpacing="1.5">
-        WBC · RBC · PLT · HGB
-      </text>
-      <text x="80" y="56" fontFamily="Inter, sans-serif" fontSize="8" fontWeight="700" fill="#0369A1" letterSpacing="1.5">
-        {model.toUpperCase()}
-      </text>
-    </Frame>
-  )
-}
-
 function ImmunologyIllustration({ model }) {
   return (
     <Frame ariaLabel={`${model} immunoassay analyzer illustration`}>
@@ -211,11 +171,53 @@ function RapidTestIllustration({ model }) {
   )
 }
 
+function PocIllustration({ model }) {
+  return (
+    <Frame ariaLabel={`${model} handheld point-of-care meter illustration`}>
+      <g transform="translate(186,18)">
+        <rect x="0" y="0" width="22" height="44" rx="2" fill="#FFFFFF" stroke="#CBD5E1" strokeWidth="1.2" />
+        <rect x="3" y="6" width="16" height="3" rx="1" fill="#B85C4A" opacity="0.88" />
+        <rect x="3" y="12" width="16" height="2" rx="1" fill="#94A3B8" opacity="0.55" />
+        <rect x="3" y="17" width="16" height="2" rx="1" fill="#94A3B8" opacity="0.4" />
+        <circle cx="11" cy="2.5" r="2.5" fill="#B85C4A" />
+      </g>
+
+      <rect x="150" y="50" width="100" height="150" rx="14" fill="url(#pi-chassis-dark)" stroke="#0F172A" strokeWidth="1.5" />
+      <rect x="154" y="54" width="92" height="142" rx="12" fill="url(#pi-chassis)" stroke="#CBD5E1" strokeWidth="0.8" />
+
+      <text x="200" y="70" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="7" fontWeight="700" fill="#0369A1" letterSpacing="1.4">
+        {model.toUpperCase()}
+      </text>
+
+      <rect x="164" y="78" width="72" height="58" rx="4" fill="url(#pi-screen)" />
+      <rect x="164" y="78" width="72" height="58" rx="4" fill="url(#pi-dots)" opacity="0.25" />
+
+      <text x="200" y="108" textAnchor="middle" fontFamily="monospace" fontSize="22" fontWeight="700" fill="#E6F0F7">
+        5.4
+      </text>
+      <text x="200" y="124" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="6.5" fontWeight="600" fill="#94A3B8" letterSpacing="1.2">
+        mmol/L
+      </text>
+      <text x="170" y="89" fontFamily="monospace" fontSize="5.5" fontWeight="700" fill="#B85C4A" letterSpacing="0.5">
+        ● mem
+      </text>
+
+      <circle cx="200" cy="158" r="14" fill="#F8FAFC" stroke="#94A3B8" strokeWidth="1.5" />
+      <circle cx="200" cy="158" r="9" fill="url(#pi-chassis)" stroke="#CBD5E1" strokeWidth="1" />
+      <circle cx="200" cy="158" r="2.5" fill="#0369A1" />
+
+      <text x="200" y="188" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="6" fontWeight="700" fill="#475569" letterSpacing="1.4">
+        5 SEC · 0.75 µL
+      </text>
+    </Frame>
+  )
+}
+
 const ILLUSTRATIONS = {
   chemistry: ChemistryIllustration,
-  hematology: HematologyIllustration,
   immunology: ImmunologyIllustration,
   rapid: RapidTestIllustration,
+  poc: PocIllustration,
 }
 
 export default function ProductIllustration({ category, model }) {

@@ -1,10 +1,12 @@
 const partners = [
-  { name: 'CTK Biotech', italic: false },
-  { name: 'DiaSys', italic: true },
-  { name: 'Rayto', italic: false },
   { name: 'Snibe', italic: true },
-  { name: 'Edan', italic: false },
-  { name: 'GE Healthcare', italic: false },
+  { name: 'DiaSys', italic: false },
+  { name: 'Medica', italic: true },
+  { name: 'Bionime', italic: false },
+  { name: 'Lifotronic', italic: true },
+  { name: 'Rayto', italic: false },
+  { name: 'Edan', italic: true },
+  { name: 'CTK Biotech', italic: false },
 ]
 
 function PartnerRow({ ariaHidden = false }) {

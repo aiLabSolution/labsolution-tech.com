@@ -2,46 +2,25 @@ import { ArrowUpRight } from 'lucide-react'
 
 const categories = [
   {
-    title: 'Blood Gas & Electrolytes',
-    description:
-      'Advanced analyzers and electrolyte systems for critical care diagnostics.',
-    count: 3,
-    span: 'Respiratory · Critical care',
-  },
-  {
-    title: 'Hematology',
-    description:
-      'Complete blood count analyzers and reagents for cellular analysis and blood profiling.',
-    count: 4,
-    span: 'Cellular · Blood profiling',
-  },
-  {
-    title: 'Chemistry Reagents',
-    description:
-      'Clinical chemistry reagents for routine and specialized biochemistry testing.',
-    count: 17,
-    span: 'Biochemistry · Routine assays',
-  },
-  {
     title: 'Chemistry Analyzers',
     description:
-      'High-throughput chemistry machines including the DiaSys Respons 920 and 940 series.',
-    count: 9,
-    span: 'Benchtop · High-throughput',
+      'Random-access clinical chemistry, direct-ISE electrolytes, HPLC HbA1c, and point-of-care glucose monitoring.',
+    count: 6,
+    span: 'DiaSys · Medica · Bionime · Lifotronic',
   },
   {
-    title: 'Immunology',
+    title: 'CLIA Immunoassay',
     description:
-      'Quantitative immunoassay solutions including immunofluorescence analyzers with <3% CV.',
-    count: 32,
-    span: 'Quantitative · IFA',
+      'Fully-automated chemiluminescence immunoassay analyzers — direct ABEI labeling, 200+ parameter menus, TLA-ready.',
+    count: 2,
+    span: 'SNIBE MAGLUMI · 200–450 T/h',
   },
   {
-    title: 'CTK Biotech Rapid Tests',
+    title: 'Rapid Diagnostic Tests',
     description:
-      'CE-marked rapid tests for Dengue, COVID-19, Adenovirus, Rubella, Strep A, Chagas, and more.',
-    count: 41,
-    span: 'Point-of-care · CE marked',
+      'CE-IVD lateral-flow cassettes for tropical infectious disease screening — dengue, typhoid, malaria.',
+    count: 3,
+    span: 'CTK OnSite · 15–25 min',
   },
 ]
 
@@ -63,7 +42,10 @@ export default function Products() {
               <span className="text-accent">+</span>
             </p>
             <p className="mt-2 text-secondary text-sm uppercase tracking-[0.2em] font-semibold">
-              Diagnostic products · 6 categories
+              Documented analyzers and rapid tests · 3 categories
+            </p>
+            <p className="mt-3 text-secondary text-sm lg:text-right">
+              Reagents, consumables, and extended brand portfolios available on request.
             </p>
           </div>
         </div>
