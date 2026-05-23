@@ -1,0 +1,69 @@
+name: Preview Cleanup
+
+on:
+  pull_request:
+    types: [closed]
+  delete:
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_CLI_VERSION: '54.3.0'
+  DOMAIN_ROOT: labsolution-tech.com
+
+jobs:
+  release-alias:
+    if: >-
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+      || (github.event_name == 'delete' && github.event.ref_type == 'branch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Resolve branch name
+        id: ref
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "name=${{ github.event.pull_request.head.ref }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=${{ github.event.ref }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compute slug
+        id: slug
+        run: |
+          raw="${{ steps.ref.outputs.name }}"
+          slug=$(printf '%s' "$raw" \
+            | tr '[:upper:]' '[:lower:]' \
+            | sed -E 's/[^a-z0-9]+/-/g; s/^-+//; s/-+$//' \
+            | cut -c1-50 \
+            | sed -E 's/-+$//')
+          case "$slug" in
+            ''|www|main)
+              echo "Skipping cleanup for reserved/empty slug '$slug' (from branch '$raw')."
+              echo "value=" >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "value=$slug" >> "$GITHUB_OUTPUT"
+              ;;
+          esac
+
+      - name: Install Vercel CLI
+        if: steps.slug.outputs.value != ''
+        run: npm install --global vercel@${{ env.VERCEL_CLI_VERSION }}
+
+      - name: Pull Vercel environment
+        if: steps.slug.outputs.value != ''
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Remove alias
+        if: steps.slug.outputs.value != ''
+        run: |
+          target="${{ steps.slug.outputs.value }}.${{ env.DOMAIN_ROOT }}"
+          echo "Removing alias: $target"
+          vercel alias rm "$target" --yes --token=${{ secrets.VERCEL_TOKEN }} || {
+            echo "Alias removal failed or alias did not exist — treating as success."
+          }
+          echo "### Released" >> "$GITHUB_STEP_SUMMARY"
+          echo "https://$target (now 404)" >> "$GITHUB_STEP_SUMMARY"
