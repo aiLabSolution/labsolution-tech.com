@@ -7,28 +7,34 @@ on:
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_CLI_VERSION: '54.3.0'
+  PRODUCTION_URL: https://www.labsolution-tech.com
+  HEALTH_CHECK_TOKEN: 'LabSolution'
+
+concurrency:
+  group: production
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Lint
-        run: npm run lint
+      - run: npm run lint
 
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: npm install --global vercel@${{ env.VERCEL_CLI_VERSION }}
 
       - name: Pull Vercel environment
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
@@ -37,7 +43,33 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy
+        id: deploy
         run: |
           url=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
-          echo "### Production URL" >> "$GITHUB_STEP_SUMMARY"
-          echo "$url" >> "$GITHUB_STEP_SUMMARY"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Production URL"
+            echo "$url"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Health check
+        run: |
+          fail=1
+          for i in 1 2 3 4 5; do
+            body=$(curl -sS -L -o /tmp/body.html -w '%{http_code}' "${PRODUCTION_URL}") || body="000"
+            if [ "$body" = "200" ] && grep -q "${HEALTH_CHECK_TOKEN}" /tmp/body.html; then
+              echo "Health check passed: HTTP $body, body contains '${HEALTH_CHECK_TOKEN}'"
+              fail=0
+              break
+            fi
+            echo "Attempt $i: HTTP $body, token present: $(grep -q "${HEALTH_CHECK_TOKEN}" /tmp/body.html && echo yes || echo no). Retrying in 5s..."
+            sleep 5
+          done
+          if [ $fail -eq 1 ]; then
+            {
+              echo "### Health check FAILED"
+              echo "${PRODUCTION_URL} did not return 200 with body containing '${HEALTH_CHECK_TOKEN}' after 5 attempts."
+              echo "Operator action required: investigate and roll back manually if needed."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi

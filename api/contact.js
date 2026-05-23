@@ -49,6 +49,11 @@ export default async function handler(req, res) {
     return res.status(413).json({ error: 'Submission too large.' })
   }
 
+  // Public preview deploys must not send real email.
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production') {
+    return res.status(200).json({ ok: true, preview: true })
+  }
+
   try {
     const resend = new Resend(process.env.RESEND_API_KEY)
     const { error } = await resend.emails.send({
