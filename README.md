@@ -30,12 +30,12 @@ After that, you don't touch any of this again. Every session just opens the app 
    - *"Add a new product card for the DiaSys Respons 920 under the catalog."*
    - *"Swap the sales email everywhere from `sales@…` to `leads@…`."*
 3. The agent makes the change, pushes it to a branch, and opens a Pull Request (PR).
-4. Within ~60 seconds, a comment will appear on the PR saying **"Preview deployed: https://…vercel.app"**. Click that link — it's your change, served on a temporary URL.
+4. Within ~60 seconds, a comment will appear on the PR saying **"Preview deployed: https://&lt;branch&gt;.labsolution-tech.com"** — that's your change served on a per-branch URL, no login required. The URL stays alive while the branch does and is released automatically when the PR merges or the branch is deleted.
 5. Check it on **mobile** (open the link on your phone) and **desktop**.
 6. When you're happy, comment on the PR: `@marloeuyjr please review`.
-7. Once Marloe approves and merges, your change is live on https://labsolution-tech.com within ~2 minutes.
+7. Once Marloe approves and merges, your change is live on https://labsolution-tech.com within ~2 minutes, and the per-branch preview URL stops working a moment later.
 
-If something looks off in the preview, just tell the agent what to change and it'll update the PR.
+If something looks off in the preview, just tell the agent what to change. Each new push reuses the same preview URL with the latest build.
 
 ## What a Site Editor can ask for
 

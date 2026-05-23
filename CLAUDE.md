@@ -78,10 +78,15 @@ No test runner, no type-check, no formatter script exist. Do not add them unless
 
 ## Deployment & CI
 
-- **Production**: every push to `main` triggers `.github/workflows/production.yml` → `npm run lint` → `vercel build --prod` → `vercel deploy --prebuilt --prod`. Live URL: https://labsolution-tech.com.
-- **Previews**: every pull request triggers `.github/workflows/preview.yml` → same chain → upserts a Vercel preview URL as a PR comment.
-- `vercel.json` keeps Vercel's own Git auto-deploy off for `main` so the GitHub Action is the only production path. `.vercel/` is git-ignored.
-- **Branch protection on `main`** (configured via `gh api`): require PR, require 1 approving review, require `Preview Deployment` status check, block force and direct pushes. Admins are NOT included so the Owner can override for solo maintenance.
+- **Production**: every push to `main` triggers `.github/workflows/production.yml` → `npm run lint` → `vercel build --prod` → `vercel deploy --prebuilt --prod` → retrying health check. Live URL: https://labsolution-tech.com.
+- **Previews**: every push to a non-`main` branch triggers `.github/workflows/preview.yml` → lint → `vercel build` → `vercel deploy --prebuilt` → `vercel alias set <deployment> <slug>.labsolution-tech.com`. If an open PR exists for the branch, the workflow upserts a comment with the subdomain. URL pattern: `<branch-slug>.labsolution-tech.com` (lowercased, non-alphanumerics → `-`, 50-char max). Reserved slugs: `www`, `main` — push fails fast.
+- **Preview cleanup**: `.github/workflows/preview-cleanup.yml` releases `<slug>.labsolution-tech.com` on PR merge or branch delete. The Owner can also `vercel alias rm <slug>.labsolution-tech.com --yes` manually.
+- **Preview safety properties** (load-bearing — do not regress):
+  - `api/contact.js` short-circuits when `VERCEL_ENV !== 'production'` so the sales inbox never sees preview traffic. The `api/contact.js` carve-out in the scope block is what makes this commit Owner-authorizable.
+  - The `preview-noindex` Vite plugin injects `<meta name="robots" content="noindex,nofollow">` into `index.html` and overwrites `dist/robots.txt` to `Disallow: /` when `VERCEL_ENV === 'preview'`. Production builds and local dev are untouched.
+- `vercel.json` sets `"git": { "deploymentEnabled": false }` to disable Vercel's Git integration entirely; the GitHub Actions workflows are the sole deploy path. `.vercel/` is git-ignored.
+- **Branch protection on `main`** (configured via `gh api`): require PR, require 1 approving review, require `Preview Deployment` status check, block force and direct pushes. Admins are NOT included so the Owner can override for solo maintenance. The workflow `name:` must stay exactly `Preview Deployment` for the required-check rule to match.
+- **Worktree gotcha**: each new `git worktree` starts without a `.vercel/project.json` (the directory is git-ignored). Running `vercel pull` from an unlinked worktree silently creates a NEW project named after the directory and links it. Always `cp /path/to/main/checkout/.vercel/project.json <worktree>/.vercel/project.json` before running any `vercel` command from a fresh worktree.
 
 ## Working agreement
 
