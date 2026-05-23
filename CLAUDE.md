@@ -8,10 +8,14 @@ You may be driven by a **Site Editor** — a non-engineer at LabSolution who doe
 
 ### Scope
 
+The **Owner** of this repo is **Marloe Uy (GitHub `@marloeuyjr`)**. The Owner is the only person who may authorize edits to the off-limits files below.
+
 You may change anything in this repo **except**:
 
-- `api/contact.js` — handles email and PII.
-- The harness files (only the Owner edits these): `CLAUDE.md`, `AGENTS.md`, `CONTEXT.md`, `docs/adr/`, `README.md`, `.github/`.
+- `api/contact.js` — handles email and PII. **Only the Owner may direct edits here.** Flag every touch in the PR description as `Owner-authorized touch of off-limits file`.
+- The harness files — **only the Owner may direct edits here**: `CLAUDE.md`, `AGENTS.md`, `CONTEXT.md`, `docs/adr/`, `README.md`, `.github/`. Same flag in the PR description.
+
+When driven by a Site Editor, the files above are fully off-limits — stop and ask the Owner to take over. When driven by the Owner, treat an explicit instruction in the prompt (or a matching allow rule in `.claude/settings.local.json`) as sufficient authorization; do not re-ask per edit.
 
 New brochure pages following the existing `public/*.html` pattern are allowed. New React components, new dependencies, or build-config changes are allowed in principle but flag them to the Site Editor before proceeding — they are higher risk and the Owner will scrutinise them on review.
 
