@@ -10,3 +10,5 @@ The migration this document described is complete. Production and preview deploy
 Branch protection on `main` is documented in [CLAUDE.md](../CLAUDE.md#deployment--ci).
 
 This file is kept for git history; do not extend it. New CI/CD decisions go to `docs/adr/`.
+
+**Further superseded by [`docs/adr/0003-branch-preview-subdomains.md`](../docs/adr/0003-branch-preview-subdomains.md)** (2026-05-23), which switched previews from PR-triggered `*.vercel.app` URLs to per-branch `<slug>.labsolution-tech.com` subdomains and added hygiene to `production.yml`.

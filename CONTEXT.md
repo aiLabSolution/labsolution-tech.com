@@ -56,6 +56,14 @@ _Avoid_: "admin", "developer"
 A single PR opened by a Runtime on behalf of a Site Editor, targeting `main` from a feature branch. Carries the Vercel preview URL in the PR comments and is the only path by which Site Editor work reaches production.
 _Avoid_: "the change", "the edit", "the request"
 
+**Preview Subdomain**:
+The publicly-accessible URL for a branch's latest preview deploy, at `<slug>.labsolution-tech.com`. Created on every push to a non-`main` branch by `preview.yml`; released by `preview-cleanup.yml` when the branch's PR is merged or the branch is deleted.
+_Avoid_: "preview URL" (Vercel uses that for the underlying `*.vercel.app` URL), "staging URL" (we don't have a permanent staging environment)
+
+**Branch Slug**:
+The prefix of a Preview Subdomain. The branch name lowercased, with non-alphanumeric runs collapsed to `-`, truncated to 50 characters, with leading/trailing `-` stripped. `www` and `main` are reserved and reject the deploy.
+_Avoid_: "URL slug" (be specific — this is the branch slug, not a content slug)
+
 ### Relationships
 
 - A **Site Editor** drives a **Runtime** (running locally on their Mac with a clone of this repo).
