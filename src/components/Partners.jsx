@@ -34,8 +34,13 @@ function PartnerRow({ ariaHidden = false }) {
 
 export default function Partners() {
   return (
-    <section className="pt-14 pb-12 sm:pt-16 sm:pb-14 bg-cta-hover">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="partners-section relative overflow-hidden pt-14 pb-12 sm:pt-16 sm:pb-14">
+      <div className="partners-background" aria-hidden="true">
+        <span className="partners-breathing-blob" />
+        <span className="partners-particle-field" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-10">
           <p className="text-white font-[700] text-sm sm:text-[15px] tracking-[0.16em] uppercase">
             Trusted partners

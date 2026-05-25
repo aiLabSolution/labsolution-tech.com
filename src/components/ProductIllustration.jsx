@@ -125,6 +125,64 @@ function ImmunologyIllustration({ model }) {
   )
 }
 
+function HematologyIllustration({ model }) {
+  return (
+    <Frame ariaLabel={`${model} hematology analyzer illustration`}>
+      <rect x="70" y="56" width="230" height="142" rx="10" fill="url(#pi-chassis)" stroke="#CBD5E1" strokeWidth="1.5" />
+      <rect x="274" y="72" width="54" height="110" rx="8" fill="#E2E8F0" stroke="#CBD5E1" strokeWidth="1.2" />
+      <rect x="92" y="76" width="132" height="78" rx="8" fill="#0F172A" stroke="#334155" strokeWidth="1.2" />
+      <rect x="100" y="84" width="116" height="62" rx="3" fill="#F8FAFC" />
+      <rect x="100" y="84" width="116" height="14" rx="3" fill="#0F766E" />
+      <text x="108" y="94" fontFamily="Inter, sans-serif" fontSize="6" fontWeight="700" fill="#E6F0F7" letterSpacing="0.6">
+        DATA REVIEW
+      </text>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <g key={i} transform={`translate(108 ${106 + i * 7})`}>
+          <rect x="0" y="0" width="38" height="2" rx="1" fill="#94A3B8" opacity="0.65" />
+          <rect x="46" y="0" width="20" height="2" rx="1" fill="#B85C4A" opacity="0.75" />
+          <rect x="74" y="0" width="26" height="2" rx="1" fill="#0369A1" opacity="0.65" />
+        </g>
+      ))}
+      <g transform="translate(178,108)">
+        <rect x="0" y="0" width="30" height="30" rx="3" fill="#0F172A" opacity="0.9" />
+        <path d="M 5 22 C 10 10, 18 28, 25 8" fill="none" stroke="#B85C4A" strokeWidth="1.5" />
+        <circle cx="8" cy="14" r="2" fill="#E6F0F7" opacity="0.8" />
+        <circle cx="20" cy="18" r="2" fill="#0369A1" opacity="0.8" />
+      </g>
+      <path d="M 132 154 L 116 184 L 222 184 L 206 154 Z" fill="#CBD5E1" stroke="#94A3B8" strokeWidth="1" />
+      <rect x="112" y="184" width="118" height="14" rx="3" fill="#E2E8F0" stroke="#CBD5E1" />
+      <g transform="translate(64,178)">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <g key={i} transform={`translate(${i * 13} 0)`}>
+            <rect x="1" y="10" width="8" height="30" rx="1.5" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="0.8" />
+            <rect x="1" y="10" width="8" height="8" fill="#E6F0F7" />
+            <rect x="0" y="5" width="10" height="7" rx="2" fill="#6D5BA6" />
+          </g>
+        ))}
+      </g>
+      <g transform="translate(230,178)">
+        {Array.from({ length: 9 }).map((_, i) => (
+          <g key={i} transform={`translate(${i * 13} 0)`}>
+            <rect x="1" y="10" width="8" height="30" rx="1.5" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="0.8" />
+            <rect x="1" y="10" width="8" height="8" fill="#E6F0F7" />
+            <rect x="0" y="5" width="10" height="7" rx="2" fill="#6D5BA6" />
+          </g>
+        ))}
+      </g>
+      <rect x="54" y="216" width="292" height="8" rx="4" fill="#E2E8F0" stroke="#CBD5E1" />
+      <text x="82" y="70" fontFamily="Inter, sans-serif" fontSize="8" fontWeight="700" fill="#0369A1" letterSpacing="1.5">
+        {model.toUpperCase()}
+      </text>
+      <text x="238" y="94" fontFamily="Inter, sans-serif" fontSize="7" fontWeight="700" fill="#475569" letterSpacing="1.2">
+        5-PART
+      </text>
+      <text x="238" y="108" fontFamily="Inter, sans-serif" fontSize="7" fontWeight="700" fill="#B85C4A" letterSpacing="1.2">
+        60 / H
+      </text>
+    </Frame>
+  )
+}
+
 function RapidTestIllustration({ model }) {
   return (
     <Frame ariaLabel={`${model} rapid test cassette illustration`}>
@@ -216,6 +274,7 @@ function PocIllustration({ model }) {
 const ILLUSTRATIONS = {
   chemistry: ChemistryIllustration,
   immunology: ImmunologyIllustration,
+  hematology: HematologyIllustration,
   rapid: RapidTestIllustration,
   poc: PocIllustration,
 }

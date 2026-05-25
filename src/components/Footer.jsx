@@ -9,44 +9,44 @@ const links = [
 export default function Footer() {
   return (
     <footer
-      className="bg-accent-hover border-t border-white/10 py-14 sm:py-16"
+      className="site-footer relative overflow-hidden py-16 sm:py-20"
       role="contentinfo"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-5">
             <img
               src="/assets/logo.png"
               alt="LabSolution Technologies"
-              className="h-8 brightness-0 invert"
+              className="site-footer-logo h-9"
             />
-            <p className="mt-5 font-heading text-white text-2xl sm:text-3xl font-[700] tracking-[-0.02em] leading-tight">
+            <p className="site-footer-heading mt-6 font-heading text-2xl sm:text-3xl font-[700] tracking-[-0.02em] leading-tight">
               Helping you{' '}
               <span className="italic font-[400] text-accent">help</span>{' '}
               people.
             </p>
-            <p className="mt-5 text-white/60 text-sm leading-relaxed max-w-xs">
+            <p className="site-footer-body mt-5 text-sm leading-relaxed max-w-xs">
               Diagnostic equipment and rapid tests for Philippine hospitals
               since 2006.
             </p>
           </div>
 
           <div className="lg:col-span-3">
-            <p className="text-white/50 text-xs uppercase tracking-[0.22em] font-semibold">
+            <p className="site-footer-heading text-xs uppercase tracking-[0.22em] font-semibold">
               Contact
             </p>
             <ul className="mt-5 space-y-3 text-sm">
-              <li className="text-white/80">
+              <li className="site-footer-body">
                 <a
                   href="tel:+63322613819"
-                  className="hover:text-white transition-colors duration-200"
+                  className="site-footer-link transition-colors duration-200"
                 >
                   (032) 261-3819
                 </a>
-                <span className="text-white/40"> / </span>
+                <span className="site-footer-muted"> / </span>
                 <a
                   href="tel:+63325203585"
-                  className="hover:text-white transition-colors duration-200"
+                  className="site-footer-link transition-colors duration-200"
                 >
                   520-3585
                 </a>
@@ -54,7 +54,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:sales.labsolutiontechnologies@gmail.com"
-                  className="text-white/80 hover:text-white transition-colors duration-200"
+                  className="site-footer-link transition-colors duration-200"
                 >
                   sales.labsolutiontechnologies@gmail.com
                 </a>
@@ -64,7 +64,7 @@ export default function Footer() {
                   href="https://www.facebook.com/labsolutiontechnologiesinc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/80 hover:text-white transition-colors duration-200"
+                  className="site-footer-link transition-colors duration-200"
                 >
                   facebook.com/labsolutiontechnologiesinc
                 </a>
@@ -73,39 +73,39 @@ export default function Footer() {
           </div>
 
           <div className="lg:col-span-4">
-            <p className="text-white/50 text-xs uppercase tracking-[0.22em] font-semibold">
+            <p className="site-footer-heading text-xs uppercase tracking-[0.22em] font-semibold">
               Offices
             </p>
-            <ul className="mt-5 space-y-3 text-sm text-white/70">
+            <ul className="site-footer-body mt-5 space-y-3 text-sm">
               <li>
-                <span className="text-white font-semibold">Cebu HQ</span> · 3rd
+                <span className="site-footer-heading font-semibold">Cebu HQ</span> · 3rd
                 Floor ALP Tower, 609 Tres de Abril St.
               </li>
               <li>
-                <span className="text-white font-semibold">Manila</span> · #286
+                <span className="site-footer-heading font-semibold">Manila</span> · #286
                 El Grande Ave., BF Homes, Para&ntilde;aque City
               </li>
               <li>
-                <span className="text-white font-semibold">Davao</span> · Gov.
+                <span className="site-footer-heading font-semibold">Davao</span> · Gov.
                 Generoso St., Osme&ntilde;a, Davao City
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="site-footer-divider mt-14 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-5 text-sm">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-white/50 hover:text-white transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+                className="site-footer-link transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
               >
                 {link.label}
               </a>
             ))}
           </div>
-          <p className="text-white/40 text-xs">
+          <p className="site-footer-copyright text-xs">
             &copy; {new Date().getFullYear()} LabSolution Technologies, Inc.
           </p>
         </div>

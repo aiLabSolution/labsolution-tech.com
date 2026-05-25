@@ -6,6 +6,7 @@ const categories = [
   { key: 'all', label: 'All Products' },
   { key: 'chemistry', label: 'Chemistry' },
   { key: 'immunology', label: 'Immunology' },
+  { key: 'hematology', label: 'Hematology' },
   { key: 'rapid', label: 'Rapid Tests' },
 ]
 
@@ -86,6 +87,21 @@ const products = [
       { label: 'ISE', value: 'Na, K, Cl integrated' },
       { label: 'Sample positions', value: '120' },
       { label: 'Reagents', value: '37 @ 2–8 °C' },
+    ],
+  },
+  {
+    id: 'edan-h60s',
+    category: 'hematology',
+    model: 'EDAN H60S',
+    brand: 'EDAN',
+    tagline: 'Five-part hematology analyzer with 60-sample autoloader',
+    description:
+      'Automated hematology analyzer for low-to-moderate volume laboratories. It combines semiconductor laser flow cytometry for WBC, DIFF, and BASO counting with impedance RBC/PLT counting, cyanide-free HGB measurement, STAT access, and continuous 60-sample loading.',
+    specs: [
+      { label: 'Throughput', value: '60 samples/h' },
+      { label: 'Sample volume', value: '16 µL' },
+      { label: 'Parameters', value: '25 + 8 RUO' },
+      { label: 'Autoloader', value: '60 samples' },
     ],
   },
   {
