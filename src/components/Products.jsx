@@ -17,6 +17,13 @@ const categories = [
     span: 'SNIBE MAGLUMI · 200–450 T/h',
   },
   {
+    title: 'Hematology Analyzers',
+    description:
+      'Five-part hematology systems with autoloading, laser flow cytometry, impedance counting, and low-volume whole-blood sampling.',
+    count: 1,
+    span: 'EDAN · 60 samples/h',
+  },
+  {
     title: 'Rapid Diagnostic Tests',
     description:
       'CE-IVD lateral-flow cassettes for tropical infectious disease screening — dengue, typhoid, malaria.',
@@ -111,7 +118,7 @@ export default function Products() {
               <span className="text-accent">+</span>
             </p>
             <p className="mt-2 text-secondary text-sm uppercase tracking-[0.2em] font-semibold">
-              Documented analyzers and rapid tests · 3 categories
+              Documented analyzers and rapid tests · 4 categories
             </p>
             <p className="mt-3 text-secondary text-sm lg:text-right">
               Reagents, consumables, and extended brand portfolios available on request.

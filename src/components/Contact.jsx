@@ -40,19 +40,26 @@ export default function Contact() {
   const isError = status === 'error'
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-primary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="contact-cta-section relative overflow-hidden py-28 sm:py-36">
+      <div className="contact-cta-bg" aria-hidden="true">
+        <span className="contact-cta-glow contact-cta-glow-a" />
+        <span className="contact-cta-glow contact-cta-glow-b" />
+        <span className="contact-cta-wave" />
+        <span className="contact-cta-particles" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-5">
             <h2
-              className="font-heading font-[800] text-white text-4xl sm:text-5xl lg:text-6xl tracking-[-0.02em] leading-[1.02]"
+              className="contact-cta-heading font-heading font-[800] text-white text-4xl sm:text-5xl lg:text-6xl tracking-[-0.02em] leading-[1.02]"
               data-scoped-reveal
             >
               Ready to upgrade your lab?
             </h2>
 
             <p
-              className="mt-6 text-white/70 text-lg leading-relaxed"
+              className="mt-6 text-white text-lg leading-relaxed"
               data-scoped-reveal
               style={{ '--scoped-reveal-delay': '100ms' }}
             >
@@ -61,12 +68,12 @@ export default function Contact() {
             </p>
 
             <dl
-              className="mt-10 space-y-6 text-white/80"
+              className="mt-10 space-y-6 text-white"
               data-scoped-reveal
               style={{ '--scoped-reveal-delay': '160ms' }}
             >
               <div>
-                <dt className="text-white/50 text-xs uppercase tracking-[0.22em] font-semibold">
+                <dt className="text-white text-xs uppercase tracking-[0.22em] font-semibold">
                   Cebu Headquarters
                 </dt>
                 <dd className="mt-1.5 text-base leading-relaxed">
@@ -77,33 +84,33 @@ export default function Contact() {
               </div>
               <div className="flex flex-wrap gap-x-8 gap-y-3">
                 <div>
-                  <dt className="text-white/50 text-xs uppercase tracking-[0.22em] font-semibold">
+                  <dt className="text-white text-xs uppercase tracking-[0.22em] font-semibold">
                     Phone
                   </dt>
                   <dd className="mt-1.5 text-base font-medium">
                     <a
                       href="tel:+63322613819"
-                      className="hover:text-accent transition-colors duration-200"
+                      className="text-white hover:text-white transition-colors duration-200"
                     >
                       (032) 261-3819
                     </a>
-                    <span className="text-white/40"> / </span>
+                    <span className="text-white"> / </span>
                     <a
                       href="tel:+63325203585"
-                      className="hover:text-accent transition-colors duration-200"
+                      className="text-white hover:text-white transition-colors duration-200"
                     >
                       520-3585
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/50 text-xs uppercase tracking-[0.22em] font-semibold">
+                  <dt className="text-white text-xs uppercase tracking-[0.22em] font-semibold">
                     Email
                   </dt>
                   <dd className="mt-1.5">
                     <a
                       href="mailto:sales.labsolutiontechnologies@gmail.com"
-                      className="text-base font-medium hover:text-accent transition-colors duration-200"
+                      className="text-white text-base font-medium hover:text-white transition-colors duration-200"
                     >
                       sales.labsolutiontechnologies@gmail.com
                     </a>
@@ -121,7 +128,7 @@ export default function Contact() {
             <form
               onSubmit={handleSubmit}
               noValidate
-              className="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8"
+              className="contact-form-card rounded-3xl p-6 sm:p-8"
             >
               <div
                 aria-hidden="true"
@@ -150,7 +157,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-white/70 text-xs uppercase tracking-[0.2em] font-semibold mb-2"
+                    className="contact-form-label block text-xs uppercase tracking-[0.2em] font-semibold mb-2"
                   >
                     Full name
                   </label>
@@ -163,14 +170,14 @@ export default function Contact() {
                     required
                     disabled={isLoading}
                     autoComplete="name"
-                    className="w-full px-4 py-3.5 bg-white/5 text-white placeholder-white/30 border border-white/10 rounded-xl text-base focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
+                    className="contact-form-field w-full px-4 py-3.5 rounded-xl text-base focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
                     placeholder="Dr. Juana dela Cruz"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-white/70 text-xs uppercase tracking-[0.2em] font-semibold mb-2"
+                    className="contact-form-label block text-xs uppercase tracking-[0.2em] font-semibold mb-2"
                   >
                     Email
                   </label>
@@ -183,7 +190,7 @@ export default function Contact() {
                     required
                     disabled={isLoading}
                     autoComplete="email"
-                    className="w-full px-4 py-3.5 bg-white/5 text-white placeholder-white/30 border border-white/10 rounded-xl text-base focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
+                    className="contact-form-field w-full px-4 py-3.5 rounded-xl text-base focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
                     placeholder="lab@hospital.ph"
                   />
                 </div>
@@ -192,10 +199,10 @@ export default function Contact() {
               <div className="mt-4">
                 <label
                   htmlFor="phone"
-                  className="block text-white/70 text-xs uppercase tracking-[0.2em] font-semibold mb-2"
+                  className="contact-form-label block text-xs uppercase tracking-[0.2em] font-semibold mb-2"
                 >
                   Phone{' '}
-                  <span className="normal-case tracking-normal text-white/40 font-normal">
+                  <span className="contact-form-label-note normal-case tracking-normal font-normal">
                     — for faster follow-up
                   </span>
                 </label>
@@ -207,7 +214,7 @@ export default function Contact() {
                   onChange={handleChange}
                   disabled={isLoading}
                   autoComplete="tel"
-                  className="w-full px-4 py-3.5 bg-white/5 text-white placeholder-white/30 border border-white/10 rounded-xl text-base focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
+                  className="contact-form-field w-full px-4 py-3.5 rounded-xl text-base focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
                   placeholder="+63 XXX XXX XXXX"
                 />
               </div>
@@ -215,7 +222,7 @@ export default function Contact() {
               <div className="mt-4">
                 <label
                   htmlFor="message"
-                  className="block text-white/70 text-xs uppercase tracking-[0.2em] font-semibold mb-2"
+                  className="contact-form-label block text-xs uppercase tracking-[0.2em] font-semibold mb-2"
                 >
                   Your laboratory needs
                 </label>
@@ -227,7 +234,7 @@ export default function Contact() {
                   rows={4}
                   required
                   disabled={isLoading}
-                  className="w-full px-4 py-3.5 bg-white/5 text-white placeholder-white/30 border border-white/10 rounded-xl text-base resize-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
+                  className="contact-form-field w-full px-4 py-3.5 rounded-xl text-base resize-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
                   placeholder="Looking for chemistry analyzers for a 200-bed hospital in Cebu..."
                 />
               </div>
@@ -236,7 +243,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isLoading || isSuccess}
-                  className="group inline-flex items-center justify-center gap-2 bg-accent text-white font-semibold px-7 py-3.5 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary focus-visible:outline-none text-base disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="contact-form-submit group inline-flex items-center justify-center gap-2 font-semibold px-7 py-3.5 rounded-full transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none text-base disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isLoading && (
                     <>
@@ -260,7 +267,7 @@ export default function Contact() {
 
                 <a
                   href={mailtoHref}
-                  className="text-white/60 text-sm underline underline-offset-4 decoration-white/30 hover:text-white hover:decoration-white transition-colors duration-200 cursor-pointer"
+                  className="contact-form-direct text-sm underline underline-offset-4 transition-colors duration-200 cursor-pointer"
                 >
                   Or email us directly
                 </a>
@@ -269,7 +276,7 @@ export default function Contact() {
               {isSuccess && (
                 <p
                   role="status"
-                  className="mt-5 text-sm text-white/80 flex items-start gap-2"
+                  className="contact-form-status mt-5 text-sm flex items-start gap-2"
                 >
                   <Check className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                   Thanks — we'll follow up within one business day.
@@ -278,7 +285,7 @@ export default function Contact() {
               {isError && (
                 <p
                   role="alert"
-                  className="mt-5 text-sm text-white/80 flex items-start gap-2"
+                  className="contact-form-status mt-5 text-sm flex items-start gap-2"
                 >
                   <AlertCircle className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                   Something went wrong. Try again or email{' '}

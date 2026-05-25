@@ -189,6 +189,10 @@ export default function About() {
 
         <div className="mt-12 sm:mt-16 text-center">
           <div className="service-motto mx-auto max-w-3xl border-y border-primary/10 py-8 sm:py-10">
+            <div className="service-motto-bg" aria-hidden="true">
+              <div className="service-motto-bg-focus">Service above all.</div>
+              <div className="service-motto-bg-scan" />
+            </div>
             <div
               className="service-motto-line mx-auto mb-5 h-px w-20 bg-cta-hover"
               aria-hidden="true"
@@ -234,7 +238,7 @@ export default function About() {
             {commitments.map((item, index) => (
               <article
                 key={item.label}
-                className="blue-card-depth min-h-[150px] sm:min-h-[165px] bg-gradient-to-br from-cta-hover to-accent-hover text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 grid grid-rows-[auto_auto_1fr] place-items-center text-center"
+                className="blue-card-depth values-card min-h-[150px] sm:min-h-[165px] bg-gradient-to-br from-cta-hover to-accent-hover text-white rounded-2xl px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 grid grid-rows-[auto_auto_1fr] place-items-center text-center"
                 data-scoped-reveal
                 style={{ '--scoped-reveal-delay': `${index * 120}ms` }}
               >
@@ -250,7 +254,7 @@ export default function About() {
           </div>
 
           <div
-            className="blue-card-depth mt-4 bg-gradient-to-br from-cta-hover to-accent-hover text-white rounded-2xl px-5 py-5 sm:px-8 sm:py-6 lg:px-12 lg:py-7"
+            className="blue-card-depth values-card mt-4 bg-gradient-to-br from-cta-hover to-accent-hover text-white rounded-2xl px-5 py-5 sm:px-8 sm:py-6 lg:px-12 lg:py-7"
             data-scoped-reveal
             style={{ '--scoped-reveal-delay': '240ms' }}
           >
