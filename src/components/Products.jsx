@@ -135,7 +135,7 @@ export default function Products() {
             <a
               key={cat.title}
               href={cat.href}
-              className="group grid grid-cols-12 gap-4 sm:gap-6 items-baseline py-6 sm:py-8 border-b border-primary/10 hover:bg-[#e8ffff] transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none -mx-4 px-4 sm:-mx-6 sm:px-6"
+              className="group grid grid-cols-12 gap-4 sm:gap-6 items-baseline py-6 sm:py-8 border-b border-primary/10 hover:bg-cta/10 transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none -mx-4 px-4 sm:-mx-6 sm:px-6"
             >
               <div className="col-span-2 sm:col-span-1">
                 <span className="font-heading text-secondary/60 text-xs font-[500] tabular-nums">
@@ -144,7 +144,7 @@ export default function Products() {
               </div>
 
               <div className="col-span-10 sm:col-span-6 lg:col-span-5">
-                <h3 className="font-heading font-[700] text-primary text-xl sm:text-2xl leading-snug tracking-tight transition-colors duration-200 group-hover:text-[#08b2c3]">
+                <h3 className="font-heading font-[700] text-primary text-xl sm:text-2xl leading-snug tracking-tight transition-colors duration-200 group-hover:text-cta-hover">
                   {cat.title}
                 </h3>
                 <p className="mt-1 text-cta-hover text-xs uppercase tracking-[0.16em] font-semibold">
@@ -157,10 +157,10 @@ export default function Products() {
               </p>
 
               <div className="col-span-12 sm:col-span-1 lg:col-span-2 flex items-center justify-between sm:justify-end gap-3 mt-3 sm:mt-0">
-                <span className="font-heading text-primary text-3xl sm:text-4xl font-[300] tabular-nums tracking-tight transition-colors duration-200 group-hover:text-[#08b2c3]">
+                <span className="font-heading text-primary text-3xl sm:text-4xl font-[300] tabular-nums tracking-tight transition-colors duration-200 group-hover:text-cta-hover">
                   {cat.count}
                 </span>
-                <ArrowUpRight className="w-5 h-5 text-primary/40 group-hover:text-[#08b2c3] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+                <ArrowUpRight className="w-5 h-5 text-primary/40 group-hover:text-cta-hover group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
               </div>
             </a>
           ))}

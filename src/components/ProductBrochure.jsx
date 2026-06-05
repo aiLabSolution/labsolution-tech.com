@@ -514,7 +514,7 @@ export default function ProductBrochure() {
                   onClick={() => setActive(cat.key)}
                   className={`inline-flex items-baseline gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold border transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none ${
                     isActive
-                      ? 'bg-[#08b2c3] text-white border-[#08b2c3]'
+                      ? 'bg-cta-hover text-white border-cta-hover'
                       : 'bg-white text-secondary border-border hover:border-primary/40 hover:text-primary'
                   }`}
                 >
