@@ -22,6 +22,8 @@ function PartnerRow({ ariaHidden = false }) {
           <img
             src={p.logo}
             alt={p.name}
+            width="160"
+            height="64"
             className="partner-logo-image"
             loading="lazy"
             decoding="async"

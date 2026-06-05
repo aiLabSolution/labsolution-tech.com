@@ -29,6 +29,10 @@ export default function Locations() {
         className="locations-map-watermark"
         src="/assets/ph-map.png"
         alt=""
+        width="800"
+        height="800"
+        loading="lazy"
+        decoding="async"
         aria-hidden="true"
       />
 

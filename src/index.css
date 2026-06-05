@@ -136,8 +136,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-image-bg {
   object-position: center center;
-  transform: scale(1.005);
+  transform: scale(1);
   transform-origin: left center;
+}
+
+@media (min-width: 640px) {
+  .hero-image-bg {
+    object-position: center center;
+  }
 }
 
 @media (min-width: 1024px) {

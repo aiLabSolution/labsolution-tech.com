@@ -267,6 +267,8 @@ function ProductVisual({ product, loading = 'lazy', featured = false }) {
       <img
         src={product.image}
         alt={`${product.model} product photo`}
+        width="700"
+        height="700"
         loading={loading}
         decoding="async"
         onLoad={() => setLoaded(true)}
