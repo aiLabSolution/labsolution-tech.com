@@ -119,7 +119,7 @@ export default function About() {
               className="reveal-accent-heading mt-4 font-heading font-[800] text-primary text-4xl sm:text-5xl lg:text-6xl tracking-[-0.02em] leading-[1.05]"
               data-scoped-reveal
             >
-              Eighteen years of quiet work.
+              Twenty years of helping you help people.
             </h2>
 
             <div className="mt-8 space-y-5 text-secondary text-lg leading-relaxed max-w-xl">

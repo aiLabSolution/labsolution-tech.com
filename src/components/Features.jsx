@@ -2,7 +2,7 @@ const features = [
   {
     title: 'Quantitative accuracy.',
     description:
-      'Non-subjective, quantitative results from immunofluorescence analyzers eliminate operator interpretation variability.',
+      'Non-subjective, quantitative results from chemiluminescence analyzers eliminate operator interpretation variability.',
   },
   {
     title: 'Rapid results.',

@@ -3,6 +3,75 @@ import { Send, Check, AlertCircle, Loader2 } from 'lucide-react'
 
 const initialForm = { name: '', email: '', phone: '', message: '', website: '' }
 
+const constellationLines = [
+  { delay: 0.4, d: 'M88 118L168 82L284 122L374 74L492 150' },
+  { delay: 0.8, d: 'M168 82L236 226L354 292L492 150' },
+  { delay: 1.2, d: 'M92 368L236 226L354 292L518 414' },
+  { delay: 1.6, d: 'M236 226L286 438L402 520' },
+]
+
+const constellationDots = [
+  [88, 118, 2],
+  [126, 164, 1.4],
+  [168, 82, 2.4],
+  [214, 142, 1.5],
+  [284, 122, 1.8],
+  [318, 174, 1.3],
+  [374, 74, 2.2],
+  [426, 108, 1.5],
+  [492, 150, 2],
+  [548, 212, 1.4],
+  [236, 226, 2.6],
+  [178, 292, 1.4],
+  [282, 286, 1.5],
+  [354, 292, 2],
+  [426, 328, 1.3],
+  [92, 368, 1.8],
+  [154, 424, 1.5],
+  [518, 414, 2.2],
+  [468, 468, 1.4],
+  [286, 438, 1.8],
+  [342, 468, 1.3],
+  [402, 520, 2],
+  [536, 546, 1.5],
+  [72, 232, 1.2],
+  [122, 258, 1.1],
+  [214, 356, 1.2],
+  [318, 382, 1.1],
+  [392, 214, 1.2],
+  [456, 252, 1.1],
+  [572, 330, 1.2],
+  [588, 478, 1.1],
+]
+
+function ContactConstellation({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 640 620" fill="none" aria-hidden="true">
+      <g className="contact-cta-constellation-lines">
+        {constellationLines.map((line) => (
+          <path
+            key={line.d}
+            style={{ '--line-delay': `${line.delay}s` }}
+            pathLength="1"
+            d={line.d}
+          />
+        ))}
+      </g>
+      <g className="contact-cta-constellation-dots">
+        {constellationDots.map(([cx, cy, r], i) => (
+          <circle
+            key={`${cx}-${cy}`}
+            cx={cx}
+            cy={cy}
+            r={r}
+            style={{ '--dot-delay': `${i * 0.12}s` }}
+          />
+        ))}
+      </g>
+    </svg>
+  )
+}
+
 export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [status, setStatus] = useState('idle') // idle | loading | success | error
@@ -44,8 +113,12 @@ export default function Contact() {
       <div className="contact-cta-bg" aria-hidden="true">
         <span className="contact-cta-glow contact-cta-glow-a" />
         <span className="contact-cta-glow contact-cta-glow-b" />
-        <span className="contact-cta-wave" />
-        <span className="contact-cta-particles" />
+        <span className="contact-cta-mesh" />
+        <span className="contact-cta-breathe contact-cta-breathe-a" />
+        <span className="contact-cta-breathe contact-cta-breathe-b" />
+        <ContactConstellation className="contact-cta-constellation contact-cta-constellation-a" />
+        <ContactConstellation className="contact-cta-constellation contact-cta-constellation-b" />
+        <ContactConstellation className="contact-cta-constellation contact-cta-constellation-c" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, Sparkles } from 'lucide-react'
-import ProductIllustration from './ProductIllustration'
+import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   const [animateHero, setAnimateHero] = useState(false)
@@ -14,110 +13,34 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className={`hero-sequence hero-gradient-bg relative pt-32 pb-16 sm:pt-36 sm:pb-24 bg-surface overflow-hidden ${animateHero ? 'is-running' : ''}`}>
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div className="lg:col-span-7 relative">
-            <div className="flex items-center gap-3 text-secondary text-xs font-semibold uppercase tracking-[0.2em]">
-              <span className="hero-accent-line h-px w-8 bg-cta-hover" aria-hidden="true" />
-              Est. Cebu, 2006
-            </div>
+    <section className={`hero-sequence hero-image-section relative isolate min-h-[680px] overflow-hidden bg-primary pt-32 pb-14 sm:min-h-[720px] sm:pt-40 sm:pb-18 lg:min-h-[760px] ${animateHero ? 'is-running' : ''}`}>
+      <img
+        src="/assets/hero-labsolution-newpic.jpg"
+        alt=""
+        className="hero-image-bg absolute inset-0 -z-30 h-full w-full object-cover"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(8,178,195,0.1)_0%,rgba(8,178,195,0.04)_38%,rgba(8,178,195,0.12)_100%)]" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(232,255,255,0.08)_58%,rgba(8,178,195,0.18)_100%)]" aria-hidden="true" />
 
-            <h1 className="mt-6 font-heading font-[900] text-primary text-[clamp(2.75rem,7vw,6rem)] leading-[0.92] sm:leading-[0.95] tracking-[-0.03em]">
-              <span className="hero-headline-part hero-helping block sm:inline">
-                Helping you
-              </span>{' '}
-              <span className="hero-headline-part hero-help relative inline-block italic font-[700] text-cta-hover">
-                help
-              </span>{' '}
-              <span className="hero-headline-part hero-people inline-block">
-                people.
-              </span>
-            </h1>
-
-            <p className="mt-8 text-secondary text-lg sm:text-xl leading-relaxed max-w-xl">
-              LabSolution Technologies delivers diagnostic equipment and rapid
-              test kits to hospitals and laboratories across the Philippines —
-              backed by world-class manufacturers and 18 years of service.
-            </p>
-
-            <div className="mt-10 flex flex-wrap items-center gap-5">
-              <a
-                href="#brochure"
-                className="group inline-flex items-center gap-2 bg-accent text-white font-semibold px-6 py-3.5 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none text-base"
-              >
-                Browse the catalog
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 text-primary font-semibold text-base underline underline-offset-[6px] decoration-2 decoration-accent/40 hover:decoration-accent transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
-              >
-                Contact Us
-              </a>
-            </div>
-          </div>
-
-          <div className="hero-product-card lg:col-span-5 relative">
-            <div className="relative">
-              <div
-                className="absolute -top-3 -left-3 right-6 bottom-6 bg-accent-soft rounded-[2rem]"
-                aria-hidden="true"
-              />
-              <div className="relative bg-white border border-border rounded-[2rem] overflow-hidden">
-                <div className="relative aspect-[5/3] bg-surface-alt">
-                  <ProductIllustration category="immunology" model="SNIBE MAGLUMI X6" />
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] shadow">
-                    <Sparkles className="w-3 h-3" />
-                    Flagship
-                  </div>
-                  <span className="absolute top-4 right-4 text-[10px] font-semibold text-secondary tracking-[0.14em] uppercase bg-white/90 backdrop-blur px-2.5 py-1 rounded-full border border-border">
-                    Immunology
-                  </span>
-                </div>
-                <div className="p-6 sm:p-7">
-                  <p className="text-xs text-secondary uppercase tracking-[0.18em] font-semibold">
-                    Flagship analyzer
-                  </p>
-                  <p className="mt-1 font-heading font-[700] text-primary text-xl leading-tight">
-                    SNIBE MAGLUMI X6
-                  </p>
-                  <p className="mt-1 font-heading text-secondary text-sm italic">
-                    High-throughput floor-standing CLIA immunoanalyzer
-                  </p>
-                  <dl className="mt-5 grid grid-cols-3 gap-x-3 pt-5 border-t border-border">
-                    <div>
-                      <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
-                        Throughput
-                      </dt>
-                      <dd className="mt-0.5 text-sm font-semibold text-primary">450 T/h</dd>
-                    </div>
-                    <div>
-                      <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
-                        Test menu
-                      </dt>
-                      <dd className="mt-0.5 text-sm font-semibold text-primary">260</dd>
-                    </div>
-                    <div>
-                      <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-secondary">
-                        Walk-away
-                      </dt>
-                      <dd className="mt-0.5 text-sm font-semibold text-primary">2,000</dd>
-                    </div>
-                  </dl>
-                  <a
-                    href="#brochure"
-                    className="mt-5 inline-flex items-center gap-1 text-cta font-semibold text-sm hover:gap-2 transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none"
-                  >
-                    View specifications
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
+      <div className="relative z-10 flex min-h-[calc(680px-9.5rem)] items-end sm:min-h-[calc(720px-11.5rem)] lg:min-h-[calc(760px-12rem)]">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="#brochure"
+              className="group inline-flex items-center gap-2 bg-accent text-white font-semibold px-6 py-3.5 rounded-full shadow-[0_14px_32px_rgba(0,0,0,0.18)] hover:bg-accent-hover transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none text-base"
+            >
+              Browse the catalog
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border border-white/56 bg-white/82 px-6 py-3.5 text-primary font-semibold text-base shadow-[0_14px_32px_rgba(0,0,0,0.14)] backdrop-blur-sm hover:border-white hover:bg-white transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+            >
+              Contact Us
+            </a>
           </div>
         </div>
-
       </div>
     </section>
   )
