@@ -134,6 +134,25 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
+.hero-image-bg {
+  object-position: center center;
+  transform: scale(1);
+  transform-origin: left center;
+}
+
+@media (min-width: 640px) {
+  .hero-image-bg {
+    object-position: center center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-image-bg {
+    object-position: center center;
+    transform: scale(1.015);
+  }
+}
+
 .hero-help {
   font-size: 1.08em;
   text-shadow:
@@ -163,8 +182,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-cta-glow,
-.contact-cta-wave,
-.contact-cta-particles {
+.contact-cta-mesh,
+.contact-cta-breathe,
+.contact-cta-constellation {
   position: absolute;
   display: block;
 }
@@ -191,26 +211,95 @@ h1, h2, h3, h4, h5, h6 {
   background: radial-gradient(circle, rgba(255,255,255,0.14), rgba(127,232,242,0.11) 48%, transparent 72%);
 }
 
-.contact-cta-particles {
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.78) 0.65px, transparent 1px),
-    radial-gradient(circle at 9px 11px, rgba(232,255,255,0.62) 0.5px, transparent 0.9px);
-  background-size: 18px 18px, 28px 28px;
-  opacity: 0.15;
+.contact-cta-mesh {
+  top: -3rem;
+  right: -8rem;
+  width: min(46rem, 88vw);
+  height: min(30rem, 58vw);
+  background-image: url("data:image/svg+xml,%3Csvg width='760' height='430' viewBox='0 0 760 430' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='contactDots' width='30' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='4' cy='4' r='1.1' fill='%23ffffff' fill-opacity='0.22'/%3E%3Ccircle cx='19' cy='15' r='0.8' fill='%23eaffff' fill-opacity='0.16'/%3E%3C/pattern%3E%3C/defs%3E%3Cpath d='M0 198 C126 86 252 310 378 198 S630 86 756 198 S1008 310 1134 198 L1134 286 C1008 358 882 166 756 286 S504 358 378 286 S126 166 0 286 Z' fill='url(%23contactDots)' opacity='0.8'/%3E%3Cpath d='M0 210 C126 104 252 292 378 210 S630 104 756 210 S1008 292 1134 210' stroke='%23ffffff' stroke-opacity='0.16' stroke-width='1'/%3E%3Cpath d='M0 250 C126 156 252 326 378 250 S630 156 756 250 S1008 326 1134 250' stroke='%23eaffff' stroke-opacity='0.11' stroke-width='0.8'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 760px 100%;
+  opacity: 0.5;
+  filter: blur(0.2px);
   mix-blend-mode: screen;
+  animation: features-mesh-drift 28s linear infinite;
 }
 
-.contact-cta-wave {
-  left: -10%;
-  right: -10%;
-  top: 18%;
-  height: 62%;
-  background-image: url("data:image/svg+xml,%3Csvg width='1200' height='360' viewBox='0 0 1200 360' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 196C128 100 250 236 390 154C530 72 634 156 762 196C890 236 1002 112 1200 160' stroke='%23ffffff' stroke-opacity='0.12' stroke-width='2'/%3E%3Cpath d='M0 244C156 154 268 286 420 214C572 142 684 218 824 250C964 282 1050 202 1200 214' stroke='%23e8ffff' stroke-opacity='0.10' stroke-width='1.4'/%3E%3Cpath d='M0 132C134 76 278 152 410 118C552 80 676 96 802 142C928 188 1046 86 1200 104' stroke='%23ffffff' stroke-opacity='0.08' stroke-width='1'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-size: 1200px 100%;
-  opacity: 0.55;
-  animation: contact-cta-wave-drift 24s linear infinite;
+.contact-cta-breathe {
+  border-radius: 9999px;
+  filter: blur(34px);
+  mix-blend-mode: screen;
+  animation: features-blob-breathe 9s ease-in-out infinite;
+}
+
+.contact-cta-breathe-a {
+  right: 10%;
+  top: 10%;
+  width: min(30rem, 76vw);
+  height: min(30rem, 76vw);
+  background: radial-gradient(circle, rgba(255,255,255,0.14), rgba(127,232,242,0.08) 44%, transparent 72%);
+  opacity: 0.82;
+  animation-delay: -2.5s;
+}
+
+.contact-cta-breathe-b {
+  left: 28%;
+  bottom: 4%;
+  width: min(24rem, 64vw);
+  height: min(24rem, 64vw);
+  background: radial-gradient(circle, rgba(232,255,255,0.12), rgba(127,232,242,0.08) 42%, transparent 70%);
+  opacity: 0.64;
+  animation-delay: -6s;
+}
+
+.contact-cta-constellation {
+  width: min(36rem, 78vw);
+  height: min(36rem, 78vw);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: features-constellation-float 16s ease-in-out infinite;
+}
+
+.contact-cta-constellation-a {
+  right: -4rem;
+  top: 2rem;
+}
+
+.contact-cta-constellation-b {
+  left: -8rem;
+  bottom: -8rem;
+  opacity: 0.68;
+  animation-delay: -7s;
+}
+
+.contact-cta-constellation-c {
+  left: -5rem;
+  top: -7rem;
+  width: min(30rem, 72vw);
+  height: min(30rem, 72vw);
+  opacity: 0.86;
+  animation-delay: -3.5s;
+}
+
+.contact-cta-constellation-lines path {
+  stroke: rgba(232, 255, 255, 0.42);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: features-line-connect 5.8s ease-in-out infinite;
+  animation-delay: var(--line-delay);
+}
+
+.contact-cta-constellation-dots circle {
+  fill: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: features-dot-sequence 5.8s ease-in-out infinite;
+  animation-delay: var(--dot-delay);
 }
 
 .contact-cta-heading {
@@ -383,12 +472,58 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 255, 255, 0.28);
 }
 
+.brochure-cta-button-pulse {
+  animation: brochure-cta-button-pulse 2.4s ease-in-out infinite;
+}
+
+.brochure-cta-button-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+  animation: brochure-cta-button-ring 2.4s ease-in-out infinite;
+}
+
+.brochure-cta-button-pulse:hover {
+  animation-play-state: paused;
+}
+
 @keyframes brochure-cta-gradient {
   0% {
     background-position: 0% 45%;
   }
   100% {
     background-position: 100% 55%;
+  }
+}
+
+@keyframes brochure-cta-button-pulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  45% {
+    transform: translateY(-1px) scale(1.025);
+  }
+  70% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes brochure-cta-button-ring {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  38% {
+    opacity: 0.72;
+  }
+  76%, 100% {
+    opacity: 0;
+    transform: scale(1.14);
   }
 }
 
@@ -441,7 +576,7 @@ h1, h2, h3, h4, h5, h6 {
 .features-ambient-grid {
   background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.34) 1px, transparent 0);
   background-size: 28px 28px;
-  opacity: 0.035;
+  opacity: 0.07;
   z-index: 0;
 }
 
@@ -459,8 +594,8 @@ h1, h2, h3, h4, h5, h6 {
   left: max(-8rem, -14vw);
   width: min(40rem, 96vw);
   height: min(26rem, 68vw);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.13), rgba(127, 232, 242, 0.07) 44%, transparent 70%);
-  opacity: 0.72;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), rgba(127, 232, 242, 0.1) 44%, transparent 70%);
+  opacity: 0.86;
 }
 
 .features-ambient-glow-side {
@@ -468,8 +603,8 @@ h1, h2, h3, h4, h5, h6 {
   top: 24%;
   width: min(34rem, 78vw);
   height: min(34rem, 78vw);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.09), rgba(127, 232, 242, 0.08) 42%, transparent 72%);
-  opacity: 0.58;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), rgba(127, 232, 242, 0.11) 42%, transparent 72%);
+  opacity: 0.74;
 }
 
 .features-breathe-blob {
@@ -487,8 +622,8 @@ h1, h2, h3, h4, h5, h6 {
   top: 6%;
   width: min(30rem, 78vw);
   height: min(30rem, 78vw);
-  background: radial-gradient(circle, rgba(127,232,242,0.15), rgba(127,232,242,0.05) 44%, transparent 72%);
-  opacity: 0.72;
+  background: radial-gradient(circle, rgba(127,232,242,0.2), rgba(127,232,242,0.08) 44%, transparent 72%);
+  opacity: 0.88;
   animation-delay: -3s;
 }
 
@@ -497,7 +632,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 6%;
   width: min(26rem, 70vw);
   height: min(26rem, 70vw);
-  background: radial-gradient(circle, rgba(15,169,186,0.20), rgba(127,232,242,0.06) 46%, transparent 74%);
+  background: radial-gradient(circle, rgba(15,169,186,0.24), rgba(127,232,242,0.09) 46%, transparent 74%);
   opacity: 1;
   animation-delay: -5.5s;
 }
@@ -507,8 +642,8 @@ h1, h2, h3, h4, h5, h6 {
   top: 42%;
   width: min(22rem, 62vw);
   height: min(22rem, 62vw);
-  background: radial-gradient(circle, rgba(255,255,255,0.08), rgba(127,232,242,0.05) 42%, transparent 70%);
-  opacity: 0.42;
+  background: radial-gradient(circle, rgba(255,255,255,0.12), rgba(127,232,242,0.08) 42%, transparent 70%);
+  opacity: 0.62;
   animation-delay: -7s;
 }
 
@@ -522,7 +657,7 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url("data:image/svg+xml,%3Csvg width='760' height='430' viewBox='0 0 760 430' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='featureDots' width='30' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='4' cy='4' r='1.1' fill='%23ffffff' fill-opacity='0.22'/%3E%3Ccircle cx='19' cy='15' r='0.8' fill='%23eaffff' fill-opacity='0.16'/%3E%3C/pattern%3E%3C/defs%3E%3Cpath d='M0 198 C126 86 252 310 378 198 S630 86 756 198 S1008 310 1134 198 L1134 286 C1008 358 882 166 756 286 S504 358 378 286 S126 166 0 286 Z' fill='url(%23featureDots)' opacity='0.8'/%3E%3Cpath d='M0 210 C126 104 252 292 378 210 S630 104 756 210 S1008 292 1134 210' stroke='%23ffffff' stroke-opacity='0.16' stroke-width='1'/%3E%3Cpath d='M0 250 C126 156 252 326 378 250 S630 156 756 250 S1008 326 1134 250' stroke='%23eaffff' stroke-opacity='0.11' stroke-width='0.8'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-size: 760px 100%;
-  opacity: 0.28;
+  opacity: 0.44;
   filter: blur(0.2px);
   mix-blend-mode: screen;
   z-index: 0;
@@ -544,7 +679,7 @@ h1, h2, h3, h4, h5, h6 {
   left: -8rem;
   width: min(31rem, 76vw);
   height: min(31rem, 78vw);
-  opacity: 0.62;
+  opacity: 0.82;
   animation-delay: -5s;
 }
 
@@ -564,7 +699,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .features-constellation-lines path {
-  stroke: rgba(232, 255, 255, 0.22);
+  stroke: rgba(232, 255, 255, 0.34);
   stroke-width: 1;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -575,7 +710,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .features-constellation-dot {
-  fill: rgba(255, 255, 255, 0.58);
+  fill: rgba(255, 255, 255, 0.76);
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
@@ -584,7 +719,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .features-constellation-dust circle {
-  fill: rgba(127, 232, 242, 0.42);
+  fill: rgba(232, 255, 255, 0.58);
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
@@ -597,7 +732,7 @@ h1, h2, h3, h4, h5, h6 {
     radial-gradient(circle at 1px 1px, rgba(255,255,255,0.95) 0.65px, transparent 0.95px),
     radial-gradient(circle at 8px 9px, rgba(232,255,255,0.85) 0.5px, transparent 0.85px);
   background-size: 14px 14px, 20px 20px;
-  opacity: 0.095;
+  opacity: 0.14;
   mix-blend-mode: screen;
   z-index: 0;
 }
@@ -1191,15 +1326,6 @@ p.site-footer-heading {
   }
 }
 
-@keyframes contact-cta-wave-drift {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 1200px 0;
-  }
-}
-
 @keyframes service-motto-focus-pulse {
   0%, 100% {
     opacity: 0.34;
@@ -1236,12 +1362,30 @@ p.site-footer-heading {
     animation: none;
   }
 
+  .brochure-cta-button-pulse,
+  .brochure-cta-button-pulse::after {
+    animation: none;
+  }
+
   .partners-breathing-blob {
     animation: none;
   }
 
-  .contact-cta-wave {
+  .contact-cta-mesh,
+  .contact-cta-breathe,
+  .contact-cta-constellation,
+  .contact-cta-constellation-lines path,
+  .contact-cta-constellation-dots circle {
     animation: none;
+  }
+
+  .contact-cta-constellation-lines path {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+
+  .contact-cta-constellation-dots circle {
+    opacity: 1;
   }
 
   .service-motto-bg-focus,

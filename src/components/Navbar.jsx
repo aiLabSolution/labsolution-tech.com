@@ -26,6 +26,10 @@ export default function Navbar() {
           <img
             src="/assets/logo.png"
             alt="LabSolution Technologies"
+            width="160"
+            height="36"
+            loading="eager"
+            decoding="async"
             className="h-8 sm:h-9"
           />
         </a>

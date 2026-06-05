@@ -1,16 +1,18 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { ArrowUpRight, Search, Sparkles } from 'lucide-react'
 import ProductIllustration from './ProductIllustration'
 
 const categories = [
-  { key: 'all', label: 'All Products' },
-  { key: 'chemistry', label: 'Chemistry' },
-  { key: 'immunology', label: 'Immunology' },
-  { key: 'hematology', label: 'Hematology' },
-  { key: 'rapid', label: 'Rapid Tests' },
+  { key: 'all', label: 'All Products', anchorId: 'brochure' },
+  { key: 'chemistry', label: 'Chemistry', anchorId: 'chemistry-analyzers' },
+  { key: 'immunology', label: 'Immunology', anchorId: 'clia-immunoassay' },
+  { key: 'hematology', label: 'Hematology', anchorId: 'hematology-analyzers' },
+  { key: 'rapid', label: 'Rapid Tests', anchorId: 'rapid-diagnostic-tests' },
 ]
 
 const categoryLabel = (key) => categories.find((c) => c.key === key)?.label ?? key
+const categoryKeyForHash = (hash) =>
+  categories.find((cat) => cat.anchorId === hash.replace('#', ''))?.key
 
 const products = [
   {
@@ -27,6 +29,7 @@ const products = [
       { label: 'Reagents', value: '20 refrigerated' },
       { label: 'Footprint', value: '< 0.68 m²' },
     ],
+    image: '/assets/products/photos/snibe-maglumi-x3.png',
   },
   {
     id: 'snibe-maglumi-x6',
@@ -43,6 +46,7 @@ const products = [
       { label: 'Walk-away', value: '2,000 tests' },
     ],
     highlight: true,
+    image: '/assets/products/photos/snibe-maglumi-x6.png',
   },
   {
     id: 'diasys-respons-240c',
@@ -58,6 +62,7 @@ const products = [
       { label: 'Sample volume', value: '2–35 µL' },
       { label: 'Reagents', value: '36 + 3 ISE' },
     ],
+    image: '/assets/products/photos/diasys-respons-240c.png',
   },
   {
     id: 'diasys-respons-420c',
@@ -73,6 +78,7 @@ const products = [
       { label: 'Sample tray', value: '102 positions' },
       { label: 'Reagent tray', value: '42 @ 2–8 °C' },
     ],
+    image: '/assets/products/photos/diasys-respons-420c.png',
   },
   {
     id: 'diasys-respons-600c',
@@ -88,6 +94,7 @@ const products = [
       { label: 'Sample positions', value: '120' },
       { label: 'Reagents', value: '37 @ 2–8 °C' },
     ],
+    image: '/assets/products/photos/diasys-respons-600c.png',
   },
   {
     id: 'edan-h60s',
@@ -103,6 +110,7 @@ const products = [
       { label: 'Parameters', value: '25 + 8 RUO' },
       { label: 'Autoloader', value: '60 samples' },
     ],
+    image: '/assets/products/photos/edan-h60s.png',
   },
   {
     id: 'medica-easylyte',
@@ -118,6 +126,48 @@ const products = [
       { label: 'Pack life', value: '≈1,200 samples' },
       { label: 'Configurations', value: '4 ISE sets' },
     ],
+    image: '/assets/products/photos/medica-easylyte.png',
+  },
+  {
+    id: 'seamaty-se1-draft',
+    category: 'chemistry',
+    model: 'Seamaty SE1',
+    brand: 'Seamaty',
+    tagline: 'Portable POC electrolyte analyzer',
+    description:
+      'Handheld ISE electrolyte testing for bedside, urgent care, clinic, and satellite laboratory use. SE1 supports rapid whole-blood electrolyte assessment with single-use test cards, internal calibration, LIS connectivity, and an integrated thermal printer for point-of-care documentation.',
+    specs: [
+      { label: 'Method', value: 'ISE' },
+      { label: 'Result time', value: '4 min' },
+      { label: 'Sample', value: '80–120 µL' },
+      { label: 'Parameters', value: 'K, Na, Cl, Ca, pH' },
+    ],
+    overview:
+      'Compact electrolyte analysis platform designed to reduce sample transport and turnaround time in patient-side workflows.',
+    keyFeatures: [
+      'Handheld, battery-powered design for point-of-care testing',
+      'Three-step workflow: add sample, insert cartridge, read result',
+      'Single-use multi-parameter test cards for flexible clinical needs',
+      'Touchscreen interface with built-in thermal printer',
+    ],
+    technicalSpecifications: [
+      'Sample type: whole blood',
+      'Sample volume: 80–120 µL',
+      'Display: 4.3-inch IPS touchscreen',
+      'Connectivity: USB Type-C, Wi-Fi, bi-directional LIS',
+      'Storage: up to 500,000 test results',
+      'Weight: 600 g',
+    ],
+    clinicalApplications: [
+      'Bedside electrolyte assessment',
+      'Emergency and urgent care decision support',
+      'Physician office and satellite laboratory testing',
+      'Patient-side monitoring where rapid turnaround is required',
+    ],
+    referenceUrl: 'https://en.seamaty.com/index.php?s=/sys/593.html',
+    draft: true,
+    illustration: 'poc',
+    image: '/assets/products/photos/seamaty-se1.png',
   },
   {
     id: 'bionime-ge100',
@@ -134,6 +184,7 @@ const products = [
       { label: 'Memory', value: '500 results' },
     ],
     illustration: 'poc',
+    image: '/assets/products/photos/bionime-ge100.png',
   },
   {
     id: 'lifotronic-h8',
@@ -149,6 +200,7 @@ const products = [
       { label: 'Range', value: '3 – 18 % HbA1c' },
       { label: 'Column life', value: '≥ 8,000 tests' },
     ],
+    image: '/assets/products/photos/lifotronic-h8.png',
   },
   {
     id: 'ctk-dengue-duo',
@@ -164,6 +216,7 @@ const products = [
       { label: 'Pack', value: '30 tests' },
       { label: 'Certification', value: 'CE-IVD' },
     ],
+    image: '/assets/products/photos/ctk-dengue-duo.png',
   },
   {
     id: 'ctk-typhoid',
@@ -179,6 +232,7 @@ const products = [
       { label: 'Pack', value: '30 tests' },
       { label: 'Certification', value: 'CE-IVD' },
     ],
+    image: '/assets/products/photos/ctk-typhoid.png',
   },
   {
     id: 'ctk-malaria',
@@ -194,10 +248,42 @@ const products = [
       { label: 'Result', value: '15–20 min' },
       { label: 'Certification', value: 'CE-IVD' },
     ],
+    image: '/assets/products/photos/ctk-malaria.png',
   },
 ]
 
 const featured = products.find((p) => p.highlight) ?? products[0]
+
+function ProductVisual({ product, loading = 'lazy', featured = false }) {
+  const [loaded, setLoaded] = useState(false)
+  const [failed, setFailed] = useState(false)
+
+  if (!product.image || failed) {
+    return <ProductIllustration category={product.illustration ?? product.category} model={product.model} />
+  }
+
+  return (
+    <div className="flex h-full w-full items-center justify-center p-6 sm:p-8">
+      <img
+        src={product.image}
+        alt={`${product.model} product photo`}
+        width="700"
+        height="700"
+        loading={loading}
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        onError={() => setFailed(true)}
+        className={`product-photo object-contain transition-opacity duration-500 ${
+          featured
+            ? 'h-[22rem] w-[22rem] translate-y-8 sm:h-[30rem] sm:w-[30rem] sm:translate-y-12'
+            : 'h-[13rem] w-[13rem] sm:h-[14rem] sm:w-[14rem]'
+        } ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+    </div>
+  )
+}
 
 function FeaturedSpotlight({ product }) {
   return (
@@ -206,7 +292,7 @@ function FeaturedSpotlight({ product }) {
         <div className="lg:sticky lg:top-28">
           <div className="inline-flex items-center gap-2 bg-white border border-border text-secondary text-xs font-semibold px-3 py-1.5 rounded-full mb-5 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            New · In stock · Manila warehouse
+            New · In stock
           </div>
 
           <p className="text-cta font-semibold text-xs tracking-[0.2em] uppercase">Featured</p>
@@ -253,13 +339,13 @@ function FeaturedSpotlight({ product }) {
         <div className="relative bg-white border border-border rounded-2xl overflow-hidden shadow-sm">
           <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] shadow">
             <Sparkles className="w-3 h-3" />
-            Flagship
+            Featured
           </div>
           <span className="absolute top-4 right-4 z-10 text-[10px] font-semibold text-secondary tracking-[0.14em] uppercase bg-white/90 backdrop-blur px-2.5 py-1 rounded-full border border-border">
             {categoryLabel(product.category)}
           </span>
-          <div className="aspect-[5/3] bg-surface-alt">
-            <ProductIllustration category={product.illustration ?? product.category} model={product.model} />
+          <div className="aspect-[5/3] bg-transparent">
+            <ProductVisual product={product} loading="eager" featured />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-border divide-x divide-border">
             {product.specs.map((spec) => (
@@ -286,12 +372,12 @@ function ProductCard({ product }) {
           : 'border-border hover:border-primary/20'
       }`}
     >
-      <div className="relative aspect-[5/3] bg-surface-alt border-b border-border">
-        <ProductIllustration category={product.illustration ?? product.category} model={product.model} />
+      <div className="relative aspect-[5/3] bg-transparent border-b border-border">
+        <ProductVisual product={product} />
         {product.highlight && (
           <div className="absolute top-3 left-3 inline-flex items-center gap-1 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] shadow">
             <Sparkles className="w-3 h-3" />
-            Flagship
+            Featured
           </div>
         )}
         <span className="absolute top-3 right-3 text-[10px] font-semibold text-secondary tracking-[0.14em] uppercase bg-white/90 backdrop-blur px-2.5 py-1 rounded-full border border-border">
@@ -320,7 +406,7 @@ function ProductCard({ product }) {
           ))}
         </dl>
 
-        <div className="mt-6 pt-1 flex items-center justify-between">
+        <div className="mt-auto pt-6 flex items-center justify-between">
           <a
             href="#contact"
             className="text-sm font-semibold text-cta inline-flex items-center gap-1 hover:gap-2 transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none"
@@ -337,6 +423,20 @@ function ProductCard({ product }) {
 export default function ProductBrochure() {
   const [active, setActive] = useState('all')
   const [query, setQuery] = useState('')
+
+  useEffect(() => {
+    const syncCategoryFromHash = () => {
+      const nextCategory = categoryKeyForHash(window.location.hash)
+      if (nextCategory) {
+        setActive(nextCategory)
+        setQuery('')
+      }
+    }
+
+    syncCategoryFromHash()
+    window.addEventListener('hashchange', syncCategoryFromHash)
+    return () => window.removeEventListener('hashchange', syncCategoryFromHash)
+  }, [])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -368,8 +468,9 @@ export default function ProductBrochure() {
               <span className="italic text-cta">Philippine labs.</span>
             </h2>
             <p className="mt-5 text-secondary text-base sm:text-lg leading-relaxed">
-              Detailed specifications for the analyzers and rapid tests we actively represent.
-              Reagents, consumables, and extended brand portfolios available on request.
+              Detailed specifications for the analyzers and rapid tests we actively represent. This
+              catalog highlights selected products. Additional brands, reagents, and consumables are
+              available upon request.
             </p>
           </div>
           <div className="inline-flex items-center gap-2 self-start lg:self-end bg-accent-soft border border-accent/20 text-accent text-xs font-semibold px-4 py-2 rounded-full">
@@ -378,6 +479,14 @@ export default function ProductBrochure() {
         </div>
 
         <FeaturedSpotlight product={featured} />
+
+        <div className="relative h-0" aria-hidden="true">
+          {categories
+            .filter((cat) => cat.key !== 'all')
+            .map((cat) => (
+              <span key={cat.anchorId} id={cat.anchorId} className="absolute -top-28 scroll-mt-32" />
+            ))}
+        </div>
 
         <div className="mt-16 sm:mt-20 flex flex-col lg:flex-row gap-4 mb-10">
           <div className="flex-1 relative">
@@ -407,7 +516,7 @@ export default function ProductBrochure() {
                   onClick={() => setActive(cat.key)}
                   className={`inline-flex items-baseline gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold border transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none ${
                     isActive
-                      ? 'bg-primary text-white border-primary'
+                      ? 'bg-cta-hover text-white border-cta-hover'
                       : 'bg-white text-secondary border-border hover:border-primary/40 hover:text-primary'
                   }`}
                 >
@@ -446,13 +555,14 @@ export default function ProductBrochure() {
               Can't see what you need?
             </h3>
             <p className="mt-3 text-white leading-relaxed">
-              We carry extended ranges in reagents, consumables, and custom configurations. Contact
-              us now for a tailored proposal.
+              Our website features selected analyzers, rapid tests, and diagnostic solutions. We
+              also carry additional brands, reagents, consumables, and customized laboratory
+              requirements. Contact us for the complete product list or a tailored recommendation.
             </p>
           </div>
           <a
             href="#contact"
-            className="brochure-cta-button relative z-10 shrink-0 inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-md transition-colors duration-200 text-sm cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            className="brochure-cta-button brochure-cta-button-pulse relative z-10 shrink-0 inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-md transition-all duration-200 text-sm cursor-pointer shadow-[0_0_0_1px_rgba(255,255,255,0.38),0_14px_34px_rgba(255,255,255,0.24),0_18px_46px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.56),0_18px_42px_rgba(255,255,255,0.34),0_22px_56px_rgba(0,0,0,0.2)] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
           >
             Contact Us
             <ArrowUpRight className="w-4 h-4" />

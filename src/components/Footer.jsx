@@ -18,6 +18,10 @@ export default function Footer() {
             <img
               src="/assets/logo.png"
               alt="LabSolution Technologies"
+              width="160"
+              height="36"
+              loading="lazy"
+              decoding="async"
               className="site-footer-logo h-9"
             />
             <p className="site-footer-heading mt-6 font-heading text-2xl sm:text-3xl font-[700] tracking-[-0.02em] leading-tight">
