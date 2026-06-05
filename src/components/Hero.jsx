@@ -13,7 +13,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className={`hero-sequence hero-image-section relative isolate min-h-[650px] overflow-hidden bg-primary pt-28 pb-10 sm:min-h-[720px] sm:pt-40 sm:pb-18 lg:min-h-[760px] ${animateHero ? 'is-running' : ''}`}>
+    <section className={`hero-sequence hero-image-section relative isolate min-h-0 overflow-hidden bg-cta pt-24 pb-8 min-[769px]:min-h-[720px] min-[769px]:bg-primary min-[769px]:pt-40 min-[769px]:pb-18 lg:min-h-[760px] ${animateHero ? 'is-running' : ''}`}>
       <picture aria-hidden="true">
         <source
           media="(max-width: 639px)"
@@ -27,13 +27,13 @@ export default function Hero() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="hero-image-bg absolute inset-0 -z-30 h-full w-full object-cover"
+          className="hero-image-bg"
         />
       </picture>
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(8,178,195,0.1)_0%,rgba(8,178,195,0.04)_38%,rgba(8,178,195,0.12)_100%)]" aria-hidden="true" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(232,255,255,0.08)_58%,rgba(8,178,195,0.18)_100%)]" aria-hidden="true" />
 
-      <div className="relative z-10 flex min-h-[calc(650px-8rem)] items-end sm:min-h-[calc(720px-11.5rem)] lg:min-h-[calc(760px-12rem)]">
+      <div className="relative z-10 mt-4 min-[769px]:mt-0 min-[769px]:flex min-[769px]:min-h-[calc(720px-11.5rem)] min-[769px]:items-end lg:min-h-[calc(760px-12rem)]">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <a
