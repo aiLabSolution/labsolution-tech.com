@@ -1,12 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
+import { products } from './ProductBrochure'
+
+// Counts are derived from the single brochure catalog (ProductBrochure.jsx `products`)
+// so this headline strip and the brochure can never drift out of sync.
+const countForCategory = (key) => products.filter((p) => p.category === key).length
 
 const categories = [
   {
     title: 'Chemistry Analyzers',
     description:
       'Random-access clinical chemistry, direct-ISE electrolytes, HPLC HbA1c, and point-of-care glucose monitoring.',
-    count: 7,
+    categoryKey: 'chemistry',
     span: 'DiaSys · Medica · Seamaty · Bionime · Lifotronic',
     href: '#chemistry-analyzers',
   },
@@ -14,7 +19,7 @@ const categories = [
     title: 'CLIA Immunoassay',
     description:
       'Fully-automated chemiluminescence immunoassay analyzers — direct ABEI labeling, 200+ parameter menus, TLA-ready.',
-    count: 2,
+    categoryKey: 'immunology',
     span: 'SNIBE MAGLUMI · 200–450 T/h',
     href: '#clia-immunoassay',
   },
@@ -22,7 +27,7 @@ const categories = [
     title: 'Hematology Analyzers',
     description:
       'Five-part hematology systems with autoloading, laser flow cytometry, impedance counting, and low-volume whole-blood sampling.',
-    count: 1,
+    categoryKey: 'hematology',
     span: 'EDAN · 60 samples/h',
     href: '#hematology-analyzers',
   },
@@ -30,7 +35,7 @@ const categories = [
     title: 'Rapid Diagnostic Tests',
     description:
       'CE-IVD lateral-flow cassettes for tropical infectious disease screening — dengue, typhoid, malaria.',
-    count: 3,
+    categoryKey: 'rapid',
     span: 'CTK OnSite · 15–25 min',
     href: '#rapid-diagnostic-tests',
   },
@@ -105,7 +110,7 @@ function CountUpNumber({ value }) {
 }
 
 export default function Products() {
-  const totalCount = categories.reduce((sum, c) => sum + c.count, 0)
+  const totalCount = products.length
 
   return (
     <section id="products" className="py-20 sm:py-28 bg-white">
@@ -122,7 +127,7 @@ export default function Products() {
               <span className="text-accent">+</span>
             </p>
             <p className="mt-2 text-secondary text-sm uppercase tracking-[0.2em] font-semibold">
-              Documented analyzers and rapid tests · 4 categories
+              Documented analyzers and rapid tests · {categories.length} categories
             </p>
             <p className="mt-3 text-secondary text-sm lg:text-right">
               Reagents, consumables, and extended brand portfolios available on request.
@@ -158,7 +163,7 @@ export default function Products() {
 
               <div className="col-span-12 sm:col-span-1 lg:col-span-2 flex items-center justify-between sm:justify-end gap-3 mt-3 sm:mt-0">
                 <span className="font-heading text-primary text-3xl sm:text-4xl font-[300] tabular-nums tracking-tight transition-colors duration-200 group-hover:text-cta-hover">
-                  {cat.count}
+                  {countForCategory(cat.categoryKey)}
                 </span>
                 <ArrowUpRight className="w-5 h-5 text-primary/40 group-hover:text-cta-hover group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
               </div>

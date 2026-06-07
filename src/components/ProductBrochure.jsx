@@ -14,7 +14,7 @@ const categoryLabel = (key) => categories.find((c) => c.key === key)?.label ?? k
 const categoryKeyForHash = (hash) =>
   categories.find((cat) => cat.anchorId === hash.replace('#', ''))?.key
 
-const products = [
+export const products = [
   {
     id: 'snibe-maglumi-x3',
     category: 'immunology',
@@ -320,14 +320,14 @@ function FeaturedSpotlight({ product }) {
           <div className="mt-7 flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-cta hover:bg-cta-hover text-white font-semibold text-sm px-5 py-3 rounded-md transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none"
+              className="inline-flex items-center gap-2 bg-cta hover:bg-cta-hover text-white font-semibold text-sm px-5 py-3 rounded-full transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none"
             >
               Book a demo
               <ArrowUpRight className="w-4 h-4" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-white border border-border text-primary hover:border-primary/40 font-semibold text-sm px-5 py-3 rounded-md transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none"
+              className="inline-flex items-center gap-2 bg-white border border-border text-primary hover:border-primary/40 font-semibold text-sm px-5 py-3 rounded-full transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-cta focus-visible:outline-none"
             >
               Request datasheet
             </a>
@@ -337,10 +337,6 @@ function FeaturedSpotlight({ product }) {
 
       <div className="lg:col-span-7">
         <div className="relative bg-white border border-border rounded-2xl overflow-hidden shadow-sm">
-          <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] shadow">
-            <Sparkles className="w-3 h-3" />
-            Featured
-          </div>
           <span className="absolute top-4 right-4 z-10 text-[10px] font-semibold text-secondary tracking-[0.14em] uppercase bg-white/90 backdrop-blur px-2.5 py-1 rounded-full border border-border">
             {categoryLabel(product.category)}
           </span>
@@ -562,7 +558,7 @@ export default function ProductBrochure() {
           </div>
           <a
             href="#contact"
-            className="brochure-cta-button brochure-cta-button-pulse relative z-10 shrink-0 inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-md transition-all duration-200 text-sm cursor-pointer shadow-[0_0_0_1px_rgba(255,255,255,0.38),0_14px_34px_rgba(255,255,255,0.24),0_18px_46px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.56),0_18px_42px_rgba(255,255,255,0.34),0_22px_56px_rgba(0,0,0,0.2)] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            className="brochure-cta-button relative z-10 shrink-0 inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-full transition-all duration-200 text-sm cursor-pointer shadow-[0_0_0_1px_rgba(255,255,255,0.38),0_14px_34px_rgba(255,255,255,0.24),0_18px_46px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.56),0_18px_42px_rgba(255,255,255,0.34),0_22px_56px_rgba(0,0,0,0.2)] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
           >
             Contact Us
             <ArrowUpRight className="w-4 h-4" />

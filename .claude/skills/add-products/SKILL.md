@@ -1,6 +1,6 @@
 ---
 name: add-products
-description: Add one or more products to the LabSolution Technologies site catalog. Use this skill whenever a Site Editor wants to add a new diagnostic instrument, reagent, rapid test, or analyzer to the brochure — phrases like "add a new product", "add the DiaSys Respons 1000 to the catalog", "I have a brochure for [model]", "put this rapid test on the site", "add these to our product list", "we just took on a new line — add it", or any time the user is dropping a product brochure (PDF/image) or asking you to look something up online and put it on the site. Handles two input modes: (a) the user feeds a product brochure file, or (b) you search the web from a model name. Produces a single PR that updates the brochure catalog, bumps the category count on the products section, and runs lint + build before pushing.
+description: Add one or more products to the LabSolution Technologies site catalog. Use this skill whenever a Site Editor wants to add a new diagnostic instrument, reagent, rapid test, or analyzer to the brochure — phrases like "add a new product", "add the DiaSys Respons 1000 to the catalog", "I have a brochure for [model]", "put this rapid test on the site", "add these to our product list", "we just took on a new line — add it", or any time the user is dropping a product brochure (PDF/image) or asking you to look something up online and put it on the site. Handles two input modes: (a) the user feeds a product brochure file, or (b) you search the web from a model name. Produces a single PR that updates the brochure catalog and runs lint + build before pushing.
 ---
 
 # Add products to the catalog
@@ -10,7 +10,7 @@ This skill walks you through adding one or more diagnostic products to the LabSo
 The site lives in this repo. Product data lives in two React components in `src/components/`:
 
 - `src/components/ProductBrochure.jsx` — the catalog grid with per-product cards. Adding a product means appending one entry to the `products` array.
-- `src/components/Products.jsx` — the headline category strip. Adding a product means bumping the `count` on the matching category and (rarely) updating the `description`/`span`.
+- `src/components/Products.jsx` — the headline category strip. Its per-category counts are **derived automatically** from the `products` array in `ProductBrochure.jsx`, so you never edit counts here. You only (rarely) refine a category's `description`/`span` wording.
 
 A third file, `src/components/ProductIllustration.jsx`, renders an SVG illustration based on the product's `category`. New entries reuse the existing illustration set — no edits needed unless the product introduces a brand-new category (rare; flag to the Owner first if so).
 
@@ -72,26 +72,24 @@ Field rules:
 - **`specs`** must have length exactly 4. Pick the four numbers a lab buyer cares about most — throughput, sample volume, range, cycle time, accuracy/CV, certifications, kit size, sample type. `label` is short (≤ ~14 chars); `value` can be a unit-bearing number or a short phrase. Use the special middot character `·` (not a regular dot) to separate compound values like `12 · 340–705 nm`.
 - **`highlight`** is the "Flagship" tag and pulls the product into the FeaturedSpotlight. Set this on *at most one* product across the whole array. If the user wants to make a new product flagship, you must remove `highlight` from the current flagship in the same edit.
 
-### 4. Pick the right Products.jsx category to bump
+### 4. The Products.jsx strip counts itself
 
-The Products.jsx categories (headline strip) don't 1:1 map to ProductBrochure.jsx categories. Map deliberately:
+The headline category strip in `Products.jsx` derives each category's count from the `products` array — it filters by the brochure `category` you set in step 3. So once the product's `category` is right, the matching strip count increments automatically:
 
-| New product is a…                                      | ProductBrochure category | Products.jsx `title` to bump  |
-| ------------------------------------------------------ | ------------------------ | ----------------------------- |
-| Chemistry analyzer / instrument                        | `chemistry`              | "Chemistry Analyzers"         |
-| Chemistry reagent kit                                  | `chemistry`              | "Chemistry Reagents"          |
-| Blood gas / electrolyte analyzer or kit                | `chemistry` (closest) or flag to owner | "Blood Gas & Electrolytes" |
-| CBC analyzer / hematology instrument or reagent        | `hematology`             | "Hematology"                  |
-| FIA / IFA / immunoassay analyzer or reagent kit        | `immunology`             | "Immunology"                  |
-| CTK Biotech (or similar) lateral-flow rapid test       | `rapid`                  | "CTK Biotech Rapid Tests"     |
+| ProductBrochure `category` | Products.jsx strip it feeds |
+| -------------------------- | --------------------------- |
+| `chemistry`                | "Chemistry Analyzers"       |
+| `immunology`               | "CLIA Immunoassay"          |
+| `hematology`               | "Hematology Analyzers"      |
+| `rapid`                    | "Rapid Diagnostic Tests"    |
 
-Open `src/components/Products.jsx`, find the matching category by `title`, and increment its `count` by 1 (or by however many products you added in this PR). If the category description or `span` no longer fits because you've added something distinctive (e.g., your new product is the first sub-3% CV in immunology and the description says "<3% CV"), you may refine the wording — but keep edits narrow and surface them to the user before committing.
+**You do not edit counts.** The only reason to open `Products.jsx` is if a category's `description` or `span` no longer fits because you've added something distinctive (e.g., a new brand worth naming in the `span`). Keep any such edit narrow and surface it to the user before committing.
 
 ### 5. Edit files
 
 Open `src/components/ProductBrochure.jsx` and append the new entry (or entries) to the `products` array, keeping the file's grouping convention: items are grouped roughly by category in the order they appear. Match the indentation and trailing-comma style of the surrounding entries.
 
-Open `src/components/Products.jsx` and bump the matching category's `count`.
+That's the only required edit — `Products.jsx` re-counts itself from the `products` array (only touch it for a `description`/`span` refinement, per step 4).
 
 Don't reorder unrelated entries. Don't reformat the file. Don't sneak in changes outside the catalog.
 
@@ -116,7 +114,7 @@ One commit per logical addition. Conventional-commit prefix:
 feat(catalog): add DiaSys Respons 1000 to the chemistry brochure
 
 A 600 T/H high-throughput analyzer added to the catalog at the Site
-Editor's request — bumps the Chemistry Analyzers count from 9 to 10.
+Editor's request.
 ```
 
 If you added several products in one PR, list them in the body:
@@ -127,8 +125,6 @@ feat(catalog): add 3 new CTK rapid tests
 - Norovirus Ag Rapid Test
 - Influenza A subtyping H1N1
 - HBsAg Combo
-
-Bumps the CTK Biotech Rapid Tests count from 41 to 44.
 ```
 
 ### 9. Push and open the PR
@@ -174,7 +170,7 @@ User attaches `respons-1000-brochure.pdf` and says "add this one".
    },
    ```
 
-4. Bump `count` on "Chemistry Analyzers" in `Products.jsx` from 9 to 10.
+4. Nothing to bump — the "Chemistry Analyzers" count in `Products.jsx` derives from the new entry automatically.
 5. `npm run lint && npm run build` — both pass.
 6. Commit: `feat(catalog): add DiaSys Respons 1000 to the chemistry brochure`.
 7. Push, open PR, tag Owner.
@@ -187,6 +183,6 @@ User says "add the Rayto Hemaray 90 — find the specs".
 2. WebFetch the top manufacturer hit (`rayto.com/...`). Confirm with a second source.
 3. Extract: brand "Rayto", model "Hemaray 90", category `hematology`.
 4. Summarize the picked fields back to the user *before* writing files, with the source URL. Wait for confirmation.
-5. On user OK, append to `products`, bump "Hematology" count in `Products.jsx`, lint, build, commit, push, PR.
+5. On user OK, append to `products` (the Hematology strip count updates itself), lint, build, commit, push, PR.
 
 If the sources disagree on a spec (e.g., one says 80 samples/h and another says 60), call it out: "Manufacturer page says 80; the 2024 distributor sheet says 60. Which value should I use?"
