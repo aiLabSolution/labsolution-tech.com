@@ -5,7 +5,8 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // Vendored agent-tooling skill scripts — not website source, excluded from lint.
+  globalIgnores(['dist', '.github/skills', '.claude', '.codex']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
