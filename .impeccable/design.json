@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-07T00:00:00Z",
+  "title": "Design System: LabSolution Technologies",
+  "extensions": {
+    "colorMeta": {
+      "clinical-teal": {
+        "role": "primary",
+        "displayName": "Clinical Teal",
+        "canonical": "#00c1cf",
+        "tonalRamp": ["oklch(0.30 0.07 207)", "oklch(0.40 0.09 207)", "oklch(0.50 0.11 207)", "oklch(0.60 0.13 207)", "oklch(0.68 0.13 207)", "oklch(0.78 0.10 207)", "oklch(0.87 0.06 207)", "oklch(0.95 0.03 207)"]
+      },
+      "clinical-teal-deep": {
+        "role": "primary",
+        "displayName": "Clinical Teal Deep",
+        "canonical": "#08b2c3",
+        "tonalRamp": ["oklch(0.28 0.07 205)", "oklch(0.38 0.09 205)", "oklch(0.48 0.10 205)", "oklch(0.58 0.11 205)", "oklch(0.66 0.11 205)", "oklch(0.76 0.09 205)", "oklch(0.86 0.05 205)", "oklch(0.94 0.03 205)"]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#313131",
+        "tonalRamp": ["oklch(0.20 0 0)", "oklch(0.28 0 0)", "oklch(0.36 0 0)", "oklch(0.46 0 0)", "oklch(0.58 0 0)", "oklch(0.70 0 0)", "oklch(0.84 0 0)", "oklch(0.95 0 0)"]
+      },
+      "slate-plum": {
+        "role": "neutral",
+        "displayName": "Slate Plum",
+        "canonical": "#50485b",
+        "tonalRamp": ["oklch(0.25 0.02 310)", "oklch(0.33 0.03 310)", "oklch(0.40 0.03 310)", "oklch(0.48 0.03 310)", "oklch(0.58 0.03 310)", "oklch(0.70 0.02 310)", "oklch(0.83 0.015 310)", "oklch(0.94 0.01 310)"]
+      },
+      "warm-sand": {
+        "role": "neutral",
+        "displayName": "Warm Sand",
+        "canonical": "#cec2ab",
+        "tonalRamp": ["oklch(0.40 0.03 85)", "oklch(0.50 0.035 85)", "oklch(0.60 0.04 85)", "oklch(0.70 0.04 85)", "oklch(0.81 0.035 85)", "oklch(0.88 0.03 85)", "oklch(0.93 0.02 85)", "oklch(0.97 0.01 85)"]
+      }
+    },
+    "typographyMeta": {
+      "statistic": { "displayName": "Statistic", "purpose": "Oversized thin-weight count-up numerals (catalog totals). Big but never loud." },
+      "display": { "displayName": "Display", "purpose": "Section headlines. Figtree 800, tight tracking." },
+      "label": { "displayName": "Tracked Label", "purpose": "Short uppercase meta/spec labels inside content. Never a section eyebrow." }
+    },
+    "shadows": [
+      { "name": "card-rest", "value": "inset 0 1px 0 rgba(255,255,255,0.28), 0 20px 40px rgba(8,178,195,0.18), 0 8px 16px rgba(0,0,0,0.08)", "purpose": "Resting card depth: soft teal-tinted halo + faint neutral grounding + inset top highlight." },
+      { "name": "card-hover", "value": "inset 0 1px 0 rgba(255,255,255,0.38), 0 26px 52px rgba(8,178,195,0.24), 0 12px 24px rgba(0,0,0,0.10)", "purpose": "Hover state: deepened teal halo, paired with translateY(-2px to -5px)." },
+      { "name": "floating-chrome", "value": "0 14px 32px rgba(0,0,0,0.16)", "purpose": "Buttons and the floating nav over photography." },
+      { "name": "form-card", "value": "0 25px 60px rgba(0,0,0,0.15)", "purpose": "Contact card's lifted, document-like presence (with a 4px teal top-rule)." }
+    ],
+    "motion": [
+      { "name": "ease-out-quint", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Signature easing for reveals, hover lifts, and staggered entrances." },
+      { "name": "duration-micro", "value": "200ms", "purpose": "Color/state micro-transitions on buttons, links, nav." },
+      { "name": "duration-depth", "value": "220ms", "purpose": "Shadow + transform transitions on cards lifting." },
+      { "name": "duration-reveal", "value": "700ms", "purpose": "Scoped scroll-reveal fade-ups." },
+      { "name": "marquee", "value": "30s linear infinite", "purpose": "Partner-logo marquee; pauses on hover." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The signature teal pill CTA with a nudging arrow. Used for the principal action on a screen.",
+      "html": "<button class='ds-btn-primary'>Browse the catalog<svg class='ds-ico' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14'/><path d='m12 5 7 7-7 7'/></svg></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:8px;background:#00c1cf;color:#fff;font-family:'Figtree',system-ui,sans-serif;font-weight:600;font-size:1rem;padding:14px 22px;border:none;border-radius:9999px;box-shadow:0 14px 32px rgba(0,0,0,0.18);cursor:pointer;transition:background-color .2s ease,transform .2s ease}.ds-btn-primary .ds-ico{transition:transform .2s ease}.ds-btn-primary:hover{background:#0396a5}.ds-btn-primary:hover .ds-ico{transform:translateX(4px)}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #00c1cf}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Translucent, blurred white pill for placement over hero photography.",
+      "html": "<button class='ds-btn-secondary'>Contact Us</button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.82);color:#313131;font-family:'Figtree',system-ui,sans-serif;font-weight:600;font-size:1rem;padding:14px 22px;border:1px solid rgba(255,255,255,0.56);border-radius:9999px;box-shadow:0 14px 32px rgba(0,0,0,0.14);backdrop-filter:blur(4px);cursor:pointer;transition:background-color .2s ease,border-color .2s ease}.ds-btn-secondary:hover{background:#fff;border-color:#fff}.ds-btn-secondary:focus-visible{outline:none;box-shadow:0 0 0 2px #00c1cf}"
+    },
+    {
+      "name": "Floating Nav",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Inset, translucent, blurred pill nav bar with ghost links and an inline teal CTA.",
+      "html": "<nav class='ds-nav'><span class='ds-nav-brand'>LabSolution</span><div class='ds-nav-links'><a class='ds-nav-link' href='#'>Products</a><a class='ds-nav-link' href='#'>About</a><a class='ds-nav-link' href='#'>Locations</a></div><a class='ds-nav-cta' href='#'>Contact Us</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:880px;background:rgba(255,255,255,0.9);backdrop-filter:blur(12px);border:1px solid #dddddd;border-radius:16px;padding:12px 16px;box-shadow:0 1px 2px rgba(0,0,0,0.06)}.ds-nav-brand{font-family:'Figtree',system-ui,sans-serif;font-weight:800;color:#313131}.ds-nav-links{display:flex;gap:4px}.ds-nav-link{font-family:'Noto Sans',system-ui,sans-serif;font-size:.875rem;font-weight:500;color:#50485b;padding:8px 16px;border-radius:8px;text-decoration:none;transition:background-color .2s ease,color .2s ease}.ds-nav-link:hover{background:#f0f0f0;color:#313131}.ds-nav-cta{font-family:'Figtree',system-ui,sans-serif;font-size:.875rem;font-weight:600;color:#fff;background:#00c1cf;padding:10px 20px;border-radius:9999px;text-decoration:none;transition:background-color .2s ease}.ds-nav-cta:hover{background:#0396a5}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Cool near-white input with a teal label; brightens to pure white on focus. Calm, no glow.",
+      "html": "<label class='ds-field'><span class='ds-field-label'>Work email</span><input class='ds-input' type='email' placeholder='you@hospital.ph'></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:6px}.ds-field-label{font-family:'Noto Sans',system-ui,sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.04em;color:#08b2c3}.ds-input{font-family:'Noto Sans',system-ui,sans-serif;font-size:1rem;color:#313131;background:#f7fafb;border:1px solid #dce5e8;border-radius:16px;padding:12px 16px;transition:background-color .2s ease,border-color .2s ease}.ds-input::placeholder{color:#7a7a7a}.ds-input:focus-visible{outline:none;background:#fff;border-color:#08b2c3}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Soft teal-tinted depth that lifts on hover. Tactile and confident, never a flat corporate box.",
+      "html": "<article class='ds-card'><h3 class='ds-card-title'>SNIBE MAGLUMI</h3><p class='ds-card-body'>Fully-automated chemiluminescence immunoassay — 200+ parameter menus, TLA-ready.</p></article>",
+      "css": ".ds-card{background:#fff;border:1px solid #dddddd;border-radius:24px;padding:32px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 20px 40px rgba(8,178,195,0.18),0 8px 16px rgba(0,0,0,0.08);transition:box-shadow .22s ease,transform .22s ease}.ds-card:hover{transform:translateY(-3px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.38),0 26px 52px rgba(8,178,195,0.24),0 12px 24px rgba(0,0,0,0.1)}.ds-card-title{margin:0 0 8px;font-family:'Figtree',system-ui,sans-serif;font-weight:700;font-size:1.5rem;color:#313131}.ds-card-body{margin:0;font-family:'Noto Sans',system-ui,sans-serif;font-size:1rem;line-height:1.6;color:#50485b}"
+    },
+    {
+      "name": "Catalog List Row",
+      "kind": "custom",
+      "refersTo": "catalog-row",
+      "description": "The signature pattern: catalog categories as a full-width editorial list row, not a card grid. Index numeral, name, tracked spec label, large tabular count, trailing arrow — all tinting teal on hover.",
+      "html": "<a class='ds-catalog-row' href='#'><span class='ds-catalog-index'>02</span><span class='ds-catalog-main'><span class='ds-catalog-name'>CLIA Immunoassay</span><span class='ds-catalog-label'>SNIBE MAGLUMI · 200–450 T/h</span></span><span class='ds-catalog-count'>2</span><svg class='ds-catalog-ico' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M7 7h10v10'/><path d='M7 17 17 7'/></svg></a>",
+      "css": ".ds-catalog-row{display:flex;align-items:baseline;gap:24px;padding:24px 16px;border-bottom:1px solid rgba(49,49,49,0.1);text-decoration:none;transition:background-color .2s ease}.ds-catalog-row:hover{background:rgba(0,193,207,0.1)}.ds-catalog-index{font-family:'Figtree',system-ui,sans-serif;font-size:.75rem;font-weight:500;color:rgba(80,72,91,0.6);font-variant-numeric:tabular-nums}.ds-catalog-main{flex:1;display:flex;flex-direction:column;gap:4px}.ds-catalog-name{font-family:'Figtree',system-ui,sans-serif;font-weight:700;font-size:1.5rem;color:#313131;transition:color .2s ease}.ds-catalog-row:hover .ds-catalog-name{color:#08b2c3}.ds-catalog-label{font-family:'Noto Sans',system-ui,sans-serif;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:#08b2c3}.ds-catalog-count{font-family:'Figtree',system-ui,sans-serif;font-size:2.25rem;font-weight:300;color:#313131;font-variant-numeric:tabular-nums;transition:color .2s ease}.ds-catalog-row:hover .ds-catalog-count{color:#08b2c3}.ds-catalog-ico{color:rgba(49,49,49,0.4);transition:color .2s ease,transform .2s ease}.ds-catalog-row:hover .ds-catalog-ico{color:#08b2c3;transform:translate(2px,-2px)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Steady Hand",
+    "overview": "LabSolution is the dependable partner standing behind the people who care for patients. The interface reads like a steady hand: an established, reliable diagnostics distributor that earns a procurement officer's trust without raising its voice. Authority comes from substance — real partner brands, catalog depth, a real footprint — surfaced plainly, not decorated around. The personality is established, reliable, and institutional, but kept human: a warm-sand neutral and a confident, tactile materiality (soft depth, gentle lifts) keep the institution from going cold or faceless.",
+    "keyCharacteristics": [
+      "One chromatic voice: Clinical Teal, with nothing competing.",
+      "Hierarchy by typographic weight, not by a pile of sizes.",
+      "Soft, teal-tinted depth that lifts on interaction — tactile, never flat.",
+      "Curated editorial layouts (lists over grids); restraint reads as expertise.",
+      "A warm-sand neutral that keeps an institutional palette from going cold."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Clinical Teal is the only chromatic accent and appears on under 10% of any screen. Its rarity is the signal. Never introduce a second accent hue; emphasize with weight, size, or space instead.", "section": "colors" },
+      { "name": "The Warm-Sand Rule", "body": "Warm Sand is the humanizing counterweight to an institutional palette — use it to add warmth, never to draw the eye. The moment sand competes with teal, the page has gone wrong.", "section": "colors" },
+      { "name": "The No-Pure-Black Rule", "body": "Text and dark fields are Graphite (#313131), never #000. Pure black reads cheap and cold against this warm-leaning neutral set.", "section": "colors" },
+      { "name": "The Weight-Not-Size Rule", "body": "Hierarchy comes from Figtree's weight contrast — 200 thin numerals against 800 headlines — not from stacking sizes. Rarely more than four type sizes per page.", "section": "typography" },
+      { "name": "The Tracked-Label Rule", "body": "Uppercase is reserved for short meta labels with 0.16–0.20em tracking. Never set body copy in uppercase, and never drop a tracked eyebrow above every section — that's the templated tell.", "section": "typography" },
+      { "name": "The Tinted-Lift Rule", "body": "Resting elevation is a soft teal-tinted halo; interaction deepens the halo and lifts the surface a few pixels. Never a hard neutral-black drop shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Clinical Teal (#00c1cf) as the single accent, on under 10% of any screen — CTAs, links, focus rings, active states only.",
+      "Do build hierarchy from Figtree weight contrast (200 to 800), not from extra sizes.",
+      "Do use the soft, teal-tinted shadow halo and a 2–5px hover lift for depth.",
+      "Do reach for the editorial catalog list before any card grid; curate, don't dump.",
+      "Do keep dark text and fields on Graphite (#313131); pure white surfaces for clarity.",
+      "Do consume colors through the @theme token utilities (bg-cta, text-primary, border-border) — never raw hex in .jsx/.js (ESLint enforces this).",
+      "Do use lucide-react for all icons, and author motion assuming the global prefers-reduced-motion override neutralizes it."
+    ],
+    "donts": [
+      "Don't recreate the templated WordPress / WooCommerce look — stock-theme chrome, widget clutter, e-commerce furniture.",
+      "Don't build a cluttered medical-supply catalog — dense spreadsheet grids, tiny competing text.",
+      "Don't drift into cold, sterile, generic corporate — a faceless stock-photo template with no point of view.",
+      "Don't introduce a second accent color, gradient text (background-clip: text), or neon-on-dark SaaS-hype gradients.",
+      "Don't use a colored left/right stripe border (border-left/border-right > 1px) on cards, list items, or callouts. The contact card's accent rule is top-only and intentional.",
+      "Don't set body copy in uppercase or drop a tiny tracked eyebrow above every section.",
+      "Don't use pure black (#000) or hard neutral-black drop shadows.",
+      "Don't add a third typeface; Figtree (display) + Noto Sans (body) only."
+    ]
+  }
+}
