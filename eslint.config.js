@@ -5,7 +5,8 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // Vendored agent-skill bundles (third-party JS) and build output — not first-party source.
+  globalIgnores(['dist', '.claude', '.github', '.codex']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -43,6 +44,14 @@ export default defineConfig([
     files: ['src/components/ProductIllustration.jsx'],
     rules: {
       'no-restricted-syntax': 'off',
+    },
+  },
+  {
+    // ProductBrochure.jsx is the single source of truth for the catalog: it
+    // co-exports the `products` array that Products.jsx derives its counts from.
+    files: ['src/components/ProductBrochure.jsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
     },
   },
   {
