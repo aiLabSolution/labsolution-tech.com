@@ -35,7 +35,21 @@ export default function Hero() {
 
       <div className="relative z-10 flex min-h-[calc(650px-8rem)] items-end sm:min-h-[calc(720px-11.5rem)] lg:min-h-[calc(760px-12rem)]">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="max-w-2xl">
+            <span
+              className="hero-accent-line block h-1 w-16 rounded-full bg-cta"
+              aria-hidden="true"
+            />
+            <h1 className="hero-headline mt-5 font-heading font-[800] text-white text-4xl leading-[1.05] tracking-[-0.02em] sm:text-5xl lg:text-6xl">
+              <span className="hero-headline-part hero-helping inline-block">Helping</span>{' '}
+              <span className="hero-headline-part hero-help inline-block">you help</span>{' '}
+              <span className="hero-headline-part hero-people inline-block">people.</span>
+            </h1>
+            <p className="hero-headline-part hero-subhead mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
+              Since 2006, LabSolution has equipped Philippine hospitals and laboratories with diagnostic systems from leading global manufacturers.
+            </p>
+          </div>
+          <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
             <a
               href="#brochure"
               className="group inline-flex items-center gap-2 bg-accent text-white font-semibold px-[22px] py-3.5 rounded-full shadow-[0_14px_32px_rgba(0,0,0,0.18)] hover:bg-accent-hover transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none text-base"
