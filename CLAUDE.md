@@ -92,3 +92,9 @@ No test runner, no type-check, no formatter script exist. Do not add them unless
 
 - **Atomic commits.** One logical change per commit. Do not bundle a refactor with a feature, a typo fix with a style change, or config edits with content edits. If the commit message needs "and" to describe it, split the commit. Messages describe *why*; the diff shows *what*.
 - **Worktree for multi-commit work.** Any task expected to produce more than a single commit must run in a dedicated git worktree checked out from `main` (or a fresh branch created from `main`). Do not accumulate unrelated commits on `devops` or other long-lived branches. Create the worktree before starting, name the branch descriptively, and surface the branch name at handoff so the user can review/PR it.
+
+## Design Context
+
+The strategic design brief lives in **`PRODUCT.md`** (register, audience, brand personality, anti-references, and the five design principles) and the visual system in **`DESIGN.md`** (color tokens, typography, elevation, components). Any runtime doing design or UI work should read both before changing how the site looks. The `/impeccable` skill auto-loads them via `.claude/skills/impeccable/scripts/context.mjs`; other runtimes (e.g. Codex) should open the two files directly.
+
+Note: the auto-scraped `labsolution-design` skill describes the **old** WordPress site (Poppins/Lato, 5px grid, WooCommerce tokens) and is **not** authoritative — defer to `DESIGN.md` and the `@theme` tokens in `src/index.css`.
