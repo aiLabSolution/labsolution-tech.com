@@ -244,7 +244,7 @@ export default function Contact() {
                     disabled={isLoading}
                     autoComplete="name"
                     className="contact-form-field w-full px-4 py-3.5 rounded-xl text-base focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent focus-visible:outline-none transition-colors duration-200 disabled:opacity-50"
-                    placeholder="Dr. Juana dela Cruz"
+                    placeholder="Dr. Juan dela Cruz"
                   />
                 </div>
                 <div>
