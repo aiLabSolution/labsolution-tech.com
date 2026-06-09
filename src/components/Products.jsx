@@ -27,6 +27,14 @@ const categories = [
     href: '#hematology-analyzers',
   },
   {
+    title: 'Clinical Microscopy',
+    description:
+      'Automated urinalysis systems for dry chemistry, formed element analysis, and full-color digital sediment review.',
+    count: 1,
+    span: 'Mindray EU-5600 Pro',
+    href: '#clinical-microscopy',
+  },
+  {
     title: 'Rapid Diagnostic Tests',
     description:
       'CE-IVD lateral-flow cassettes for tropical infectious disease screening — dengue, typhoid, malaria.',
@@ -122,7 +130,7 @@ export default function Products() {
               <span className="text-accent">+</span>
             </p>
             <p className="mt-2 text-secondary text-sm uppercase tracking-[0.2em] font-semibold">
-              Documented analyzers and rapid tests · 4 categories
+              Documented analyzers and rapid tests · 5 categories
             </p>
             <p className="mt-3 text-secondary text-sm lg:text-right">
               Reagents, consumables, and extended brand portfolios available on request.

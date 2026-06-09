@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowUpRight, Search, Sparkles } from 'lucide-react'
 import ProductIllustration from './ProductIllustration'
 
@@ -7,6 +7,7 @@ const categories = [
   { key: 'chemistry', label: 'Chemistry', anchorId: 'chemistry-analyzers' },
   { key: 'immunology', label: 'Immunology', anchorId: 'clia-immunoassay' },
   { key: 'hematology', label: 'Hematology', anchorId: 'hematology-analyzers' },
+  { key: 'clinical-microscopy', label: 'Clinical Microscopy', anchorId: 'clinical-microscopy' },
   { key: 'rapid', label: 'Rapid Tests', anchorId: 'rapid-diagnostic-tests' },
 ]
 
@@ -111,6 +112,26 @@ const products = [
       { label: 'Autoloader', value: '60 samples' },
     ],
     image: '/assets/products/photos/edan-h60s.png',
+  },
+  {
+    id: 'mindray-eu-5600-pro',
+    category: 'clinical-microscopy',
+    model: 'Mindray EU-5600 Pro',
+    brand: 'Mindray',
+    tagline: 'Automated Urinalysis System',
+    description:
+      'Automated urinalysis system combining dry chemistry and formed element analysis with full-color digital imaging for enhanced urine sediment review.',
+    specs: [
+      { label: 'Dry chemistry', value: '≥160 tests/hour' },
+      { label: 'Formed elements', value: '≥100 tests/hour' },
+      { label: 'Hybrid mode', value: '≥100 tests/hour' },
+      { label: 'Parameters', value: '31 formed element' },
+      { label: 'Barcode', value: 'Built-in reader' },
+      { label: 'Priority testing', value: 'STAT function' },
+      { label: 'Connectivity', value: 'Bi-directional LIS' },
+      { label: 'Sampling', value: 'Closed tube support' },
+    ],
+    image: '/assets/products/photos/mindray-eu-5600-pro.png',
   },
   {
     id: 'medica-easylyte',
@@ -254,18 +275,53 @@ const products = [
 
 const featured = products.find((p) => p.highlight) ?? products[0]
 
-function ProductVisual({ product, loading = 'lazy', featured = false }) {
+function ProductVisual({ product, loading = 'lazy', featured = false, revealEffect = false }) {
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
+  const productImage = product.productImage ?? product.image
+  const outlineImage = product.outlineImage ?? productImage
 
-  if (!product.image || failed) {
+  if (!productImage || failed) {
     return <ProductIllustration category={product.illustration ?? product.category} model={product.model} />
+  }
+
+  const imageSizeClass = featured
+    ? 'h-[17rem] w-[17rem] translate-y-6 sm:h-[30rem] sm:w-[30rem] sm:translate-y-12'
+    : 'h-[13rem] w-[13rem] sm:h-[14rem] sm:w-[14rem]'
+  const loadedClass = loaded ? 'opacity-100' : 'opacity-0'
+
+  if (revealEffect) {
+    return (
+      <div className="product-visual flex h-full w-full items-center justify-center p-6 sm:p-8">
+        <img
+          src={outlineImage}
+          alt=""
+          width="700"
+          height="700"
+          loading={loading}
+          decoding="async"
+          aria-hidden="true"
+          className={`product-photo product-outline object-contain ${imageSizeClass}`}
+        />
+        <img
+          src={productImage}
+          alt={`${product.model} product photo`}
+          width="700"
+          height="700"
+          loading={loading}
+          decoding="async"
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+          className={`product-photo product-full object-contain ${imageSizeClass}`}
+        />
+      </div>
+    )
   }
 
   return (
     <div className="flex h-full w-full items-center justify-center p-6 sm:p-8">
       <img
-        src={product.image}
+        src={productImage}
         alt={`${product.model} product photo`}
         width="700"
         height="700"
@@ -273,13 +329,7 @@ function ProductVisual({ product, loading = 'lazy', featured = false }) {
         decoding="async"
         onLoad={() => setLoaded(true)}
         onError={() => setFailed(true)}
-        className={`product-photo object-contain transition-opacity duration-500 ${
-          featured
-            ? 'h-[22rem] w-[22rem] translate-y-8 sm:h-[30rem] sm:w-[30rem] sm:translate-y-12'
-            : 'h-[13rem] w-[13rem] sm:h-[14rem] sm:w-[14rem]'
-        } ${
-          loaded ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`product-photo object-contain transition-opacity duration-500 ${imageSizeClass} ${loadedClass}`}
       />
     </div>
   )
@@ -363,17 +413,52 @@ function FeaturedSpotlight({ product }) {
   )
 }
 
-function ProductCard({ product }) {
+function ProductCard({ product, index }) {
+  const cardRef = useRef(null)
+  const [revealed, setRevealed] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !('IntersectionObserver' in window)
+    )
+  })
+
+  useEffect(() => {
+    const element = cardRef.current
+    if (!element || revealed) return undefined
+
+    let timeoutId
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        observer.disconnect()
+        const delay = Math.min((index % 6) * 120, 600)
+        timeoutId = window.setTimeout(() => setRevealed(true), delay)
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.22 },
+    )
+
+    observer.observe(element)
+
+    return () => {
+      observer.disconnect()
+      if (timeoutId) window.clearTimeout(timeoutId)
+    }
+  }, [index, revealed])
+
   return (
     <article
-      className={`group relative bg-white border rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col ${
+      ref={cardRef}
+      className={`product-card group relative bg-white border rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col ${
+        revealed ? 'is-revealed' : ''
+      } ${
         product.highlight
           ? 'border-accent/40 ring-1 ring-accent/20'
           : 'border-border hover:border-primary/20'
       }`}
     >
       <div className="relative aspect-[5/3] bg-transparent border-b border-border">
-        <ProductVisual product={product} />
+        <ProductVisual product={product} revealEffect />
         {product.highlight && (
           <div className="absolute top-3 left-3 inline-flex items-center gap-1 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-[0.12em] shadow">
             <Sparkles className="w-3 h-3" />
@@ -543,8 +628,8 @@ export default function ProductBrochure() {
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {filtered.map((product, index) => (
+              <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
         )}

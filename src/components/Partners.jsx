@@ -6,6 +6,7 @@ const partners = [
   { name: 'Edan', logo: '/assets/partners-edan.png' },
   { name: 'Seamaty', logo: '/assets/partners-seamaty.png' },
   { name: 'Medica', logo: '/assets/partners-medica.gif' },
+  { name: 'Mindray', logo: '/assets/partners-mindray.png', emphasis: true },
 ]
 
 function PartnerRow({ ariaHidden = false }) {
@@ -24,7 +25,7 @@ function PartnerRow({ ariaHidden = false }) {
             alt={p.name}
             width="160"
             height="64"
-            className="partner-logo-image"
+            className={`partner-logo-image ${p.emphasis ? 'partner-logo-image-fill' : ''}`}
             loading="lazy"
             decoding="async"
           />

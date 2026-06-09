@@ -30,7 +30,7 @@ export default function Navbar() {
             height="36"
             loading="eager"
             decoding="async"
-            className="h-8 sm:h-9"
+            className="h-7 w-auto sm:h-8"
           />
         </a>
 
