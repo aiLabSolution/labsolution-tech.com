@@ -1317,9 +1317,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: 50%;
   left: 50%;
-  translate: -50% -50%;
   opacity: 0;
-  transform: scale(0.98);
+  transform: translate(-50%, -50%) scale(0.98);
   filter: drop-shadow(0 18px 30px rgba(8,178,195,0));
 }
 
@@ -1329,7 +1328,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-card.is-revealed .product-full {
   opacity: 1;
-  transform: scale(1.02);
+  transform: translate(-50%, -50%) scale(1.02);
   filter: drop-shadow(0 18px 30px rgba(8,178,195,0.18));
 }
 
@@ -1399,7 +1398,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .product-card:hover .product-full {
-    transform: scale(1.03);
+    transform: translate(-50%, -50%) scale(1.03);
     filter: brightness(1.06) drop-shadow(0 18px 30px rgba(255,255,255,0.18));
   }
 
@@ -1415,7 +1414,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .product-full {
     position: static;
-    translate: none;
     opacity: 1;
     transform: none;
     filter: none;
