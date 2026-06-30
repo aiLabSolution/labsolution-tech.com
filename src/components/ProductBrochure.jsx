@@ -134,6 +134,44 @@ const products = [
     image: '/assets/products/photos/mindray-eu-5600-pro.png',
   },
   {
+    id: 'urit-us-1680',
+    category: 'clinical-microscopy',
+    model: 'URIT US-1680',
+    brand: 'URIT',
+    tagline: 'AI-powered automated urinalysis analyzer',
+    description:
+      'A compact all-in-one urinalysis platform combining dry chemistry, urine sediment imaging, and physical-property analysis. CNN-based deep learning automatically recognizes 38+ formed-element parameters while ACR testing supports early kidney disease screening.',
+    specs: [
+      { label: 'Chemistry', value: '300 tests/hour' },
+      { label: 'Sediment', value: '120 tests/hour' },
+      { label: 'Combined mode', value: '120 tests/hour' },
+      { label: 'AI recognition', value: '38+ parameters' },
+    ],
+    overview:
+      'Fully automated urine chemistry and sediment analysis in one space-efficient system for medium- and high-volume clinical laboratories.',
+    keyFeatures: [
+      'All-in-one chemistry and sediment analysis with a compact footprint',
+      'CNN and deep-learning technology for formed-element recognition',
+      'Real test-strip image display for result review',
+      'Integrated ACR screening and physical urine measurements',
+    ],
+    technicalSpecifications: [
+      'Chemistry throughput: 300 tests/hour',
+      'Sediment throughput: 120 tests/hour',
+      'Combined chemistry and sediment throughput: 120 tests/hour',
+      'Formed-element recognition: 38+ parameters',
+      'Physical measurements: conductivity, osmolality, specific gravity, turbidity, and color',
+    ],
+    clinicalApplications: [
+      'Routine automated urinalysis',
+      'Urine sediment formed-element analysis',
+      'Early kidney disease screening with albumin-to-creatinine ratio (ACR)',
+      'Physical, chemical, and morphological urine assessment',
+    ],
+    officialUrl: 'https://www.urit.com/en2/cpjjfa/info.aspx?itemid=440&lcid=18',
+    image: '/assets/products/photos/urit-us-1680.png',
+  },
+  {
     id: 'medica-easylyte',
     category: 'chemistry',
     model: 'Medica EasyLyte',

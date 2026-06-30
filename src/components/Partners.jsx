@@ -7,6 +7,8 @@ const partners = [
   { name: 'Seamaty', logo: '/assets/partners-seamaty.png' },
   { name: 'Medica', logo: '/assets/partners-medica.gif' },
   { name: 'Mindray', logo: '/assets/partners-mindray.png', emphasis: true },
+  { name: 'Lifotronic', logo: '/assets/partners-lifotronic.png' },
+  { name: 'URIT', logo: '/assets/partners-urit.png' },
 ]
 
 function PartnerRow({ ariaHidden = false }) {
