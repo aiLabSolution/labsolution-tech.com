@@ -30,8 +30,8 @@ const categories = [
     title: 'Clinical Microscopy',
     description:
       'Automated urinalysis systems for dry chemistry, formed element analysis, and full-color digital sediment review.',
-    count: 1,
-    span: 'Mindray EU-5600 Pro',
+    count: 2,
+    span: 'Mindray EU-5600 Pro · URIT US-1680',
     href: '#clinical-microscopy',
   },
   {
