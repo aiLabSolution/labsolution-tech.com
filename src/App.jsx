@@ -9,11 +9,13 @@ import About from './components/About'
 import Locations from './components/Locations'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import BrochurePage from './components/BrochurePage'
 import { Analytics } from '@vercel/analytics/react'
 import useScopedReveal from './hooks/useScopedReveal'
 
 export default function App() {
   useScopedReveal()
+  const isBrochurePage = window.location.pathname === '/brochure'
 
   return (
     <>
@@ -27,15 +29,21 @@ export default function App() {
       <Navbar />
 
       <main id="main">
-        <Hero />
-        <Partners />
-        <MotionRibbon />
-        <Products />
-        <ProductBrochure />
-        <Features />
-        <About />
-        <Locations />
-        <Contact />
+        {isBrochurePage ? (
+          <BrochurePage />
+        ) : (
+          <>
+            <Hero />
+            <Partners />
+            <MotionRibbon />
+            <Products />
+            <ProductBrochure />
+            <Features />
+            <About />
+            <Locations />
+            <Contact />
+          </>
+        )}
       </main>
 
       <Footer />

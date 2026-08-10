@@ -167,12 +167,12 @@ export default function Contact() {
                     >
                       (032) 261-3819
                     </a>
-                    <span className="text-white"> / </span>
+                    <br />
                     <a
-                      href="tel:+63325203585"
+                      href="tel:+639173216228"
                       className="text-white hover:text-white transition-colors duration-200"
                     >
-                      520-3585
+                      0917 321 6228
                     </a>
                   </dd>
                 </div>

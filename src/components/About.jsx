@@ -122,7 +122,7 @@ export default function About() {
               Twenty years of helping you help people.
             </h2>
 
-            <div className="mt-8 space-y-5 text-secondary text-lg leading-relaxed max-w-xl">
+            <div className="mt-8 max-w-xl space-y-5 text-justify text-lg leading-relaxed text-secondary">
               <p>
                 LabSolution Technologies, Inc. began in March 2006 as ALP
                 Diagnostix — a small operation in Cebu City. We incorporated as

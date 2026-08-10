@@ -1,9 +1,9 @@
 const links = [
-  { href: '#products', label: 'Products' },
-  { href: '#brochure', label: 'Brochure' },
-  { href: '#about', label: 'About' },
-  { href: '#locations', label: 'Locations' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#products', label: 'Products' },
+  { href: '/#brochure', label: 'Brochure' },
+  { href: '/#about', label: 'About' },
+  { href: '/#locations', label: 'Locations' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 export default function Footer() {
@@ -22,7 +22,7 @@ export default function Footer() {
               height="36"
               loading="lazy"
               decoding="async"
-              className="site-footer-logo h-9"
+              className="site-footer-logo h-9 w-auto object-contain align-middle"
             />
             <p className="site-footer-heading mt-6 font-heading text-2xl sm:text-3xl font-[700] tracking-[-0.02em] leading-tight">
               Helping you{' '}
@@ -30,8 +30,7 @@ export default function Footer() {
               people.
             </p>
             <p className="site-footer-body mt-5 text-sm leading-relaxed max-w-xs">
-              Diagnostic equipment and rapid tests for Philippine hospitals
-              since 2006.
+              Trusted provider of laboratory diagnostic solutions since 2006.
             </p>
           </div>
 
@@ -47,12 +46,13 @@ export default function Footer() {
                 >
                   (032) 261-3819
                 </a>
-                <span className="site-footer-muted"> / </span>
+              </li>
+              <li className="site-footer-body">
                 <a
-                  href="tel:+63325203585"
+                  href="tel:+639173216228"
                   className="site-footer-link transition-colors duration-200"
                 >
-                  520-3585
+                  0917 321 6228
                 </a>
               </li>
               <li>
