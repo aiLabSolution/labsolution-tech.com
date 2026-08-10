@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/brochure",
+      "destination": "/"
+    }
+  ],
   "git": {
     "deploymentEnabled": false
   }

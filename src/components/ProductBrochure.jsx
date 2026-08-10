@@ -15,6 +15,9 @@ const categoryLabel = (key) => categories.find((c) => c.key === key)?.label ?? k
 const categoryKeyForHash = (hash) =>
   categories.find((cat) => cat.anchorId === hash.replace('#', ''))?.key
 
+const fullBrochureHref =
+  'https://drive.google.com/file/d/1NPCteoa4Y0xKSil5FQX4W-J3CEzZ-Jiy/view?usp=sharing'
+
 const products = [
   {
     id: 'snibe-maglumi-x3',
@@ -390,7 +393,7 @@ function FeaturedSpotlight({ product }) {
           <p className="mt-2 font-heading text-secondary text-lg sm:text-xl italic">
             {product.tagline}
           </p>
-          <p className="mt-5 text-secondary leading-relaxed">{product.description}</p>
+          <p className="mt-5 text-justify leading-relaxed text-secondary">{product.description}</p>
 
           <div className="mt-7 bg-white border border-border rounded-xl p-5 grid grid-cols-2 gap-y-4 gap-x-5 sm:grid-cols-4 sm:gap-x-4">
             {product.specs.map((spec) => (
@@ -516,7 +519,9 @@ function ProductCard({ product, index }) {
           {product.model}
         </h3>
         <p className="mt-1 font-heading text-secondary text-sm italic">{product.tagline}</p>
-        <p className="mt-4 text-sm text-secondary leading-relaxed">{product.description}</p>
+        <p className="mt-4 text-justify text-sm leading-relaxed text-secondary">
+          {product.description}
+        </p>
 
         <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 pt-5 border-t border-border">
           {product.specs.map((spec) => (
@@ -596,8 +601,19 @@ export default function ProductBrochure() {
               available upon request.
             </p>
           </div>
-          <div className="inline-flex items-center gap-2 self-start lg:self-end bg-accent-soft border border-accent/20 text-accent text-xs font-semibold px-4 py-2 rounded-full">
-            {products.length} products · CE-IVD
+          <div className="flex flex-wrap items-center gap-3 self-start lg:self-end">
+            <a
+              href={fullBrochureHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-accent-hover focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
+            >
+              View Full Brochure
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <div className="inline-flex items-center gap-2 bg-accent-soft border border-accent/20 text-accent text-xs font-semibold px-4 py-2 rounded-full">
+              {products.length} products · CE-IVD
+            </div>
           </div>
         </div>
 
@@ -677,19 +693,31 @@ export default function ProductBrochure() {
             <h3 className="font-heading font-[700] text-2xl sm:text-3xl">
               Can't see what you need?
             </h3>
-            <p className="mt-3 text-white leading-relaxed">
+            <p className="mt-3 text-justify text-white leading-relaxed">
               Our website features selected analyzers, rapid tests, and diagnostic solutions. We
               also carry additional brands, reagents, consumables, and customized laboratory
-              requirements. Contact us for the complete product list or a tailored recommendation.
+              requirements. View our brochure to explore our extended product selection, or contact
+              us for a tailored recommendation.
             </p>
           </div>
-          <a
-            href="#contact"
-            className="brochure-cta-button brochure-cta-button-pulse relative z-10 shrink-0 inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-md transition-all duration-200 text-sm cursor-pointer shadow-[0_0_0_1px_rgba(255,255,255,0.38),0_14px_34px_rgba(255,255,255,0.24),0_18px_46px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.56),0_18px_42px_rgba(255,255,255,0.34),0_22px_56px_rgba(0,0,0,0.2)] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
-          >
-            Contact Us
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
+          <div className="brochure-cta-actions relative z-10 flex w-full shrink-0 flex-col gap-3 sm:w-auto sm:flex-row">
+            <a
+              href="#contact"
+              className="brochure-cta-brochure-button inline-flex items-center justify-center gap-2 rounded-md border border-white/70 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            >
+              Contact Us
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <a
+              href={fullBrochureHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="brochure-cta-brochure-button inline-flex items-center justify-center gap-2 rounded-md border border-white/70 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+            >
+              View Full Brochure
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

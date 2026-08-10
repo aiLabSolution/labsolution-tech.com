@@ -1,16 +1,20 @@
 import { useState } from 'react'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, Phone, X } from 'lucide-react'
 
 const navLinks = [
-  { href: '#products', label: 'Products' },
-  { href: '#brochure', label: 'Brochure' },
-  { href: '#about', label: 'About' },
-  { href: '#locations', label: 'Locations' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#products', label: 'Products' },
+  { href: '/#brochure', label: 'Brochure' },
+  { href: '/#about', label: 'About' },
+  { href: '/#locations', label: 'Locations' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+
+  const closeMobileMenu = () => {
+    setOpen(false)
+  }
 
   return (
     <header className="fixed top-4 left-4 right-4 z-50" role="banner">
@@ -19,7 +23,7 @@ export default function Navbar() {
         aria-label="Primary navigation"
       >
         <a
-          href="#"
+          href="/"
           className="flex items-center gap-2 cursor-pointer group"
           aria-label="LabSolution Technologies home"
         >
@@ -48,20 +52,22 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="tel:+63322613819"
+            href="tel:+639173216228"
             className="hidden lg:inline-flex items-center gap-2 text-secondary hover:text-primary text-sm font-semibold transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
           >
             <Phone className="w-4 h-4" />
-            (032) 261-3819
+            0917 321 6228
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden sm:inline-flex items-center gap-2 bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
           >
             Contact Us
           </a>
           <button
-            onClick={() => setOpen(!open)}
+            onClick={() => {
+              setOpen(!open)
+            }}
             className="md:hidden p-2 rounded-lg hover:bg-surface-alt transition-colors duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
@@ -81,7 +87,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={closeMobileMenu}
               className="block px-4 py-3 text-sm font-medium text-secondary rounded-lg hover:bg-surface-alt hover:text-primary transition-colors duration-200 cursor-pointer"
             >
               {link.label}
@@ -89,15 +95,15 @@ export default function Navbar() {
           ))}
           <div className="mt-2 pt-2 border-t border-border space-y-2">
             <a
-              href="tel:+63322613819"
+              href="tel:+639173216228"
               className="flex items-center gap-2 px-4 py-3 text-sm font-semibold text-secondary hover:text-primary transition-colors duration-200"
             >
               <Phone className="w-4 h-4" />
-              (032) 261-3819
+              0917 321 6228
             </a>
             <a
-              href="#contact"
-              onClick={() => setOpen(false)}
+              href="/#contact"
+              onClick={closeMobileMenu}
               className="block text-center bg-accent text-white text-sm font-semibold px-5 py-3 rounded-full hover:bg-accent-hover transition-colors duration-200 cursor-pointer"
             >
               Contact Us
