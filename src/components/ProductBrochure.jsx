@@ -684,10 +684,10 @@ export default function ProductBrochure() {
             </p>
           </div>
           <a
-            href="#contact"
+            href="/brochure.html"
             className="brochure-cta-button brochure-cta-button-pulse relative z-10 shrink-0 inline-flex items-center justify-center gap-2 text-white font-semibold px-6 py-3.5 rounded-md transition-all duration-200 text-sm cursor-pointer shadow-[0_0_0_1px_rgba(255,255,255,0.38),0_14px_34px_rgba(255,255,255,0.24),0_18px_46px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.56),0_18px_42px_rgba(255,255,255,0.34),0_22px_56px_rgba(0,0,0,0.2)] focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
           >
-            Contact Us
+            View Full Brochure
             <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
