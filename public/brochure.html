@@ -241,7 +241,7 @@
           min-height: 66px;
         }
 
-        .header-actions .button:first-child {
+        .header-actions .button:not(.download-button) {
           display: none;
         }
 
@@ -314,6 +314,13 @@
         </a>
         <nav class="header-actions" aria-label="Catalog actions">
           <a class="button" href="/">Back to website</a>
+          <a
+            class="button button-primary download-button"
+            href="/brochure-assets/labsolution-product-catalog-2026.pdf"
+            download
+          >
+            Download PDF
+          </a>
           <a class="button button-primary" href="/#contact">Contact us</a>
         </nav>
       </div>
@@ -321,13 +328,13 @@
 
     <main>
       <section class="intro" aria-labelledby="catalog-title">
-        <p class="eyebrow">Product catalog</p>
-        <h1 id="catalog-title">Revised product catalog</h1>
+        <p class="eyebrow">2026 edition</p>
+        <h1 id="catalog-title">Product catalog</h1>
         <p class="intro-copy">
           Explore the latest LabSolution brochure featuring diagnostic analyzers, laboratory
           equipment, point-of-care products, consumables, and rapid diagnostic tests.
         </p>
-        <p class="viewer-note">Select any page to open the full-resolution image.</p>
+        <p class="viewer-note">Select any page to open its full-resolution preview.</p>
       </section>
 
       <section class="catalog" id="catalog" aria-label="LabSolution product catalog pages">
@@ -341,8 +348,8 @@
           <img
             src="/brochure-assets/page-1.webp"
             alt="Page 1: LabSolution revised product catalog cover"
-            width="2397"
-            height="3365"
+            width="2380"
+            height="3368"
             fetchpriority="high"
           />
         </a>
@@ -356,8 +363,8 @@
           <img
             src="/brochure-assets/page-2.webp"
             alt="Page 2: clinical chemistry, immunoassay, hematology, and HbA1c analyzers"
-            width="2397"
-            height="3365"
+            width="2380"
+            height="3368"
             loading="lazy"
           />
         </a>
@@ -370,9 +377,9 @@
         >
           <img
             src="/brochure-assets/page-3.webp"
-            alt="Page 3: electrolyte, blood gas, microscopy, coagulation, point-of-care, and consumable products"
-            width="2397"
-            height="3365"
+            alt="Page 3: electrolyte, blood gas, urinalysis, fecalysis, coagulation, point-of-care, and consumable products"
+            width="2380"
+            height="3368"
             loading="lazy"
           />
         </a>
@@ -386,8 +393,8 @@
           <img
             src="/brochure-assets/page-4.webp"
             alt="Page 4: laboratory equipment, rapid diagnostic tests, partner brands, and LabSolution contact details"
-            width="2397"
-            height="3365"
+            width="2380"
+            height="3368"
             loading="lazy"
           />
         </a>
