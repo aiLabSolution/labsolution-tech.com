@@ -186,6 +186,56 @@
         font-size: 0.85rem;
       }
 
+      .comparison {
+        width: min(1240px, calc(100% - 2rem));
+        margin: 0 auto 3rem;
+        padding: 1.25rem;
+        border: 1px solid var(--border);
+        border-radius: 1.25rem;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .comparison h2 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.35rem, 3vw, 2rem);
+        text-align: center;
+      }
+
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .comparison-card {
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        background: var(--white);
+      }
+
+      .comparison-label {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: var(--primary);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .comparison-card:last-child .comparison-label {
+        background: var(--accent);
+        color: var(--white);
+      }
+
+      .comparison-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
       .catalog {
         display: grid;
         width: min(1240px, calc(100% - 2rem));
@@ -258,6 +308,15 @@
           border-radius: 0.75rem;
         }
 
+        .comparison {
+          width: min(100% - 1rem, 1240px);
+          padding: 0.75rem;
+        }
+
+        .comparison-grid {
+          grid-template-columns: 1fr;
+        }
+
         .contact-inner {
           align-items: flex-start;
           flex-direction: column;
@@ -280,6 +339,7 @@
       @media print {
         .site-header,
         .intro,
+        .comparison,
         .contact-strip {
           display: none;
         }
@@ -335,6 +395,42 @@
           equipment, point-of-care products, consumables, and rapid diagnostic tests.
         </p>
         <p class="viewer-note">Select any page to open its full-resolution preview.</p>
+      </section>
+
+      <section class="comparison" aria-labelledby="comparison-title">
+        <h2 id="comparison-title">Page 2 equipment size comparison</h2>
+        <div class="comparison-grid">
+          <a
+            class="comparison-card"
+            href="/brochure-assets/page-2-before-equipment-enlargement.webp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="comparison-label">Before</span>
+            <img
+              src="/brochure-assets/page-2-before-equipment-enlargement.webp"
+              alt="Page 2 before enlarging equipment images"
+              width="2380"
+              height="3368"
+              loading="lazy"
+            />
+          </a>
+          <a
+            class="comparison-card"
+            href="/brochure-assets/page-2.webp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="comparison-label">After</span>
+            <img
+              src="/brochure-assets/page-2.webp"
+              alt="Page 2 after enlarging equipment images"
+              width="2380"
+              height="3368"
+              loading="lazy"
+            />
+          </a>
+        </div>
       </section>
 
       <section class="catalog" id="catalog" aria-label="LabSolution product catalog pages">
